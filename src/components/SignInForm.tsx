@@ -1,6 +1,13 @@
 import { AiOutlineClose } from 'react-icons/ai'
 import Button from './Button'
 import { useModalStore } from '../stores/useModalStore';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import Input from './Input';
+
+interface FormProps {
+    email: string;
+    password: string;
+}
 
 interface Props {
     onChangeForm: () => void;
@@ -8,6 +15,16 @@ interface Props {
 
 const SignInForm = ({ onChangeForm }: Props) => {
     const setIsModalActive = useModalStore((state) => state.setIsModalActive)
+    const { register, handleSubmit } = useForm<FormProps>()
+
+    const onSubmit: SubmitHandler<FormProps> = ({ email, password }) => {
+        const data = {
+            email,
+            password
+        }
+        console.log(data);
+    }
+
     return (
         <>
             <div className='flex items-center justify-between'>
@@ -16,12 +33,10 @@ const SignInForm = ({ onChangeForm }: Props) => {
                     <AiOutlineClose size={20} />
                 </button>
             </div>
-            <form className='flex flex-col gap-y-2 mt-6'>
-                <input className='border border-[#EDEDED] w-full p-2.5 text-sm rounded-md' placeholder='Email' />
-                <input className='border border-[#EDEDED] w-full p-2.5 text-sm rounded-md' placeholder='Password' />
-                <div className=''>
-                    <Button className="!bg-primary w-full !bg-opacity-50" title={"Sign up"} />
-                </div>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-2 mt-6'>
+                <Input register={register('email')} placeholder='Email' type='email' />
+                <Input register={register('password')} placeholder='Password' type='password' />
+                <Button className="!bg-primary w-full !bg-opacity-50" title={"Sign up"} />
             </form>
             <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>Don't have an account? <span className='text-primary'>Sign up</span> </button>
         </>

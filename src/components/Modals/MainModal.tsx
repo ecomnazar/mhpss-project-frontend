@@ -23,7 +23,7 @@ const MainModal = ({ isOpen, setIsOpen, children }: Props) => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-black/25" />
+                    <div className="fixed inset-0 bg-white/20 backdrop-blur" />
                 </Transition.Child>
 
                 <div className="fixed inset-0 overflow-y-auto">
