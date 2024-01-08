@@ -12,6 +12,7 @@ import toast from "react-hot-toast"
 const Header = () => {
   const { t, i18n } = useTranslation()
   const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
+  const setIsActiveEditModal = useUserStore((state) => state.setIsEditModalActive)
   const fullname = getUserFullname()
   const email = getUserEmail()
   const navigate = useNavigate()
@@ -31,6 +32,12 @@ const Header = () => {
     removeUser()
     navigate('/')
     toast.success('Logout success!')
+  }
+
+  const onEditProfile = () => {
+    setIsActiveEditModal()
+    console.log('gi');
+
   }
 
   return (
@@ -109,7 +116,7 @@ const Header = () => {
 
             <hr className="bg-[#64748B]" />
 
-            <button className="flex items-center space-x-2">
+            <button onClick={onEditProfile} className="flex items-center space-x-2">
               <img className="w-4" src="/images/editprofile.svg" alt="" />
               <p className="text-black text-sm">Edit profile</p>
             </button>

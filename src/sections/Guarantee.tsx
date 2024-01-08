@@ -11,7 +11,7 @@ const Guarantee = () => {
           >
             <img
               className="w-[30px] mx-auto mb-4 relative z-10"
-              src="/images/adaptability.svg"
+              src={`/images/${name.toLowerCase()}.svg`}
               alt=""
             />
             <div className="w-[40px] h-[40px] bg-[#E8F5E9] absolute top-[5%] left-1/2 z-2 rounded-md"></div>

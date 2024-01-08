@@ -15,21 +15,30 @@ interface RegisterProps {
 interface State {
   registerLoading: boolean;
   loginLoading: boolean;
+  editLoading: boolean;
   isModalActive: boolean;
+  isEditModalActive: boolean;
 }
 
 interface Action {
   registerUserApi: (data: RegisterProps) => void;
   loginUserApi: (data: RegisterProps) => void;
+  editUserApi: (data: RegisterProps) => void;
   setIsModalActive: () => void;
+  setIsEditModalActive: () => void;
 }
 
 export const useUserStore = create<State & Action>((set) => ({
   registerLoading: false,
   loginLoading: false,
+  editLoading: false,
   isModalActive: false,
+  isEditModalActive: false,
   setIsModalActive: () => {
     set((state) => ({ isModalActive: !state.isModalActive }));
+  },
+  setIsEditModalActive: () => {
+    set((state) => ({ isEditModalActive: !state.isEditModalActive }));
   },
   registerUserApi: async (data: RegisterProps) => {
     set({ registerLoading: true });
@@ -85,4 +94,5 @@ export const useUserStore = create<State & Action>((set) => ({
       set({ loginLoading: false });
     }
   },
+  editUserApi: async (data) => {},
 }));
