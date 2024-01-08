@@ -1,6 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
+import { setUser } from "../lib/userData";
 
 interface RegisterProps {
   fullname?: string;
@@ -39,8 +40,10 @@ export const useUserStore = create<State & Action>((set) => ({
       });
       set({ isModalActive: false });
       toast.success("Account created successfully");
-      localStorage.setItem("fullname", response.data.fullname);
-      localStorage.setItem("email", response.data.email);
+      setUser({ fullname: response.data.fullname, email: response.data.email });
+      setTimeout(() => {
+        document.location.replace("/profile");
+      }, 1000);
       return response.data;
     } catch (error) {
     } finally {
@@ -57,8 +60,10 @@ export const useUserStore = create<State & Action>((set) => ({
       });
       set({ isModalActive: false });
       toast.success("Login successfully");
-      localStorage.setItem("fullname", response.data.fullname);
-      localStorage.setItem("email", response.data.email);
+      setUser({ fullname: response.data.fullname, email: response.data.email });
+      setTimeout(() => {
+        document.location.replace("/profile");
+      }, 1000);
       return response.data;
     } catch (error) {
       //@ts-ignore

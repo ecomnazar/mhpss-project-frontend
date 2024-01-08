@@ -4,11 +4,14 @@ import React from "react"
 import { Listbox, Transition } from "@headlessui/react"
 import { languages } from "../lib/constants/languages"
 import { useUserStore } from "../stores/useUserStore"
+import { useNavigate } from "react-router-dom"
+import { getUserFullname } from "../lib/userData"
 
 const Header = () => {
   const { t, i18n } = useTranslation()
   const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
-  const fullname = localStorage.getItem('fullname')
+  const fullname = getUserFullname()
+  const navigate = useNavigate()
   const onChangeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
@@ -18,12 +21,14 @@ const Header = () => {
       setIsActiveModal()
       return
     }
-    console.log('exists')
+    navigate('profile')
   }
 
   return (
     <header className='container mx-auto px-4 py-2 flex items-center justify-between'>
-      <img className='w-[40px]' src="/images/undplogo.png" alt="" />
+      <button onClick={() => navigate('/')}>
+        <img className='w-[40px]' src="/images/undplogo.png" alt="" />
+      </button>
       <h1>{t('hi')}</h1>
       <div className='flex items-center gap-x-8'>
         <h2 className='text-primary'>Course features & benefits</h2>
@@ -41,7 +46,6 @@ const Header = () => {
                 leaveTo="opacity-0"
               >
                 <Listbox.Options
-                  onChange={() => console.log('asd')}
                   className="absolute max-h-60 w-full rounded-md bg-primary/50 backdrop-blur text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
 
                   {languages.map((lng, i) => (

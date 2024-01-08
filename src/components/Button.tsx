@@ -9,9 +9,9 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
 }
 
-const Button = ({ className, title, disabled = false, isLoading = false }: Props) => {
+const Button = ({ className, title, disabled = false, isLoading = false, ...props }: Props) => {
   return (
-    <button disabled={disabled || isLoading} className={clsx('relative bg-primary/70 text-white h-[44px] px-4 rounded-md', className, {
+    <button {...props} disabled={disabled || isLoading} className={clsx('relative bg-primary/70 text-white h-[44px] px-4 rounded-md', className, {
       ['!bg-opacity-70']: disabled || isLoading
     })}>
       {isLoading ? <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'><RotatingLines

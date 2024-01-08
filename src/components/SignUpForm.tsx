@@ -40,8 +40,7 @@ const SignUpForm = ({ onChangeForm }: Props) => {
         if (gender === '') {
             toast.error('gender must have')
         }
-        await registerUserApi(data)
-        setIsModalActive()
+        registerUserApi(data)
     }
 
     return (
