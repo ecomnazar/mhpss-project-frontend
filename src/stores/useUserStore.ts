@@ -2,6 +2,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
 import { setUser } from "../lib/userData";
+import i18n from "../i18n";
 
 interface RegisterProps {
   fullname?: string;
@@ -40,12 +41,19 @@ export const useUserStore = create<State & Action>((set) => ({
       });
       set({ isModalActive: false });
       toast.success("Account created successfully");
-      setUser({ fullname: response.data.fullname, email: response.data.email });
+      setUser({
+        fullname: response.data.fullname,
+        email: response.data.email,
+        id: response.data._id,
+      });
       setTimeout(() => {
         document.location.replace("/profile");
       }, 1000);
       return response.data;
     } catch (error) {
+      //@ts-ignore
+      toast.error(i18n.t(error.response.data));
+      return Promise.reject(error);
     } finally {
       set({ registerLoading: false });
     }
@@ -59,15 +67,19 @@ export const useUserStore = create<State & Action>((set) => ({
         },
       });
       set({ isModalActive: false });
-      toast.success("Login successfully");
-      setUser({ fullname: response.data.fullname, email: response.data.email });
+      toast.success(i18n.t("loginsuccess"));
+      setUser({
+        fullname: response.data.fullname,
+        email: response.data.email,
+        id: response.data._id,
+      });
       setTimeout(() => {
         document.location.replace("/profile");
       }, 1000);
       return response.data;
     } catch (error) {
       //@ts-ignore
-      toast.error(error.response.data);
+      toast.error(i18n.t(error.response.data));
       return Promise.reject(error);
     } finally {
       set({ loginLoading: false });

@@ -5,7 +5,6 @@ import MainPage from './pages/MainPage.tsx'
 import ProfilePage from './pages/ProfilePage.tsx'
 import './index.css'
 import './i18n.ts'
-import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

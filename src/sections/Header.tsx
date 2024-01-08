@@ -21,7 +21,7 @@ const Header = () => {
       setIsActiveModal()
       return
     }
-    navigate('profile')
+    navigate('/profile')
   }
 
   return (
@@ -29,7 +29,6 @@ const Header = () => {
       <button onClick={() => navigate('/')}>
         <img className='w-[40px]' src="/images/undplogo.png" alt="" />
       </button>
-      <h1>{t('hi')}</h1>
       <div className='flex items-center gap-x-8'>
         <h2 className='text-primary'>Course features & benefits</h2>
         <Button title={"View course"} />

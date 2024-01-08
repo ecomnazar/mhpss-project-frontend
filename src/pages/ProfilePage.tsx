@@ -20,10 +20,7 @@ const ProfilePage = () => {
 
     const onLogout = () => {
         removeUser()
-        toast.success('Logged out successfully')
-        setTimeout(() => {
-            navigate('/')
-        }, 1000);
+        navigate('/')
     }
 
     const onSubmit: SubmitHandler<FormProps> = ({ fullname, email }) => {
@@ -43,14 +40,17 @@ const ProfilePage = () => {
         navigate('/')
     }
     return (
-        <section>
+        <section className='container mx-auto px-4'>
             <Toaster />
             <Header />
-            <form onSubmit={handleSubmit(onLogout)}>
+            <form className='max-w-md mx-auto flex flex-col gap-y-4' onSubmit={handleSubmit(onLogout)}>
                 <Input register={register('fullname', { required: true })} placeholder='Full name' errorType={errors.fullname?.type} />
                 <Input register={register('email', { required: true })} placeholder='Full name' errorType={errors.email?.type} />
+                <div className='flex items-center gap-x-2'>
+                    <Button className='w-full' onClick={onLogout} title={'Update'} />
+                    <Button className='w-full bg-red-600' onClick={onLogout} title={'Log out'} />
+                </div>
             </form>
-            <Button onClick={onLogout} title={'Log out'} />
         </section>
     )
 }

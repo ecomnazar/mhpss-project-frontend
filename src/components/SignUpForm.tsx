@@ -1,13 +1,13 @@
-import { AiOutlineClose } from 'react-icons/ai'
-import Button from './Button'
 import React from 'react';
-import Select from './Select';
+import toast from 'react-hot-toast';
+import { AiOutlineClose } from 'react-icons/ai'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { regions } from '../lib/constants/regions';
 import { genders } from '../lib/constants/genders';
-import Input from './Input';
 import { useUserStore } from '../stores/useUserStore';
-import toast from 'react-hot-toast';
+import Input from './Input';
+import Button from './Button';
+import Select from './Select';
 
 interface FormProps {
     fullname: string;
@@ -35,10 +35,10 @@ const SignUpForm = ({ onChangeForm }: Props) => {
             gender
         }
         if (region === '') {
-            toast.error('region must have')
+            toast.error('regionmusthave')
         }
         if (gender === '') {
-            toast.error('gender must have')
+            toast.error('gendermusthave')
         }
         registerUserApi(data)
     }
@@ -51,13 +51,13 @@ const SignUpForm = ({ onChangeForm }: Props) => {
                     <AiOutlineClose size={20} />
                 </button>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-2 mt-6'>
+            <form className='flex flex-col gap-y-2 mt-6'>
                 <Input register={register('fullname', { required: true })} placeholder='Full name' errorType={errors.fullname?.type} />
                 <Input register={register('email', { required: true })} placeholder={'Email'} type='email' errorType={errors.email?.type} />
                 <Input register={register('password', { required: true })} placeholder={'Password'} type='password' errorType={errors.password?.type} />
                 <Select active={region} setActive={setRegion} content={regions} defaultValue='Region' />
                 <Select active={gender} setActive={setGender} content={genders} defaultValue='Gender' />
-                <Button isLoading={isLoading} className="!bg-primary w-full mt-2" title={"Sign up"} />
+                <Button onClick={handleSubmit(onSubmit)} isLoading={isLoading} className="!bg-primary w-full mt-2" title={"Sign up"} />
             </form>
             <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>Already have an account? <span className='text-primary'>Log in</span> </button>
         </>
