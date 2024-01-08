@@ -1,11 +1,12 @@
 import { useTranslation } from "react-i18next"
 import Button from "../components/Button"
 import React from "react"
-import { Listbox, Transition } from "@headlessui/react"
+import { Listbox, Popover, Transition } from "@headlessui/react"
 import { languages } from "../lib/constants/languages"
 import { useUserStore } from "../stores/useUserStore"
 import { useNavigate } from "react-router-dom"
 import { getUserFullname } from "../lib/userData"
+
 
 const Header = () => {
   const { t, i18n } = useTranslation()
@@ -74,7 +75,50 @@ const Header = () => {
             </div>
           </Listbox>
         </div>
-        <button onClick={onClickProfile} className="py-3 px-3.5 rounded-lg"><img src="/images/profile.svg" alt="" /></button>
+
+        {/*  */}
+
+        <Popover className={'relative mt-2'}>
+          <Popover.Button>
+            <img src="/images/profile.svg" alt="" />
+          </Popover.Button>
+          <Popover.Panel className={'absolute flex flex-col space-y-6 right-0 z-10 top-16 w-72 p-6 origin-top-right rounded-sm bg-white text-black shadow-lg ring-1 ring-black/5'}>
+            <h2 className="text-md">Yollyyeva Gulay</h2>
+            <div className="flex items-center space-x-2">
+              <img className="w-4" src="/images/email.svg" alt="" />
+              <p className="text-[#64748B] text-sm">nazar.se7en@gmail.com</p>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <img className="w-4" src="/images/location.svg" alt="" />
+              <p className="text-[#64748B] text-sm">Ashgabat</p>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <img className="w-4" src="/images/gender.svg" alt="" />
+              <p className="text-[#64748B] text-sm">Female</p>
+            </div>
+
+            <hr className="bg-[#64748B]" />
+
+            <button className="flex items-center space-x-2">
+              <img className="w-4" src="/images/editprofile.svg" alt="" />
+              <p className="text-black text-sm">Edit profile</p>
+            </button>
+
+            <button className="flex items-center space-x-2">
+              <img className="w-[13px] text-red-600" src="/images/signout.svg" alt="" />
+              <p className="text-red-600 text-sm">Sign out</p>
+            </button>
+
+            {/* <img src="/images/editprofile.svg" alt="" /> */}
+            {/* <button><GrLocation size={24} /></button> */}
+            {/* <HiOutlineMail size={25} /> */}
+            {/* <img src="/images/signout.svg" alt="" /> */}
+          </Popover.Panel>
+        </Popover>
+
+        {/* <button onClick={onClickProfile} className="py-3 px-3.5 rounded-lg"><img src="/images/profile.svg" alt="" /></button> */}
       </div>
     </header>
   )
