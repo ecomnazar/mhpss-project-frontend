@@ -1,6 +1,5 @@
 import { AiOutlineClose } from 'react-icons/ai'
 import Button from './Button'
-import { useModalStore } from '../stores/useModalStore'
 import React from 'react';
 import Select from './Select';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -22,7 +21,7 @@ interface Props {
 
 const SignUpForm = ({ onChangeForm }: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormProps>()
-    const setIsModalActive = useModalStore((state) => state.setIsModalActive)
+    const setIsModalActive = useUserStore((state) => state.setIsModalActive)
     const registerUserApi = useUserStore((state) => state.registerUserApi)
     const isLoading = useUserStore((state) => state.registerLoading)
     const [region, setRegion] = React.useState('')
@@ -59,7 +58,7 @@ const SignUpForm = ({ onChangeForm }: Props) => {
                 <Input register={register('password', { required: true })} placeholder={'Password'} type='password' errorType={errors.password?.type} />
                 <Select active={region} setActive={setRegion} content={regions} defaultValue='Region' />
                 <Select active={gender} setActive={setGender} content={genders} defaultValue='Gender' />
-                <Button isLoading={isLoading} className="!bg-primary w-full" title={"Sign up"} />
+                <Button isLoading={isLoading} className="!bg-primary w-full mt-2" title={"Sign up"} />
             </form>
             <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>Already have an account? <span className='text-primary'>Log in</span> </button>
         </>

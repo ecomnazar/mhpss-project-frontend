@@ -1,7 +1,7 @@
-import { AiOutlineClose } from 'react-icons/ai'
-import Button from './Button'
-import { useModalStore } from '../stores/useModalStore';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { AiOutlineClose } from 'react-icons/ai'
+import { useUserStore } from '../stores/useUserStore';
+import Button from './Button'
 import Input from './Input';
 
 interface FormProps {
@@ -14,15 +14,17 @@ interface Props {
 }
 
 const SignInForm = ({ onChangeForm }: Props) => {
-    const setIsModalActive = useModalStore((state) => state.setIsModalActive)
-    const { register, handleSubmit } = useForm<FormProps>()
+    const { register, handleSubmit, formState: { errors } } = useForm<FormProps>()
+    const setIsModalActive = useUserStore((state) => state.setIsModalActive)
+    const loginUserApi = useUserStore((state) => state.loginUserApi)
+    const isLoading = useUserStore((state) => state.loginLoading)
 
     const onSubmit: SubmitHandler<FormProps> = ({ email, password }) => {
         const data = {
             email,
             password
         }
-        console.log(data);
+        loginUserApi(data)
     }
 
     return (
@@ -34,9 +36,9 @@ const SignInForm = ({ onChangeForm }: Props) => {
                 </button>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-2 mt-6'>
-                <Input register={register('email')} placeholder='Email' type='email' />
-                <Input register={register('password')} placeholder='Password' type='password' />
-                <Button className="!bg-primary w-full !bg-opacity-50" title={"Sign up"} />
+                <Input register={register('email', { required: true })} placeholder='Email' type='email' errorType={errors.email?.type} />
+                <Input register={register('password', { required: true })} placeholder='Password' type='password' errorType={errors.password?.type} />
+                <Button isLoading={isLoading} className="!bg-primary w-full mt-2" title={"Sign in"} />
             </form>
             <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>Don't have an account? <span className='text-primary'>Sign up</span> </button>
         </>

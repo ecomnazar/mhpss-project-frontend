@@ -3,18 +3,22 @@ import Button from "../components/Button"
 import React from "react"
 import { Listbox, Transition } from "@headlessui/react"
 import { languages } from "../lib/constants/languages"
-import { useModalStore } from "../stores/useModalStore"
+import { useUserStore } from "../stores/useUserStore"
 
 const Header = () => {
   const { t, i18n } = useTranslation()
-  const setIsActiveModal = useModalStore((state) => state.setIsModalActive)
-
+  const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
+  const fullname = localStorage.getItem('fullname')
   const onChangeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
 
   const onClickProfile = () => {
-    setIsActiveModal()
+    if (fullname === null || fullname === undefined) {
+      setIsActiveModal()
+      return
+    }
+    console.log('exists')
   }
 
   return (

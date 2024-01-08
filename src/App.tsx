@@ -14,7 +14,6 @@ function App() {
       <Main />
       <Guarantee />
       <Info />
-      {/* <div className="w-screen h-screen fixed flex items-center justify-center top-0 left-0 bg-white/50 backdrop-blur z-[9999]"></div> */}
       <FormModal />
     </main>
   )

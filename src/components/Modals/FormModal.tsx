@@ -1,12 +1,12 @@
 import React from 'react'
 import MainModal from './MainModal'
-import { useModalStore } from '../../stores/useModalStore'
 import SignUpForm from '../SignUpForm'
 import SignInForm from '../SignInForm'
+import { useUserStore } from '../../stores/useUserStore'
 
 const FormModal = () => {
-    const isOpen = useModalStore((state) => state.isModalActive)
-    const setIsModalActive = useModalStore((state) => state.setIsModalActive)
+    const isOpen = useUserStore((state) => state.isModalActive)
+    const setIsModalActive = useUserStore((state) => state.setIsModalActive)
     const [changeForm, setChangeForm] = React.useState(true)
 
     const onChangeForm = () => {
