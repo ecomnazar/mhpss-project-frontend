@@ -45,10 +45,10 @@ export const useUserStore = create<State & Action>((set) => ({
         fullname: response.data.fullname,
         email: response.data.email,
         id: response.data._id,
+        region: response.data.region,
+        gender: response.data.gender,
       });
-      setTimeout(() => {
-        document.location.replace("/profile");
-      }, 1000);
+      window.location.replace("/");
       return response.data;
     } catch (error) {
       //@ts-ignore
@@ -72,10 +72,10 @@ export const useUserStore = create<State & Action>((set) => ({
         fullname: response.data.fullname,
         email: response.data.email,
         id: response.data._id,
+        region: response.data.region,
+        gender: response.data.gender,
       });
-      setTimeout(() => {
-        document.location.replace("/profile");
-      }, 1000);
+      window.location.replace("/");
       return response.data;
     } catch (error) {
       //@ts-ignore
