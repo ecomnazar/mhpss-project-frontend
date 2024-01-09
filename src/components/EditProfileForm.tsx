@@ -8,7 +8,7 @@ import { useUserStore } from '../stores/useUserStore';
 import Input from './Input';
 import Button from './Button';
 import Select from './Select';
-import { getUserEmail, getUserFullname, getUserGender, getUserRegion } from '../lib/userData';
+import { getUserEmail, getUserFullname, getUserGender, getUserId, getUserRegion } from '../lib/userData';
 
 interface FormProps {
     fullname: string;
@@ -19,37 +19,34 @@ interface FormProps {
 const EditProfileForm = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<FormProps>()
     const setIsEditModalActive = useUserStore((state) => state.setIsEditModalActive)
-    const registerUserApi = useUserStore((state) => state.registerUserApi)
-    const isLoading = useUserStore((state) => state.registerLoading)
+    const editUserApi = useUserStore((state) => state.editUserApi)
+    const isLoading = useUserStore((state) => state.editLoading)
     const [region, setRegion] = React.useState('')
     const [gender, setGender] = React.useState('')
-    const onSubmit: SubmitHandler<FormProps> = async ({ fullname, email, password }) => {
+
+    const fullname = getUserFullname()
+    const email = getUserEmail()
+
+    const onSubmit: SubmitHandler<FormProps> = async ({ fullname, email }) => {
         const data = {
             fullname,
             email,
-            password,
             region,
-            gender
+            gender,
+            id: getUserId()!
         }
-        if (region === '') {
-            toast.error('regionmusthave')
-        }
-        if (gender === '') {
-            toast.error('gendermusthave')
-        }
-        registerUserApi(data)
+        editUserApi(data)
     }
 
     React.useEffect(() => {
         const defaultValues = {
-            fullname: getUserFullname() || '',
-            email: getUserEmail() || '',
-            password: ''
+            fullname: fullname || '',
+            email: email || '',
         }
         setRegion(getUserRegion() || '')
         setGender(getUserGender() || '')
         reset(defaultValues)
-    }, [])
+    }, [isLoading])
 
     return (
         <>
@@ -64,7 +61,7 @@ const EditProfileForm = () => {
                 <Input register={register('email', { required: true })} placeholder={'Email'} type='email' errorType={errors.email?.type} />
                 <Select active={region} setActive={setRegion} content={regions} defaultValue='Region' />
                 <Select active={gender} setActive={setGender} content={genders} defaultValue='Gender' />
-                <Button onClick={handleSubmit(onSubmit)} isLoading={isLoading} className="!bg-primary w-full mt-2" title={"Sign up"} />
+                <Button onClick={handleSubmit(onSubmit)} isLoading={isLoading} className="!bg-primary w-full mt-2" title={"Edit"} />
             </form>
         </>
     )
