@@ -1,11 +1,9 @@
-import { useNavigate } from "react-router-dom"
 import DesktopHeader from "../components/DesktopHeader"
 import useWindowDimensions from "../hooks/useWindowDimensions"
 import MobileHeader from "../components/MobileHeader"
 import Logo from "../components/Logo"
 
 const Header = () => {
-  const navigate = useNavigate()
   const { innerWidth } = useWindowDimensions()
 
   return (

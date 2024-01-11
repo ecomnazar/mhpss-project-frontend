@@ -58,7 +58,9 @@ export const useUserStore = create<State & Action>((set) => ({
         region: response.data.region,
         gender: response.data.gender,
       });
-      window.location.replace("/");
+      // setTimeout(() => {
+      //   window.location.replace("/");
+      // }, 1000);
       return response.data;
     } catch (error) {
       //@ts-ignore
@@ -85,7 +87,6 @@ export const useUserStore = create<State & Action>((set) => ({
         region: response.data.region,
         gender: response.data.gender,
       });
-      window.location.replace("/");
       return response.data;
     } catch (error) {
       //@ts-ignore

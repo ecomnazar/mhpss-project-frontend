@@ -1,0 +1,7 @@
+{
+    "hi": "Hi!",
+    "useralreadyexists": "User with this email already exists!",
+    "usernotfound": "User with this email not found!",
+    "wrongpassword": "Wrong password!",
+    "loginsuccess": "Login success!"
+}

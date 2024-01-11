@@ -1,5 +1,4 @@
 import React from 'react';
-import toast from 'react-hot-toast';
 import { AiOutlineClose } from 'react-icons/ai'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { regions } from '../lib/constants/regions';

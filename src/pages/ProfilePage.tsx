@@ -1,11 +1,11 @@
 import React from 'react'
 import Header from '../sections/Header'
 import { getUserEmail, getUserFullname, removeUser } from '../lib/userData'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import Input from '../components/Input';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 interface FormProps {
     fullname: string;
@@ -23,9 +23,9 @@ const ProfilePage = () => {
         navigate('/')
     }
 
-    const onSubmit: SubmitHandler<FormProps> = ({ fullname, email }) => {
-        console.log(fullname, email);
-    }
+    // const onSubmit: SubmitHandler<FormProps> = ({ fullname, email }) => {
+    //     console.log(fullname, email);
+    // }
 
     React.useEffect(() => {
         const defaultValues = {

@@ -9,7 +9,7 @@ import toast from 'react-hot-toast'
 import { useUserStore } from '../stores/useUserStore'
 
 const DesktopHeader = () => {
-    const { t, i18n } = useTranslation()
+    const { i18n } = useTranslation()
     const fullname = getUserFullname()
     const email = getUserEmail()
     const gender = getUserGender()
@@ -17,6 +17,8 @@ const DesktopHeader = () => {
     const navigate = useNavigate()
     const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
     const setIsActiveEditModal = useUserStore((state) => state.setIsEditModalActive)
+    const registerLoading = useUserStore((state) => state.registerLoading)
+    const loginLoading = useUserStore((state) => state.loginLoading)
 
 
     const onChangeLanguage = (lng: string) => {
@@ -40,6 +42,11 @@ const DesktopHeader = () => {
     const onEditProfile = () => {
         setIsActiveEditModal()
     }
+
+    React.useEffect(() => {
+        console.log('ih');
+
+    }, [registerLoading, loginLoading])
 
     return (
         <div className='flex items-center gap-x-8'>
