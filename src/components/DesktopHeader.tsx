@@ -4,7 +4,7 @@ import Button from './Button'
 import { languages } from '../lib/constants/languages'
 import { useTranslation } from 'react-i18next'
 import { getUserEmail, getUserFullname, getUserGender, getUserRegion, removeUser } from '../lib/userData'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useUserStore } from '../stores/useUserStore'
 
@@ -50,7 +50,7 @@ const DesktopHeader = () => {
 
     return (
         <div className='flex items-center gap-x-8'>
-            <h2 className='text-primary hidden sm:block'>Course features & benefits</h2>
+            <Link to={'/about'} className='text-primary hidden sm:block'>Course features & benefits</Link>
             <Button title={"View course"} />
             <div className="">
                 <Listbox>
