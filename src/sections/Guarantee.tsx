@@ -14,7 +14,6 @@ const Guarantee = () => {
               src={`/images/${name.toLowerCase()}.svg`}
               alt=""
             />
-            <div className="w-[40px] h-[40px] bg-[#E8F5E9] absolute top-[5%] left-1/2 z-2 rounded-md"></div>
             <h3 className="text-black font-[600] text-2xl">{name}</h3>
             <p className="max-w-[300px] text-lightDark text-center mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lorem odio.</p>
           </div>

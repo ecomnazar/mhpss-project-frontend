@@ -5,6 +5,7 @@ import Guarantee from '../sections/Guarantee'
 import Info from '../sections/Info'
 import FormModal from '../components/Modals/FormModal'
 import EditProfileModal from '../components/Modals/EditProfileModal'
+import Footer from '../sections/Footer'
 
 const MainPage = () => {
     return (
@@ -14,6 +15,7 @@ const MainPage = () => {
             <Main />
             <Guarantee />
             <Info />
+            <Footer />
             <FormModal />
             <EditProfileModal />
         </main>
