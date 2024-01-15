@@ -4,21 +4,25 @@ import React from "react"
 import { MdKeyboardArrowUp } from "react-icons/md";
 import Button from "../components/Button";
 import CourseProgressLine from "../components/CourseProgressLine";
+import { useNavigate } from "react-router-dom";
+import Day1Theme1 from "../Lessons/Day1Theme1";
+import Day1Theme2 from "../Lessons/Day1Theme2";
+import Day1Theme3 from "../Lessons/Day1Theme3";
 
 
 export const data = [
     [
         {
             title: 'Introduction',
-            content: 'It is a content 1'
+            content: <Day1Theme1 />
         },
         {
             title: 'Determinants of Mental Health',
-            content: 'It is a content 2'
+            content: <Day1Theme2 />
         },
         {
             title: 'Mental Health and Psychosocial Support',
-            content: 'It is a content 3'
+            content: <Day1Theme3 />
         },
         {
             title: 'Training Delivery Practice 1',
@@ -52,6 +56,7 @@ export const data = [
 ]
 
 const CoursePage = () => {
+    const navigate = useNavigate()
 
     // to set color to text
     const [theme, setTheme] = React.useState(['Introduction'])
@@ -69,9 +74,9 @@ const CoursePage = () => {
 
     const onClickNextButton = () => {
         if (data.length === active[0] + 1 && data[active[0]].length === active[1] + 1) {
-            localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
-            localStorage.setItem('activeDay', (active[0] + 1).toString())
-            setTick(tickFLS.split('::'))
+            // localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
+            // localStorage.setItem('activeDay', (active[0] + 1).toString())
+            // setTick(tickFLS.split('::'))
         } else {
 
             setTick([...tick, data[active[0]][active[1]].title])
@@ -129,16 +134,23 @@ const CoursePage = () => {
 
     return (
         <section className='p-4'>
-            <CourseProgressLine />
-            <div className='flex items-start justify-between'>
-                <div className='h-[800px] basis-[73%] border-2 border-primary rounded-md flex flex-col items-center justify-center'>
-                    <h3 className="text-[55px]">{data[active[0]][active[1]].title}</h3>
-                    <Button title={"NEXT"} onClick={onClickNextButton} />
+            <div className="flex items-center justify-between pb-4">
+                <button onClick={() => navigate('/')}>
+                    <img src="/images/arrow-back-icon.svg" />
+                </button>
+                <CourseProgressLine />
+            </div>
+            <div className='flex items-start justify-between flex-wrap'>
+                <div className='min-h-[50vh] md:min-h-[90vh] mb-4 md:mb-0 basis-[100%] md:basis-[73%] relative border-2 border-primary rounded-md flex flex-col items-center justify-start p-4 pb-20'>
+                    {data[active[0]][active[1]].content}
+                    <div className="w-full absolute bottom-5 left-0 px-4 flex items-center justify-end">
+                        <Button className="ml-auto w-[150px]" title={<div className="rotate-[90deg]"><MdKeyboardArrowUp size={27} /></div>} onClick={onClickNextButton} />
+                    </div>
                 </div>
-                <div className='basis-[25%]'>
+                <div className='basis-[100%] md:basis-[25%]'>
                     <h3 className="font-[600]">MHPSS</h3>
                     <div className="">
-                        {data.map((item, index) => {
+                        {data.map((_, index) => {
                             return (
                                 <Disclosure key={'d' + index}>
                                     {({ open }) => (

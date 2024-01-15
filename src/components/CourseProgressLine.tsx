@@ -7,7 +7,7 @@ const CourseProgressLine = () => {
     const size = Number(activeDay) * a
 
     return (
-        <div className="flex items-center gap-x-4 mb-4">
+        <div className="flex items-center gap-x-4">
             <div className=" relative bg-[#EDEDED] w-[200px] h-[10px] rounded-md">
 
 
