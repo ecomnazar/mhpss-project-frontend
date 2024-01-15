@@ -1,7 +1,9 @@
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import CourseProgressLine from "../components/CourseProgressLine";
 
 const Info = () => {
-  const size = 100
+  const navigate = useNavigate()
   return (
     <section className="container mx-auto px-4 py-8">
       <div className="md:h-[500px] flex items-start justify-between flex-wrap">
@@ -28,9 +30,9 @@ const Info = () => {
             odit? Distinctio similique neque laborum magnam ipsum sunt, nostrum
             eos exercitationem?
           </p> */}
-          <a className="text-primary" href="">
+          <Link to={'/about'} className="text-primary" >
             More about Mental Health
-          </a>
+          </Link>
         </div>
         <div className="h-full basis-[100%] mt-4 md:mt-0 md:basis-[53%]">
           <img
@@ -51,18 +53,8 @@ const Info = () => {
           <h2 className="text-black text-2xl mb-6 font-[600] mt-4 md:mt-0">
             Mental Health & Psychosocial Support Online Course
           </h2>
-          <div className="flex items-center gap-x-4 mb-4">
-            <div className=" relative bg-[#EDEDED] w-[200px] h-[10px] rounded-md">
-              
 
-              {/*  */}
-              <div style={{ width: size + '%' }} className="absolute top-0 left-0  rounded-md w-1/2 bg-primary h-[10px]"></div>
-              {/*  */}
-
-              </div>
-            <p>0%</p>
-          </div>
-
+          <CourseProgressLine />
 
           <div className="flex flex-col gap-y-3 mb-4">
             <div>
@@ -96,7 +88,7 @@ const Info = () => {
               </div>
             </div>
           </div>
-          <Button className="!bg-primary" title={"Start course"}  />
+          <Button onClick={() => navigate('/course')} className="!bg-primary" title={"Start course"} />
 
         </div>
       </div>

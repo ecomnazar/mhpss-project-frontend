@@ -6,7 +6,6 @@ import { languages } from "../lib/constants/languages";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-
 const MobileHeader = () => {
     const [isOpen, setIsOpen] = React.useState(false)
     const onChangeMenu = () => setIsOpen(!isOpen)
@@ -18,9 +17,9 @@ const MobileHeader = () => {
         setIsOpen(false)
     }
 
-    const navigateTo = () => {
+    const navigateTo = (link: string) => {
         setIsOpen(false)
-        navigate('/about')
+        navigate(`/${link}`)
     }
 
     return (
@@ -34,14 +33,16 @@ const MobileHeader = () => {
             })}>
                 <div className="flex-1">
                     <div className="flex items-center justify-between">
-                        <Logo />
+                        <button onClick={() => navigateTo("")}>
+                            <Logo />
+                        </button>
                         <button onClick={onChangeMenu}>
                             <CgClose size={32} />
                         </button>
                     </div>
                     <div>
                         <div className="flex flex-col gap-y-4 mt-8">
-                            <button onClick={navigateTo} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
+                            <button onClick={() => navigateTo("about")} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
                                 <p>Course features & benefits</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
                             </button>

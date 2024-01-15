@@ -1,10 +1,6 @@
-import Footer from "../sections/Footer"
-import Header from "../sections/Header"
-
 const AboutPage = () => {
     return (
         <>
-            <Header />
             <section className="container mx-auto px-4 mt-8">
                 <h2 className="font-[700] text-xl">Competencies to be developed in the training participants (intended learning objectives)</h2>
                 <img className="my-4" src="/images/about-page-image.png" />
@@ -78,11 +74,8 @@ const AboutPage = () => {
                             <p className="text-lightDark text-[10px]">Click to download</p>
                         </div>
                     </div>
-
                 </div>
-
             </section>
-            <Footer />
         </>
     )
 }

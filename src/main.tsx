@@ -6,14 +6,19 @@ import ProfilePage from './pages/ProfilePage.tsx'
 import './index.css'
 import './i18n.ts'
 import AboutPage from './pages/AboutPage.tsx'
+import MainLayout from './components/Layouts/MainLayout.tsx'
+import CoursePage from './pages/Course.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/profile' element={<ProfilePage />} />
-        <Route path='/about' element={<AboutPage />} />
+        <Route element={<MainLayout />}>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/profile' element={<ProfilePage />} />
+          <Route path='/about' element={<AboutPage />} />
+        </Route>
+        <Route path='/course' element={<CoursePage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
