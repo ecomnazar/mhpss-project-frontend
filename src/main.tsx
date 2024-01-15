@@ -8,6 +8,7 @@ import './i18n.ts'
 import AboutPage from './pages/AboutPage.tsx'
 import MainLayout from './components/Layouts/MainLayout.tsx'
 import CoursePage from './pages/Course.tsx'
+import CertificatePage from './pages/CertificatePage.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path='/about' element={<AboutPage />} />
         </Route>
         <Route path='/course' element={<CoursePage />} />
+        <Route path='/certificate' element={<CertificatePage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

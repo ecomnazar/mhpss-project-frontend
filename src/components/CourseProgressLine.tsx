@@ -1,10 +1,13 @@
 import { data } from "../pages/Course"
 
 const CourseProgressLine = () => {
+    const isFinish = localStorage.getItem('finish')
     const activeDay = localStorage.getItem('activeDay') || 0
     const totalDay = data.length
     const a = 100 / totalDay
-    const size = Number(activeDay) * a
+    const size = isFinish ? 100 : Number(activeDay) * a
+    console.log(isFinish);
+
 
     return (
         <div className="flex items-center gap-x-4">

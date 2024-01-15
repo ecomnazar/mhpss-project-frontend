@@ -44,14 +44,14 @@ const DesktopHeader = () => {
     }
 
     React.useEffect(() => {
-        console.log('ih');
-
     }, [registerLoading, loginLoading])
 
     return (
         <div className='flex items-center gap-x-8'>
             <Link to={'/about'} className='text-primary hidden sm:block'>Course features & benefits</Link>
-            <Button title={"View course"} />
+            <a href="#info">
+                <Button title={"View course"} />
+            </a>
             <div className="">
                 <Listbox>
                     <div className="relative">

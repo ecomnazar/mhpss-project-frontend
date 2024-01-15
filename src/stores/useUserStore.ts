@@ -4,6 +4,8 @@ import { create } from "zustand";
 import { setUser } from "../lib/userData";
 import i18n from "../i18n";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 interface RegisterProps {
   id?: string;
   fullname?: string;
@@ -17,6 +19,7 @@ interface State {
   registerLoading: boolean;
   loginLoading: boolean;
   editLoading: boolean;
+  getCertifiacteLoading: boolean;
   isModalActive: boolean;
   isEditModalActive: boolean;
 }
@@ -25,6 +28,7 @@ interface Action {
   registerUserApi: (data: RegisterProps) => void;
   loginUserApi: (data: RegisterProps) => void;
   editUserApi: (data: RegisterProps) => void;
+  getCertifiacteApi: (fullname: string, email: string) => void;
   setIsModalActive: () => void;
   setIsEditModalActive: () => void;
 }
@@ -33,6 +37,7 @@ export const useUserStore = create<State & Action>((set) => ({
   registerLoading: false,
   loginLoading: false,
   editLoading: false,
+  getCertifiacteLoading: false,
   isModalActive: false,
   isEditModalActive: false,
   setIsModalActive: () => {
@@ -44,7 +49,7 @@ export const useUserStore = create<State & Action>((set) => ({
   registerUserApi: async (data: RegisterProps) => {
     set({ registerLoading: true });
     try {
-      const response = await axios.post("http://localhost:4002/signup", data, {
+      const response = await axios.post(`${BASE_URL}/signup`, data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -73,7 +78,7 @@ export const useUserStore = create<State & Action>((set) => ({
   loginUserApi: async (data) => {
     set({ loginLoading: true });
     try {
-      const response = await axios.post("http://localhost:4002/signin", data, {
+      const response = await axios.post(`${BASE_URL}/signin`, data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -99,15 +104,11 @@ export const useUserStore = create<State & Action>((set) => ({
   editUserApi: async (data) => {
     set({ editLoading: true });
     try {
-      const response = await axios.patch(
-        `http://localhost:4002/signup/update`,
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.patch(`${BASE_URL}/signup/update`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       setUser({
         fullname: response.data.fullname,
         email: response.data.email,
@@ -125,6 +126,23 @@ export const useUserStore = create<State & Action>((set) => ({
       return Promise.reject(error);
     } finally {
       set({ editLoading: false });
+    }
+  },
+  getCertifiacteApi: async (fullname, email) => {
+    set({ getCertifiacteLoading: true });
+    try {
+      const response = await axios.post(`${BASE_URL}/certification`, {
+        fullname,
+        email,
+      });
+      toast.success("certficate created successfully");
+      return response.data;
+    } catch (error) {
+      // @ts-ignore
+      toast.error(error.response.data);
+      return Promise.reject(error);
+    } finally {
+      set({ getCertifiacteLoading: false });
     }
   },
 }));

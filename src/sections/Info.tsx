@@ -1,9 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import { Link } from "react-router-dom";
 import CourseProgressLine from "../components/CourseProgressLine";
+import StartCourseButton from "../components/StartCourseButton";
 
 const Info = () => {
-  const navigate = useNavigate()
   return (
     <section className="container mx-auto px-4 py-8">
       <div className="md:h-[500px] flex items-start justify-between flex-wrap">
@@ -56,7 +55,7 @@ const Info = () => {
 
           <CourseProgressLine />
 
-          <div className="flex flex-col gap-y-3 mb-4">
+          <div id="info" className="flex flex-col gap-y-3 mb-4">
             <div>
               <h3 className="font-[600] text-[15px]">Duration:</h3>
               <div className="flex items-center gap-x-2 mt-1">
@@ -88,8 +87,7 @@ const Info = () => {
               </div>
             </div>
           </div>
-          <Button onClick={() => navigate('/course')} className="!bg-primary" title={"Start course"} />
-
+          <StartCourseButton />
         </div>
       </div>
     </section>

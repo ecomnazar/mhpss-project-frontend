@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import StartCourseButton from "../components/StartCourseButton";
 
 const Main = () => {
-  const navigate = useNavigate()
   return (
     <section className='bg-[#004D86] bg-[url("/images/background-map.png")] bg-contain bg-center w-screen py-16'>
       <div className="container mx-auto px-4 flex flex-col gap-y-4">
@@ -13,11 +11,14 @@ const Main = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <Button
+        {/* <Button
           onClick={() => navigate('/course')}
           className="!bg-white !text-primary font-[600] mx-auto block"
           title={"Start course"}
-        />
+        /> */}
+        <div className="mx-auto">
+          <StartCourseButton />
+        </div>
       </div>
     </section>
   );

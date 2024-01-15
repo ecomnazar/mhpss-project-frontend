@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Day1Theme1 from "../Lessons/Day1Theme1";
 import Day1Theme2 from "../Lessons/Day1Theme2";
 import Day1Theme3 from "../Lessons/Day1Theme3";
+import { getUserEmail } from "../lib/userData";
 
 
 export const data = [
@@ -57,6 +58,7 @@ export const data = [
 
 const CoursePage = () => {
     const navigate = useNavigate()
+    const email = getUserEmail()
 
     // to set color to text
     const [theme, setTheme] = React.useState(['Introduction'])
@@ -71,12 +73,15 @@ const CoursePage = () => {
     const tickFLS = localStorage.getItem('tick')
     const activeDayFLS = localStorage.getItem('activeDay') || '0'
     const activeDayThemeFLS = localStorage.getItem('activeDayTheme') || '0'
+    const finishFLS = localStorage.getItem('finish')
 
     const onClickNextButton = () => {
         if (data.length === active[0] + 1 && data[active[0]].length === active[1] + 1) {
-            // localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
+            localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
             // localStorage.setItem('activeDay', (active[0] + 1).toString())
-            // setTick(tickFLS.split('::'))
+            //@ts-ignore
+            setTick(tickFLS.split('::'))
+            localStorage.setItem('finish', 'true')
         } else {
 
             setTick([...tick, data[active[0]][active[1]].title])
@@ -111,9 +116,11 @@ const CoursePage = () => {
                 setActive([active[0], active[1] + 1])
                 localStorage.setItem('activeDayTheme', (active[1] + 1).toString())
             }
-
         }
+    }
 
+    const onGetCertificate = () => {
+        navigate('/certificate')
     }
 
     React.useEffect(() => {
@@ -132,6 +139,12 @@ const CoursePage = () => {
     React.useEffect(() => {
     }, [theme])
 
+    React.useEffect(() => {
+        if (!email) {
+            navigate('/')
+        }
+    }, [])
+
     return (
         <section className='p-4'>
             <div className="flex items-center justify-between pb-4">
@@ -144,7 +157,10 @@ const CoursePage = () => {
                 <div className='min-h-[50vh] md:min-h-[90vh] mb-4 md:mb-0 basis-[100%] md:basis-[73%] relative border-2 border-primary rounded-md flex flex-col items-center justify-start p-4 pb-20'>
                     {data[active[0]][active[1]].content}
                     <div className="w-full absolute bottom-5 left-0 px-4 flex items-center justify-end">
-                        <Button className="ml-auto w-[150px]" title={<div className="rotate-[90deg]"><MdKeyboardArrowUp size={27} /></div>} onClick={onClickNextButton} />
+                        <Button className="ml-auto min-w-[150px]" title={
+                            finishFLS ? 'get my certificate' :
+                                <div className="rotate-[90deg]"><MdKeyboardArrowUp size={27} /></div>
+                        } onClick={finishFLS ? onGetCertificate : onClickNextButton} />
                     </div>
                 </div>
                 <div className='basis-[100%] md:basis-[25%]'>
@@ -171,7 +187,6 @@ const CoursePage = () => {
                                                         <div key={'dp' + idx} className="flex items-center gap-x-4">
                                                             <button onClick={() => {
                                                                 setActive([index, idx])
-                                                                // setTheme([...theme, elem.title])
                                                             }} className={clsx("flex items-center justify-center border border-lightDark bg-white rounded-full w-5 h-5", {
                                                                 ['!bg-primary']: tick.includes(elem.title),
                                                                 ['pointer-events-none']: !theme.includes(elem.title)
