@@ -69,7 +69,7 @@ const AboutPage = () => {
                         <img className="w-[24px]" src="/images/download-icon.svg" alt="" />
                         <div>
                             <h4 className="text-primary text-sm font-[600] cursor-pointer">Specialized MHPSS Competencies</h4>
-                            <p className="text-lightDark text-[10px]">Click to download</p>
+                            <p onClick={downloadPdf} className="text-lightDark text-[10px]">Click to download</p>
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@ const AboutPage = () => {
                         <img className="w-[24px]" src="/images/download-icon.svg" alt="" />
                         <div>
                             <h4 className="text-primary text-sm font-[600] cursor-pointer">Teaching and Training Competencies</h4>
-                            <p className="text-lightDark text-[10px]">Click to download</p>
+                            <p onClick={downloadPdf} className="text-lightDark text-[10px]">Click to download</p>
                         </div>
                     </div>
                 </div>

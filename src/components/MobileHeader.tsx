@@ -33,9 +33,7 @@ const MobileHeader = () => {
             })}>
                 <div className="flex-1">
                     <div className="flex items-center justify-between">
-                        <button onClick={() => navigateTo("")}>
-                            <Logo />
-                        </button>
+                        <Logo />
                         <button onClick={onChangeMenu}>
                             <CgClose size={32} />
                         </button>

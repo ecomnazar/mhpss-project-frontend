@@ -67,7 +67,6 @@ const CoursePage = () => {
     // to set main content in left side
     const [active, setActive] = React.useState([0, 0])
 
-
     // FLS from local storage
     const themeFLS = localStorage.getItem('theme')
     const tickFLS = localStorage.getItem('tick')
@@ -154,20 +153,20 @@ const CoursePage = () => {
                 </button>
                 {/* <CourseProgressLine /> */}
             </div>
-            <div className='flex items-start justify-between'>
-                <div className='relative min-h-[50vh] md:min-h-[90vh] overflow-y-scroll mb-4 p-4 md:mb-0 w-[calc(100vw-450px)] border-2 border-primary rounded-md flex flex-col items-center justify-start'>
+            <div className='flex flex-col-reverse lg:flex-row items-start justify-between'>
+                <div className='relative w-full lg:w-[calc(100vw-450px)] min-h-[50vh] md:min-h-[90vh] overflow-y-scroll mb-4 p-2 md:p-4 md:mb-0 border-2 border-primary rounded-md flex flex-col items-center justify-start'>
                     {data[active[0]][active[1]].content}
-                    <Button className="ml-auto min-w-[150px] mt-4" title={
+                    <Button className="ml-auto w-full sm:w-fit min-w-[150px] mt-2 md:mt-4" title={
                         finishFLS ? 'get my certificate' :
                             <div className="rotate-[90deg]"><MdKeyboardArrowUp size={27} /></div>
                     } onClick={finishFLS ? onGetCertificate : onClickNextButton} />
                 </div>
-                <div className="w-[400px] fixed right-0 mr-4">
+                <div className="w-full lg:w-[400px] relative lg:fixed right-0 mb-4 lg:mt-0 mr-4">
                     <div className=''>
-                        <div className="flex justify-end">
+                        <div className="flex items-center justify-between">
+                            <h3 className="font-[600]">MHPSS</h3>
                             <CourseProgressLine />
                         </div>
-                        <h3 className="font-[600]">MHPSS</h3>
                         <div className="">
                             {data.map((_, index) => {
                                 return (
