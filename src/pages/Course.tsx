@@ -27,31 +27,31 @@ export const data = [
         },
         {
             title: 'Training Delivery Practice 1',
-            content: 'It is a content 4'
+            content: <Day1Theme2 />
         },
         {
             title: 'Test',
-            content: 'It is a content 5'
+            content: <Day1Theme2 />
         },
     ],
     [
         {
             title: 'It is perfect',
-            content: 'It is perfect 1'
+            content: <Day1Theme3 />
         },
         {
             title: 'It is no perfect',
-            content: 'It is no perfect 2'
+            content: <Day1Theme2 />
         }
     ],
     [
         {
             title: 'It is perfect 44',
-            content: 'It is perfect 55'
+            content: <Day1Theme2 />
         },
         {
             title: 'It is no perfect 66',
-            content: 'It is no perfect 77'
+            content: <Day1Theme3 />
         }
     ],
 ]
@@ -76,6 +76,7 @@ const CoursePage = () => {
     const finishFLS = localStorage.getItem('finish')
 
     const onClickNextButton = () => {
+        window.scrollTo(0, 0)
         if (data.length === active[0] + 1 && data[active[0]].length === active[1] + 1) {
             localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
             // localStorage.setItem('activeDay', (active[0] + 1).toString())
@@ -151,64 +152,68 @@ const CoursePage = () => {
                 <button onClick={() => navigate('/')}>
                     <img src="/images/arrow-back-icon.svg" />
                 </button>
-                <CourseProgressLine />
+                {/* <CourseProgressLine /> */}
             </div>
-            <div className='flex items-start justify-between flex-wrap'>
-                <div className='min-h-[50vh] md:min-h-[90vh] mb-4 md:mb-0 basis-[100%] md:basis-[73%] relative border-2 border-primary rounded-md flex flex-col items-center justify-start p-4 pb-20'>
+            <div className='flex items-start justify-between'>
+                <div className='relative min-h-[50vh] md:min-h-[90vh] overflow-y-scroll mb-4 p-4 md:mb-0 w-[calc(100vw-450px)] border-2 border-primary rounded-md flex flex-col items-center justify-start'>
                     {data[active[0]][active[1]].content}
-                    <div className="w-full absolute bottom-5 left-0 px-4 flex items-center justify-end">
-                        <Button className="ml-auto min-w-[150px]" title={
-                            finishFLS ? 'get my certificate' :
-                                <div className="rotate-[90deg]"><MdKeyboardArrowUp size={27} /></div>
-                        } onClick={finishFLS ? onGetCertificate : onClickNextButton} />
-                    </div>
+                    <Button className="ml-auto min-w-[150px] mt-4" title={
+                        finishFLS ? 'get my certificate' :
+                            <div className="rotate-[90deg]"><MdKeyboardArrowUp size={27} /></div>
+                    } onClick={finishFLS ? onGetCertificate : onClickNextButton} />
                 </div>
-                <div className='basis-[100%] md:basis-[25%]'>
-                    <h3 className="font-[600]">MHPSS</h3>
-                    <div className="">
-                        {data.map((_, index) => {
-                            return (
-                                <Disclosure key={'d' + index}>
-                                    {({ open }) => (
-                                        <>
-                                            <Disclosure.Button className="flex w-full justify-between py-1 text-left text-sm font-medium border-b-[1.5px] border-primary">
-                                                <div>
-                                                    <span className="block text-primary text-md">Day {index + 1}</span>
-                                                    <span className="block text-[11px]">1/5</span>
-                                                </div>
-                                                <MdKeyboardArrowUp
-                                                    className={`${!open ? 'rotate-180 transform' : ''
-                                                        } h-7 w-7 text-primary`}
-                                                />
-                                            </Disclosure.Button>
-                                            <Disclosure.Panel className="py-4 flex flex-col gap-y-4">
-                                                {data[index].map((elem, idx) => {
-                                                    return (
-                                                        <div key={'dp' + idx} className="flex items-center gap-x-4">
-                                                            <button onClick={() => {
-                                                                setActive([index, idx])
-                                                            }} className={clsx("flex items-center justify-center border border-lightDark bg-white rounded-full w-5 h-5", {
-                                                                ['!bg-primary']: tick.includes(elem.title),
-                                                                ['pointer-events-none']: !theme.includes(elem.title)
-                                                            })}>
-                                                                <img className="w-2 h-2" src="/images/tick-icon.svg" alt="" />
-                                                            </button>
-                                                            <p className={clsx("", {
-                                                                ['text-lightDark']: !theme.includes(elem.title),
-                                                                ['text-primary']: theme.includes(elem.title)
-                                                            })}>{elem.title}</p>
-                                                        </div>
-                                                    )
-                                                })}
+                <div className="w-[400px] fixed right-0 mr-4">
+                    <div className=''>
+                        <div className="flex justify-end">
+                            <CourseProgressLine />
+                        </div>
+                        <h3 className="font-[600]">MHPSS</h3>
+                        <div className="">
+                            {data.map((_, index) => {
+                                return (
+                                    <Disclosure key={'d' + index}>
+                                        {({ open }) => (
+                                            <>
+                                                <Disclosure.Button className="flex w-full justify-between py-1 text-left text-sm font-medium border-b-[1.5px] border-primary">
+                                                    <div>
+                                                        <span className="block text-primary text-md">Day {index + 1}</span>
+                                                        <span className="block text-[11px]">1/5</span>
+                                                    </div>
+                                                    <MdKeyboardArrowUp
+                                                        className={`${!open ? 'rotate-180 transform' : ''
+                                                            } h-7 w-7 text-primary`}
+                                                    />
+                                                </Disclosure.Button>
+                                                <Disclosure.Panel className="py-4 flex flex-col gap-y-4">
+                                                    {data[index].map((elem, idx) => {
+                                                        return (
+                                                            <div key={'dp' + idx} className="flex items-center gap-x-4">
+                                                                <button onClick={() => {
+                                                                    setActive([index, idx])
+                                                                }} className={clsx("flex items-center justify-center border border-lightDark bg-white rounded-full w-5 h-5", {
+                                                                    ['!bg-primary']: tick.includes(elem.title),
+                                                                    ['pointer-events-none']: !theme.includes(elem.title)
+                                                                })}>
+                                                                    <img className="w-2 h-2" src="/images/tick-icon.svg" alt="" />
+                                                                </button>
+                                                                <p className={clsx("", {
+                                                                    ['text-lightDark']: !theme.includes(elem.title),
+                                                                    ['text-primary']: theme.includes(elem.title)
+                                                                })}>{elem.title}</p>
+                                                            </div>
+                                                        )
+                                                    })}
 
-                                            </Disclosure.Panel>
-                                        </>
-                                    )}
-                                </Disclosure>
-                            )
-                        })}
+                                                </Disclosure.Panel>
+                                            </>
+                                        )}
+                                    </Disclosure>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
     )

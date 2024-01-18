@@ -7,18 +7,13 @@ const Info = () => {
     <section className="container mx-auto px-4 py-8">
       <div className="md:h-[500px] flex items-start justify-between flex-wrap">
         <div className="flex flex-col gap-y-4 basis-[100%] md:basis-[43%]">
-          <h2 className="text-black text-3xl mb-6 font-[600]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            consequuntur qui impedit.
-          </h2>
+          <h2 className="text-black text-3xl mb-6 font-[600]">The aim of the MHPSS training</h2>
           <p className="text-lightDark text-md">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis
-            molestias recusandae, quaerat esse adipisci excepturi magnam
-            officia. Error voluptatibus consequuntur neque, rem velit
-            exercitationem deleniti natus architecto eligendi officiis vero
-            veniam, corrupti numquam a recusandae non sit debitis, incidunt
-            odit? Distinctio similique neque laborum magnam ipsum sunt, nostrum
-            eos exercitationem?
+            This training is designed for Turkmenistan to support the integration of the MHPSS into the peacebuilding activities promoted by UNDP. The target audience of the training is first-line professionals working with youth and women (people who are at the first line of contact with people – teachers, social workers and social service providers, law enforcement, doctors, civil society activists, etc.).
+            <br />
+            <br />
+            The aim of the training is to build national capacity for providing community-based MHPSS to vulnerable youth and women as a preventive measure.
+
           </p>
           {/* <p className="text-lightDark text-md">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis

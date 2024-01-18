@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { create } from "zustand";
 import { setUser } from "../lib/userData";
 import i18n from "../i18n";
+import { saveAs } from "file-saver";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -28,6 +29,7 @@ interface Action {
   registerUserApi: (data: RegisterProps) => void;
   loginUserApi: (data: RegisterProps) => void;
   editUserApi: (data: RegisterProps) => void;
+  downloadPdfApi: () => void;
   getCertifiacteApi: (fullname: string, email: string) => void;
   setIsModalActive: () => void;
   setIsEditModalActive: () => void;
@@ -144,5 +146,27 @@ export const useUserStore = create<State & Action>((set) => ({
     } finally {
       set({ getCertifiacteLoading: false });
     }
+  },
+  downloadPdfApi: async () => {
+    const getPdf = async () => {
+      return await axios.get(`${BASE_URL}/download-pdf-1`, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        responseType: "arraybuffer",
+      });
+    };
+
+    //
+
+    const printPdf = async () => {
+      const { data } = await getPdf();
+      const blob = new Blob([data], { type: "application/pdf" });
+      saveAs(blob, "success.pdf");
+    };
+
+    //
+
+    printPdf();
   },
 }));
