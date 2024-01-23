@@ -7,7 +7,7 @@ import { useUserStore } from '../stores/useUserStore';
 import Input from './Input';
 import Button from './Button';
 import Select from './Select';
-import { getUserEmail, getUserFullname, getUserGender, getUserId, getUserRegion } from '../lib/userData';
+import { getUserEmail, getUserFullname, getUserGender, getUserRegion } from '../lib/userData';
 
 interface FormProps {
     fullname: string;
@@ -32,7 +32,6 @@ const EditProfileForm = () => {
             email,
             region,
             gender,
-            id: getUserId()!
         }
         editUserApi(data)
     }

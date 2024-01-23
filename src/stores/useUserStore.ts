@@ -71,7 +71,7 @@ export const useUserStore = create<State & Action>((set) => ({
       setUser({
         fullname: response.data.fullname,
         email: response.data.email,
-        id: response.data._id,
+        certificate_key: response.data.certificate_key,
         region: response.data.region,
         gender: response.data.gender,
       });
@@ -100,7 +100,7 @@ export const useUserStore = create<State & Action>((set) => ({
       setUser({
         fullname: response.data.fullname,
         email: response.data.email,
-        id: response.data._id,
+        certificate_key: response.data.certificate_key,
         region: response.data.region,
         gender: response.data.gender,
       });
@@ -116,15 +116,17 @@ export const useUserStore = create<State & Action>((set) => ({
   editUserApi: async (data) => {
     set({ editLoading: true });
     try {
-      const response = await axios.patch(`${BASE_URL}/signup/update`, data, {
+      const response = await axios.put(`${BASE_URL}/update`, data, {
         headers: {
           "Content-Type": "application/json",
         },
       });
+      console.log(response.data);
+
       setUser({
         fullname: response.data.fullname,
         email: response.data.email,
-        id: response.data._id,
+        certificate_key: response.data.certificate_key,
         region: response.data.region,
         gender: response.data.gender,
       });
