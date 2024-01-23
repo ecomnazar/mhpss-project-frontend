@@ -5,9 +5,10 @@ import Logo from "./Logo";
 import { languages } from "../lib/constants/languages";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { getUserEmail } from "../lib/userData";
+import { getUserEmail, removeUser } from "../lib/userData";
 import toast from "react-hot-toast";
 import { useUserStore } from "../stores/useUserStore";
+import Button from "./Button";
 
 const MobileHeader = () => {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -15,6 +16,9 @@ const MobileHeader = () => {
     const navigate = useNavigate()
     const email = getUserEmail()
     const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
+    const setIsActiveEditModal = useUserStore((state) => state.setIsEditModalActive)
+
+
     const onChangeMenu = () => {
         setIsOpen(!isOpen)
     }
@@ -37,6 +41,23 @@ const MobileHeader = () => {
             toast('Please login first!')
             setIsActiveModal()
         }
+    }
+
+    const onEditProfile = () => {
+        setIsOpen(false)
+        setIsActiveEditModal()
+    }
+
+    const onLogout = () => {
+        setIsOpen(false)
+        removeUser()
+        navigate('/')
+        toast.success('Logout success!')
+    }
+
+    const onRegister = () => {
+        setIsOpen(false)
+        setIsActiveModal()
     }
 
     return (
@@ -67,6 +88,13 @@ const MobileHeader = () => {
                                 <p>View course</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
                             </button>
+                            {email ? <button onClick={onEditProfile} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
+                                <p>Profile</p>
+                                <img className="text-md" src="/images/arrow-right.svg" alt="" />
+                            </button> : <button onClick={onRegister} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
+                                <p>Register</p>
+                                <img className="text-md" src="/images/arrow-right.svg" alt="" />
+                            </button>}
                             {/* <button className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
                                 <p>Profile</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
@@ -74,15 +102,19 @@ const MobileHeader = () => {
                         </div>
                     </div>
                 </div>
-                <ul className="ml-auto flex space-x-2">
-                    {languages.map((lng) => {
-                        return (
-                            <li key={lng}><button onClick={() => changeLanguage(lng)} className={clsx("py-2.5 px-4 rounded-md text-sm text-black", {
-                                ['bg-primary text-white']: lng === i18n.language
-                            })}>{lng.toUpperCase()}</button></li>
-                        )
-                    })}
-                </ul>
+                <div className="flex items-center justify-between">
+                    {email && <Button title={'Logout'} onClick={onLogout} className="bg-red-400" />}
+                    <ul className="ml-auto flex space-x-2">
+                        {languages.map((lng) => {
+                            return (
+                                <li key={lng}><button onClick={() => changeLanguage(lng)} className={clsx("py-2.5 px-4 rounded-md text-sm text-black", {
+                                    ['bg-primary text-white']: lng === i18n.language
+                                })}>{lng.toUpperCase()}</button></li>
+                            )
+                        })}
+                    </ul>
+                </div>
+
             </div>
         </div>
     )

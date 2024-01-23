@@ -49,7 +49,7 @@ const EditProfileForm = () => {
     return (
         <>
             <div className='flex items-center justify-between'>
-                <h2 className='text-black font-[600] text-[18px]'>Edit profile</h2>
+                <h2 className='text-black font-[600] text-[18px]'>Profile</h2>
                 <button onClick={setIsEditModalActive}>
                     <AiOutlineClose size={20} />
                 </button>

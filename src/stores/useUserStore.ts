@@ -131,8 +131,10 @@ export const useUserStore = create<State & Action>((set) => ({
         gender: response.data.gender,
       });
       set({ isEditModalActive: false });
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
       toast.success(i18n.t("editsuccess"));
-      window.location.reload();
       return response.data;
     } catch (error) {
       //@ts-ignore
