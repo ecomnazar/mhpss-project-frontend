@@ -45,6 +45,20 @@
     "youWillLearn4": "Психические состояния",
     "youWillLearn5": "Психическое здоровье и психосоциальные навыки",
 
+    "signup": "Зарегистрироваться",
+    "signin": "Войти",
+    "alreadyhaveanaccount": "Уже есть аккаунт?",
+    "donthaveanaccount": "Нет аккаунта?",
+    "fullname": "Полное имя",
+    "email": "Почта",
+    "password": "Пароль",
+    "region": "Регион",
+    "gender": "Пол",
+    "male": "Мужской",
+    "female": "Женский",
+    "prefernotsay": "предпочитаю не говорить",
+    
+
     "hi": "Privet!",
     "useralreadyexists": "Пользователь с такой почтой уже существует",
     "usernotfound": "Пользователь с такой почтой не найден",

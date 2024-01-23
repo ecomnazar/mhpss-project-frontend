@@ -13,7 +13,7 @@ const Select = ({ content, defaultValue, active, setActive }: Props) => {
     return (
         <Listbox>
             <div className="relative">
-                <Listbox.Button className={clsx("border border-[#EDEDED] text-black/50 relative w-full cursor-pointer rounded-lg p-2.5 text-left focus-visible:ring-offset-primary/70 sm:text-sm", {
+                <Listbox.Button className={clsx("border border-[#EDEDED] text-black/50 relative w-full cursor-pointer rounded-lg p-2.5 text-left focus-visible:ring-offset-primary/70 text-[14px] sm:text-sm", {
                     ['!text-black']: active
                 })}>
                     {/* <img src="/images/language-icon.svg" alt="" /> */}

@@ -7,7 +7,7 @@ import { useUserStore } from '../stores/useUserStore';
 import Input from './Input';
 import Button from './Button';
 import Select from './Select';
-import Logo from './Logo';
+import { useTranslation } from 'react-i18next';
 
 interface FormProps {
     fullname: string;
@@ -20,6 +20,7 @@ interface Props {
 }
 
 const SignUpForm = ({ onChangeForm }: Props) => {
+    const { t } = useTranslation()
     const { register, handleSubmit, formState: { errors } } = useForm<FormProps>({
         defaultValues: {
             email: '',
@@ -43,7 +44,6 @@ const SignUpForm = ({ onChangeForm }: Props) => {
             date
         }
         registerUserApi(data)
-        Logo
     }
 
     return (
@@ -55,14 +55,14 @@ const SignUpForm = ({ onChangeForm }: Props) => {
                 </button>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-2 mt-6'>
-                <Input register={register('fullname', { required: true })} placeholder='Full name' errorType={errors.fullname?.type} />
-                <Input register={register('email', { required: true })} placeholder={'Email'} type='email' errorType={errors.email?.type} />
-                <Input register={register('password', { required: true })} placeholder={'Password'} type='password' errorType={errors.password?.type} />
-                <Select active={region} setActive={setRegion} content={regions} defaultValue='Region' />
-                <Select active={gender} setActive={setGender} content={genders} defaultValue='Gender' />
-                <Button disabled={!region || !gender} isLoading={isLoading} className="!bg-primary w-full mt-2" title={"Sign up"} />
+                <Input register={register('fullname', { required: true })} placeholder={t('fullname') + ' / Nazar Jumayew'} errorType={errors.fullname?.type} />
+                <Input register={register('email', { required: true })} placeholder={t('email')} type='email' errorType={errors.email?.type} />
+                <Input register={register('password', { required: true })} placeholder={t('password')} type='password' errorType={errors.password?.type} />
+                <Select active={region} setActive={setRegion} content={regions} defaultValue={t('region')} />
+                <Select active={gender} setActive={setGender} content={genders} defaultValue={t('gender')} />
+                <Button disabled={!region || !gender} isLoading={isLoading} className="!bg-primary w-full mt-2" title={t('signup')} />
             </form>
-            <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>Already have an account? <span className='text-primary'>Log in</span> </button>
+            <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>{t('alreadyhaveanaccount')} <span className='text-primary'>{t('signin')}</span> </button>
         </>
     )
 }
