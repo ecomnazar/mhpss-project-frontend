@@ -8,6 +8,7 @@ import Input from './Input';
 import Button from './Button';
 import Select from './Select';
 import { useTranslation } from 'react-i18next';
+import toast from 'react-hot-toast';
 
 interface FormProps {
     fullname: string;
@@ -44,7 +45,11 @@ const SignUpForm = ({ onChangeForm }: Props) => {
             gender,
             date
         }
-        registerUserApi(data)
+        if (!gender || !region) {
+            toast.error('Заполните все поля')
+        } else {
+            registerUserApi(data)
+        }
     }
 
     return (
@@ -61,7 +66,7 @@ const SignUpForm = ({ onChangeForm }: Props) => {
                 <Input register={register('password', { required: true })} placeholder={t('password')} type='password' errorType={errors.password?.type} />
                 <Select active={region} setActive={setRegion} content={regions} defaultValue={t('region')} />
                 <Select active={gender} setActive={setGender} content={genders} defaultValue={t('gender')} />
-                <Button disabled={!region || !gender} isLoading={isLoading} className="!bg-primary w-full mt-2" title={t('signup')} />
+                <Button disabled={!region} isLoading={isLoading} className="!bg-primary w-full mt-2" title={t('signup')} />
             </form>
             <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>{t('alreadyhaveanaccount')} <span className='text-primary'>{t('signin')}</span> </button>
         </>

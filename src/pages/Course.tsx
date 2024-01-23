@@ -29,10 +29,6 @@ export const data = [
             title: 'Training Delivery Practice 1',
             content: <Day1Theme2 />
         },
-        {
-            title: 'Test',
-            content: <Day1Theme2 />
-        },
     ],
     [
         {
@@ -76,43 +72,33 @@ const CoursePage = () => {
 
     const onClickNextButton = () => {
         window.scrollTo(0, 0)
+        // if works when all lessons finished
         if (data.length === active[0] + 1 && data[active[0]].length === active[1] + 1) {
-            localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
-            // localStorage.setItem('activeDay', (active[0] + 1).toString())
-            //@ts-ignore
-            setTick(tickFLS.split('::'))
-            localStorage.setItem('finish', 'true')
+            navigate('/test-page')
         } else {
-
             setTick([...tick, data[active[0]][active[1]].title])
-
-
+            // when first open page works if
             if (!tickFLS) {
                 localStorage.setItem('tick', data[active[0]][active[1]].title + '::')
             } else {
                 localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
             }
 
-            // 
-
+            // if works when finished all lessons of day
             if (data[active[0]].length === active[1] + 1) {
-                setTheme([...theme, data[active[0] + 1][0].title])
-                localStorage.setItem('theme', themeFLS + data[active[0] + 1][0].title + '::')
-
+                // setTheme([...theme, data[active[0] + 1][0].title])
+                // localStorage.setItem('theme', themeFLS + data[active[0] + 1][0].title + '::')
+                // // 
+                // setActive([active[0] + 1, 0])
+                // localStorage.setItem('activeDay', (active[0] + 1).toString())
+                // localStorage.setItem('activeDayTheme', '0')
+                navigate('/test-page')
             } else {
                 themeFLS ?
                     localStorage.setItem('theme', themeFLS + data[active[0]][active[1] + 1].title + '::') :
                     localStorage.setItem('theme', theme[0] + data[active[0]][active[1] + 1].title)
                 setTheme([...theme, data[active[0]][active[1] + 1].title])
-            }
-
-            // 
-
-            if (data[active[0]].length === active[1] + 1) {
-                setActive([active[0] + 1, 0])
-                localStorage.setItem('activeDay', (active[0] + 1).toString())
-                localStorage.setItem('activeDayTheme', '0')
-            } else {
+                // 
                 setActive([active[0], active[1] + 1])
                 localStorage.setItem('activeDayTheme', (active[1] + 1).toString())
             }

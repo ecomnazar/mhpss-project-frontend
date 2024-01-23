@@ -1,11 +1,27 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
-import { setUser } from "../lib/userData";
+import { getUserEmail, setUser } from "../lib/userData";
 import i18n from "../i18n";
 import { saveAs } from "file-saver";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+interface User {
+  certificate_key: null | string;
+  date: null | string;
+  email: string;
+  finish_date: null | string;
+  fullname: string;
+  gender: string;
+  id: number;
+  region: string;
+}
+
+interface UpdateFinishProps {
+  email: string;
+  date: string;
+}
 
 interface RegisterProps {
   id?: string;
@@ -17,6 +33,7 @@ interface RegisterProps {
 }
 
 interface State {
+  users: User[];
   registerLoading: boolean;
   loginLoading: boolean;
   editLoading: boolean;
@@ -29,14 +46,18 @@ interface Action {
   registerUserApi: (data: RegisterProps) => void;
   loginUserApi: (data: RegisterProps) => void;
   editUserApi: (data: RegisterProps) => void;
+  getUsers: () => void;
+  updateFinishDate: () => void;
   downloadPdfApi: () => void;
   getCertifiacteApi: (fullname: string, email: string) => void;
   setIsModalActive: () => void;
   setIsModalDisable: () => void;
   setIsEditModalActive: () => void;
+  setIsEditModalDisable: () => void;
 }
 
 export const useUserStore = create<State & Action>((set) => ({
+  users: [],
   registerLoading: false,
   loginLoading: false,
   editLoading: false,
@@ -56,7 +77,14 @@ export const useUserStore = create<State & Action>((set) => ({
     }));
   },
   setIsEditModalActive: () => {
-    set((state) => ({ isEditModalActive: !state.isEditModalActive }));
+    set(() => ({
+      isEditModalActive: true,
+    }));
+  },
+  setIsEditModalDisable: () => {
+    set(() => ({
+      isEditModalActive: false,
+    }));
   },
   registerUserApi: async (data: RegisterProps) => {
     set({ registerLoading: true });
@@ -121,8 +149,7 @@ export const useUserStore = create<State & Action>((set) => ({
           "Content-Type": "application/json",
         },
       });
-      console.log(response.data);
-
+      set({ isEditModalActive: false });
       setUser({
         fullname: response.data.fullname,
         email: response.data.email,
@@ -130,10 +157,6 @@ export const useUserStore = create<State & Action>((set) => ({
         region: response.data.region,
         gender: response.data.gender,
       });
-      set({ isEditModalActive: false });
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
       toast.success(i18n.t("editsuccess"));
       return response.data;
     } catch (error) {
@@ -182,5 +205,34 @@ export const useUserStore = create<State & Action>((set) => ({
     //
 
     printPdf();
+  },
+  getUsers: async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}`);
+      set({ users: response.data });
+      return response.data;
+    } catch (error) {}
+  },
+  updateFinishDate: async () => {
+    const date =
+      new Date().getFullYear() +
+      "-" +
+      new Date().getDate() +
+      "-" +
+      new Date().getDay();
+    const email = getUserEmail();
+    const data = {
+      date,
+      email,
+    };
+
+    try {
+      const response = await axios.put(`${BASE_URL}/updateFinishDate`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return response.data;
+    } catch (error) {}
   },
 }));

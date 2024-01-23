@@ -11,7 +11,7 @@ const AboutPage = () => {
 
     return (
         <>
-            <section className="container mx-auto px-4 mt-8">
+            <section className="container mx-auto px-4 mt-4">
                 <h2 className="text-black font-[600] text-xl">{t('info.title')}</h2>
                 <p className="text-sm sm:text-[18px]">{t('info.desc')}</p>
                 <img className="my-4" src="/images/about-page-image.png" />
@@ -24,7 +24,7 @@ const AboutPage = () => {
                             <li className="text-sm sm:text-[18px] font-[500]">{t('info.courseFor')}:</li>
                             {Array.from({ length: 7 }).map((_, index) => {
                                 return (
-                                    <li className="text-sm sm:text-[15px]">{`${index + 1}. ` + t(`info.courseFor${index + 1}`)}</li>
+                                    <li key={index} className="text-sm sm:text-[15px]">{`${index + 1}. ` + t(`info.courseFor${index + 1}`)}</li>
                                 )
                             })}
                         </ul>
@@ -37,7 +37,7 @@ const AboutPage = () => {
                             <li className="text-sm sm:text-[18px] font-[500]">{t('info.target')}:</li>
                             {Array.from({ length: 4 }).map((_, index) => {
                                 return (
-                                    <li className="text-sm sm:text-[15px]">{`${index + 1}. ` + t(`info.target${index + 1}`)}</li>
+                                    <li key={index} className="text-sm sm:text-[15px]">{`${index + 1}. ` + t(`info.target${index + 1}`)}</li>
                                 )
                             })}
                         </ul>

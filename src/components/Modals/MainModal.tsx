@@ -10,9 +10,13 @@ interface Props {
 
 const MainModal = ({ isOpen, children }: Props) => {
     const setIsModalDisable = useUserStore((state) => state.setIsModalDisable)
+    const setIsEditModalDisable = useUserStore((state) => state.setIsEditModalDisable)
+
+
     const closeModal = () => {
         // setIsOpen()
         setIsModalDisable()
+        setIsEditModalDisable()
     }
 
     return (

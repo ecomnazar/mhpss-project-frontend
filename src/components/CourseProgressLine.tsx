@@ -9,7 +9,7 @@ const CourseProgressLine = () => {
 
     return (
         <div className="flex items-center gap-x-4">
-            <div className="relative bg-[#EDEDED] w-full md:w-[200px] h-[10px] rounded-md">
+            <div className="relative bg-[#EDEDED] w-[170px] md:w-[200px] h-[10px] rounded-md">
                 {/*  */}
                 <div style={{ width: size + '%' }} className="absolute top-0 left-0  rounded-md w-1/2 bg-primary h-[10px]"></div>
                 {/*  */}

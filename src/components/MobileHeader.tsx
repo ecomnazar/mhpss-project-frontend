@@ -18,7 +18,6 @@ const MobileHeader = () => {
     const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
     const setIsActiveEditModal = useUserStore((state) => state.setIsEditModalActive)
 
-
     const onChangeMenu = () => {
         setIsOpen(!isOpen)
     }
@@ -57,7 +56,7 @@ const MobileHeader = () => {
 
     const onRegister = () => {
         setIsOpen(false)
-        setIsActiveModal()
+        setIsActiveModal
     }
 
     return (
@@ -71,9 +70,7 @@ const MobileHeader = () => {
             })}>
                 <div className="flex-1">
                     <div className="flex items-center justify-between">
-                        <button onClick={() => navigateTo('/')}>
-                            <Logo />
-                        </button>
+                        <Logo fn={() => setIsOpen(false)} />
                         <button onClick={onChangeMenu}>
                             <CgClose size={32} />
                         </button>

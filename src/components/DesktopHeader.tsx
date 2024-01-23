@@ -16,6 +16,7 @@ const DesktopHeader = () => {
     const region = getUserRegion()
     const navigate = useNavigate()
     const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
+    const isActiveEditModal = useUserStore((state) => state.isEditModalActive)
     const setIsActiveEditModal = useUserStore((state) => state.setIsEditModalActive)
     const registerLoading = useUserStore((state) => state.registerLoading)
     const loginLoading = useUserStore((state) => state.loginLoading)
@@ -43,7 +44,7 @@ const DesktopHeader = () => {
     }
 
     React.useEffect(() => {
-    }, [registerLoading, loginLoading])
+    }, [registerLoading, loginLoading, isActiveEditModal])
 
     return (
         <div className='flex items-center gap-x-8'>

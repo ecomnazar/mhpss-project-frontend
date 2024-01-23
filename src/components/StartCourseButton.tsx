@@ -10,6 +10,8 @@ const StartCourseButton = () => {
     const navigate = useNavigate()
     const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
     const isActiveModal = useUserStore((state) => state.isModalActive)
+    const activeDay = localStorage.getItem('activeDay')
+
     const { t } = useTranslation()
 
     const email = getUserEmail()
@@ -28,7 +30,7 @@ const StartCourseButton = () => {
     }, [isActiveModal])
 
     return (
-        <Button onClick={handleClick} className="!bg-primary !block" title={t('startCourse')} />
+        <Button onClick={handleClick} className="!bg-primary !block" title={activeDay ? t('continueCourse') : t('startCourse')} />
     )
 }
 

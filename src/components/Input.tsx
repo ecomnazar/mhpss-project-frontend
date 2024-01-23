@@ -11,10 +11,10 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
     errorType?: string | null;
 }
 
-const Input = ({ placeholder, className, register, type = 'text', errorType }: Props) => {
+const Input = ({ placeholder, className, register, type = 'text', errorType, ...props }: Props) => {
     return (
         <>
-            <input type={type}  {...register} className={clsx('border border-[#EDEDED] !text-black placeholder:text-black/50 w-full p-2.5 text-sm rounded-md', className, {
+            <input type={type} {...props} {...register} className={clsx('border border-[#EDEDED] !text-black placeholder:text-black/50 w-full p-2.5 text-sm rounded-md', className, {
                 ['!outline-red-500 border-red-500 outline-0']: errorType
             })} placeholder={placeholder} />
             {/* {errorType && <p className='text-[12px] text-red-600'>Required field</p>} */}

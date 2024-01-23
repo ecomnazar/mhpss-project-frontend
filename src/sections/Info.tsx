@@ -63,7 +63,7 @@ const Info = () => {
                 <ul className="flex flex-col gap-y-2">
                   {Array.from({ length: 5 }).map((_, index) => {
                     return (
-                      <li className="text-[14px] text-lightDark">{t(`youWillLearn${index + 1}`)}</li>
+                      <li key={index} className="text-[14px] text-lightDark">{t(`youWillLearn${index + 1}`)}</li>
                     )
                   })}
                 </ul>

@@ -9,6 +9,8 @@ import AboutPage from './pages/AboutPage.tsx'
 import MainLayout from './components/Layouts/MainLayout.tsx'
 import CoursePage from './pages/Course.tsx'
 import CertificatePage from './pages/CertificatePage.tsx'
+import AdminPanelPage from './pages/AdminPanelPage.tsx'
+import TestPage from './pages/TestPage.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -18,9 +20,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path='/' element={<MainPage />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='/about' element={<AboutPage />} />
+          <Route path='/mhpss-admin' element={<AdminPanelPage />} />
         </Route>
         <Route path='/course' element={<CoursePage />} />
         <Route path='/certificate' element={<CertificatePage />} />
+        <Route path='/test-page' element={<TestPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
