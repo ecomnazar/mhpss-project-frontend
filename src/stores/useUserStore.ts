@@ -51,7 +51,7 @@ export const useUserStore = create<State & Action>((set) => ({
   registerUserApi: async (data: RegisterProps) => {
     set({ registerLoading: true });
     try {
-      const response = await axios.post(`${BASE_URL}/signup`, data, {
+      const response = await axios.post(`${BASE_URL}`, data, {
         headers: {
           "Content-Type": "application/json",
         },

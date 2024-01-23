@@ -1,84 +1,72 @@
 import { Link } from "react-router-dom";
 import CourseProgressLine from "../components/CourseProgressLine";
 import StartCourseButton from "../components/StartCourseButton";
+import { useTranslation } from "react-i18next";
 
 const Info = () => {
+  const { t } = useTranslation()
   return (
-    <section className="container mx-auto px-4 py-8">
-      <div className="md:h-[500px] flex items-start justify-between flex-wrap">
+    <section className="container mx-auto px-4 py-8 !pt-0 md:!pt-8">
+      <div className="flex items-start justify-between flex-wrap flex-col-reverse md:flex-row">
         <div className="flex flex-col gap-y-4 basis-[100%] md:basis-[43%]">
-          <h2 className="text-black text-3xl mb-6 font-[600]">The aim of the MHPSS training</h2>
-          <p className="text-lightDark text-md">
-            This training is designed for Turkmenistan to support the integration of the MHPSS into the peacebuilding activities promoted by UNDP. The target audience of the training is first-line professionals working with youth and women (people who are at the first line of contact with people – teachers, social workers and social service providers, law enforcement, doctors, civil society activists, etc.).
-            <br />
-            <br />
-            The aim of the training is to build national capacity for providing community-based MHPSS to vulnerable youth and women as a preventive measure.
-
-          </p>
-          {/* <p className="text-lightDark text-md">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis
-            molestias recusandae, quaerat esse adipisci excepturi magnam
-            officia. Error voluptatibus consequuntur neque, rem velit
-            exercitationem deleniti natus architecto eligendi officiis vero
-            veniam, corrupti numquam a recusandae non sit debitis, incidunt
-            odit? Distinctio similique neque laborum magnam ipsum sunt, nostrum
-            eos exercitationem?
-          </p> */}
-          <Link to={'/about'} className="text-primary" >
-            More about Mental Health
-          </Link>
+          <h2 className="text-black text-xl md:mb-6 font-[600]">{t('info.title')}</h2>
+          <p className="text-lightDark text-md">{t('info.desc')}</p>
+          <Link to={'/about'} className="text-primary mt-auto">{t('info.secondTitle')}</Link>
         </div>
         <div className="h-full basis-[100%] mt-4 md:mt-0 md:basis-[53%]">
           <img
-            className="w-full h-full object-fit object-cover rounded-md"
+            className="w-screen h-[200px] sm:h-[300px] mb-4 object-fit object-cover rounded-md"
             src="/images/image-1.png"
           />
         </div>
       </div>
-      <div className="md:h-[500px] flex flex-col md:flex-row items-start justify-between flex-wrap mt-12">
+      <div className="flex flex-col md:flex-row items-start justify-between flex-wrap mt-12">
         <div className="basis-[100%] md:basis-[53%] h-full">
           <img
-            className="w-full h-full object-fit object-cover rounded-md"
+            className="w-screen h-[200px] sm:h-[300px] md:h-[600px] object-cover object-center rounded-md"
             src="/images/image-2.png"
-            alt=""
           />
         </div>
         <div className="basis-[100%] md:basis-[43%] h-full">
-          <h2 className="text-black text-2xl mb-6 font-[600] mt-4 md:mt-0">
-            Mental Health & Psychosocial Support Online Course
+          <h2 className="text-black text-xl mb-4 font-[600] mt-4 md:mt-0">
+            {t('mainPage.mainText')}
           </h2>
-
           <CourseProgressLine />
-
           <div id="info" className="flex flex-col gap-y-3 mb-4">
             <div>
-              <h3 className="font-[600] text-[15px]">Duration:</h3>
+              <h3 className="font-[600] text-[15px]">{t('duration')}:</h3>
               <div className="flex items-center gap-x-2 mt-1">
                 <img className="w-[17px]" src="/images/tick.svg" alt="" />
                 <p className="text-[14px] text-lightDark">
-                  No more than 60 minutes
+                  20 {t('hours')}
                 </p>
               </div>
             </div>
             <div>
-              <h3 className="font-[600] text-[15px]">Pace:</h3>
+              <h3 className="font-[600] text-[15px]">{t('pace')}</h3>
               <div className="flex items-center gap-x-2 mt-1">
                 <img className="w-[17px]" src="/images/tick.svg" alt="" />
-                <p className="text-[14px] text-lightDark">Self paced</p>
+                <p className="text-[14px] text-lightDark">{t('paceType')}</p>
               </div>
             </div>
             <div>
-              <h3 className="font-[600] text-[15px]">Lorem:</h3>
+              <h3 className="font-[600] text-[15px]">{t('certification')}</h3>
               <div className="flex items-center gap-x-2 mt-1">
                 <img className="w-[17px]" src="/images/tick.svg" alt="" />
-                <p className="text-[14px] text-lightDark">Certificate available on completion</p>
+                <p className="text-[14px] text-lightDark">{t('downloadCertificate')}</p>
               </div>
             </div>
             <div>
-              <h3 className="font-[600] text-[15px]">You will learn:</h3>
+              <h3 className="font-[600] text-[15px]">{t('youWillLearn')}</h3>
               <div className="flex items-start gap-x-2 mt-1">
-                <img className="w-[17px]" src="/images/tick.svg" alt="" />
-                <p className="text-[14px] text-lightDark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                {/* <img className="w-[17px]" src="/images/tick.svg" alt="" /> */}
+                <ul className="flex flex-col gap-y-2">
+                  {Array.from({ length: 5 }).map((_, index) => {
+                    return (
+                      <li className="text-[14px] text-lightDark">{t(`youWillLearn${index + 1}`)}</li>
+                    )
+                  })}
+                </ul>
               </div>
             </div>
           </div>

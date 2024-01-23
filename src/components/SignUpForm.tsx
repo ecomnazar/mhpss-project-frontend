@@ -7,6 +7,7 @@ import { useUserStore } from '../stores/useUserStore';
 import Input from './Input';
 import Button from './Button';
 import Select from './Select';
+import Logo from './Logo';
 
 interface FormProps {
     fullname: string;
@@ -31,15 +32,18 @@ const SignUpForm = ({ onChangeForm }: Props) => {
     const isLoading = useUserStore((state) => state.registerLoading)
     const [region, setRegion] = React.useState('')
     const [gender, setGender] = React.useState('')
+    const date = new Date().getFullYear() + '-' + new Date().getDate() + '-' + new Date().getDay()
     const onSubmit: SubmitHandler<FormProps> = async ({ fullname, email, password }) => {
         const data = {
             fullname,
             email,
             password,
             region,
-            gender
+            gender,
+            date
         }
         registerUserApi(data)
+        Logo
     }
 
     return (

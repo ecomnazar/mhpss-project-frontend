@@ -48,10 +48,10 @@ const MobileHeader = () => {
                                 <p>View course</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
                             </button>
-                            <button className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
+                            {/* <button className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
                                 <p>Profile</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>

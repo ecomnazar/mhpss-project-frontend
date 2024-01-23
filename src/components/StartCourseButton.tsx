@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { getUserEmail } from '../lib/userData'
 import toast from 'react-hot-toast'
 import { useUserStore } from '../stores/useUserStore'
+import { useTranslation } from 'react-i18next'
 
 const StartCourseButton = () => {
     const navigate = useNavigate()
     const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
     const isActiveModal = useUserStore((state) => state.isModalActive)
+    const { t } = useTranslation()
 
     const email = getUserEmail()
 
@@ -26,7 +28,7 @@ const StartCourseButton = () => {
     }, [isActiveModal])
 
     return (
-        <Button onClick={handleClick} className="!bg-primary" title={"Start course"} />
+        <Button onClick={handleClick} className="!bg-primary !block" title={t('startCourse')} />
     )
 }
 

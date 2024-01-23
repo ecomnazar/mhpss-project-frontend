@@ -1,6 +1,10 @@
+import { useTranslation } from "react-i18next"
 import { useUserStore } from "../stores/useUserStore"
 
+const targetText = ['']
+
 const AboutPage = () => {
+    const { t } = useTranslation()
     const downloadPdfApi = useUserStore((state) => state.downloadPdfApi)
 
     const downloadPdf = () => {
@@ -10,56 +14,36 @@ const AboutPage = () => {
     return (
         <>
             <section className="container mx-auto px-4 mt-8">
-                <h2 className="font-[700] text-xl">The aim of the MHPSS training</h2>
+                <h2 className="text-black font-[600] text-xl">{t('info.title')}</h2>
+                <p className="text-sm sm:text-[18px]">{t('info.desc')}</p>
                 <img className="my-4" src="/images/about-page-image.png" />
                 {/* <iframe className="w-full h-[400px]" src="https://disk.gozle.com.tm/api/v1/file-entries/189702?shareable_link=9199&password=null&thumbnail="></iframe> */}
+                <h2 className="text-black font-[600] text-xl mb-4">{t('info.secondTitle')}</h2>
+                <div className="flex flex-col gap-y-4 mb-4">
+                    <div>
+                        {/* <h3 className="text-lg font-[600] mb-4">General Mental Health Competencies</h3> */}
+                        <ul className="flex flex-col gap-y-4">
+                            <li className="text-sm sm:text-[18px] font-[500]">{t('info.courseFor')}:</li>
+                            {Array.from({ length: 7 }).map((_, index) => {
+                                return (
+                                    <li className="text-sm sm:text-[15px]">{`${index + 1}. ` + t(`info.courseFor${index + 1}`)}</li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                </div>
                 <div className="flex flex-col gap-y-4">
                     <div>
                         {/* <h3 className="text-lg font-[600] mb-4">General Mental Health Competencies</h3> */}
                         <ul className="flex flex-col gap-y-4">
-                            <li className="text-sm sm:text-[15px]">
-                                This training is designed for Turkmenistan to support the integration of the MHPSS into the peacebuilding activities promoted by UNDP. The target audience of the training is first-line professionals working with youth and women (people who are at the first line of contact with people – teachers, social workers and social service providers, law enforcement, doctors, civil society activists, etc.).
-                                <br />
-                                <br />
-                                The aim of the training is to build national capacity for providing community-based MHPSS to vulnerable youth and women as a preventive measure.
-                                <br />
-                                <br />
-                                Objectives:
-                            </li>
-                            <li className="text-sm sm:text-[15px]">1. Build competencies of the participants in the area of mental health promotion, prevention and support.</li>
-                            <li className="text-sm sm:text-[15px]">2. Increase knowledge of evidence-based scalable mental health and psychosocial interventions.</li>
-                            <li className="text-sm sm:text-[15px]">3. Develop skills to provide basic MHPSS and referrals to vulnerable people, giving priority to youth-at-risk and women at the community level.</li>
-                            <li className="text-sm sm:text-[15px]">4. Improve participants' knowledge and skills in delivering the MHPSS training to relevant target audiences.</li>
-                            <li className="text-sm sm:text-[15px]">5. To receive participants' input, revise and update the training curriculum based on the feedback received.</li>
+                            <li className="text-sm sm:text-[18px] font-[500]">{t('info.target')}:</li>
+                            {Array.from({ length: 4 }).map((_, index) => {
+                                return (
+                                    <li className="text-sm sm:text-[15px]">{`${index + 1}. ` + t(`info.target${index + 1}`)}</li>
+                                )
+                            })}
                         </ul>
                     </div>
-
-                    {/*  */}
-                    {/* 
-                    <div>
-                        <h3 className="text-lg font-[600] mb-4">Specialized MHPSS Competencies</h3>
-                        <ul className="flex flex-col gap-y-1">
-                            <li className="text-sm sm:text-[15px]">1. Organizing and delivering mental health promotion activities to people in the communities.</li>
-                            <li className="text-sm sm:text-[15px]">2. Identifying signs of stress, trauma and other mental health conditions in individuals.</li>
-                            <li className="text-sm sm:text-[15px]">3. Building contact with individuals with signs of mental health conditions, validating their state, and using active listening and mental health competencies.</li>
-                            <li className="text-sm sm:text-[15px]">4. Providing basic mental health and psychosocial support for individuals (including women and girls who are victims of GBV) utilizing the evidence-based MHPSS instruments.</li>
-                            <li className="text-sm sm:text-[15px]">5. Providing the referral to specialized mental health and other services relevant to individuals' needs.</li>
-                            <li className="text-sm sm:text-[15px]">6. Providing follow-up communication with individuals who were provided with support and/or referral.</li>
-                            <li className="text-sm sm:text-[15px]">7. Taking care of one's mental health using evidence-based self-help tools and skills.</li>
-                        </ul>
-                    </div> */}
-
-                    {/*  */}
-
-                    {/* <div>
-                        <h3 className="text-lg font-[600] mb-4">Teaching and Training Competencies</h3>
-                        <ul className="flex flex-col gap-y-1">
-                            <li className="text-sm sm:text-[15px]">1. Assess the needs of the training participants.</li>
-                            <li className="text-sm sm:text-[15px]">2. Tailor the pre-developed training content and materials to the needs of the training participants.</li>
-                            <li className="text-sm sm:text-[15px]">3. Deliver training to the target audience, using interactive techniques and managing the participants' attention.</li>
-                            <li className="text-sm sm:text-[15px]">4. Change the content, teaching style and other training elements, taking into account participants` feedback.</li>
-                        </ul>
-                    </div> */}
                 </div>
 
                 {/*  */}

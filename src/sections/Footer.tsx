@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className='bg-primary text-white py-10'>
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-12 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-12">
                     <div>
                         <h4 className="text-white/60">MHPSS</h4>
                         <ul className="mt-4 flex flex-col gap-y-2">
@@ -37,10 +37,18 @@ const Footer = () => {
                 </div>
                 <div className="grid grid-col-1 mt-12 gap-y-4 sm:grid-cols-2">
                     <div className="flex items-center gap-x-4 sm:www">
-                        <FaInstagram size={25} />
-                        <TbBrandLinkedin size={28} />
-                        <AiOutlineYoutube size={28} />
-                        <img src="/images/imo-icon.svg" />
+                        <button>
+                            <FaInstagram size={25} />
+                        </button>
+                        <button>
+                            <TbBrandLinkedin size={28} />
+                        </button>
+                        <button>
+                            <AiOutlineYoutube size={28} />
+                        </button>
+                        <button>
+                            <img src="/images/imo-icon.svg" />
+                        </button>
                     </div>
                     <div className="sm:text-right">
                         <p className="text-white/60">© 2024, All rights reserved</p>

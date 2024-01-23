@@ -1,4 +1,50 @@
 {
+    "mainPage": {
+        "mainText": "MENTAL HEALTH AND PSYCHOSOCIAL SUPPORT ONLINE COURSE",
+        "mainTextDesc": "Learn about Mental health and psychosocial support (MHPSS), get general insight on mental health conditions and explore skills to provide mental health and psychosocial support"
+    },
+    "guarantee": {
+        "adaptabilityText": "Adaptability",
+        "adaptiveDesc": "The course is designed for first-line professionals in Turkmenistan working with youth and women.",
+        "relevanceText": "Relevance",
+        "relevanceDesc": "Explore and build skills to provide MHPSS via a practical online course",
+        "certificationText": "Certification",
+        "certificationDesc": "Download certificate of completion upon successful completion of all stages"
+    },
+
+    "info": {
+        "title": "The aim of the online MHPSS course:",
+        "desc": "To build capacities of helping professionals on providing community-based mental health and psychosocial support to vulnerable youth and women as a preventive measure",
+        "secondTitle": "More about online MHPSS course",
+        "courseFor": "The course is designed to build capacities of frontline service providers, so that they can",
+        "courseFor1": "understand the mental health continuum, mental health disorders and factors that impact mental health in the context of the lifespan approach;",
+        "courseFor2": "understand the role of supporting individual mental health and well-being in preventing conflicts, strengthening social cohesion, and strengthening community resilience;",
+        "courseFor3": "understand the MHPSS intervention pyramid and ability to match mental health services with the needs of vulnerable people, prioritising youth-at-risk and women at the community level;",
+        "courseFor4": "identify signs of stress, trauma and other mental health conditions in individuals;",
+        "courseFor5": "provide basic mental health and psychosocial support for individuals;",
+        "courseFor6": "understand importance of doing referrals to specialized mental health and other services relevant to individual needs;",
+        "courseFor7": "take care of one's mental health using evidence-based self-help tools and skills.",
+        "target": "Objectives",
+        "target1": "Learn about mental health and its determinants;",
+        "target2": "Build competencies in the area of mental health promotion, prevention, and support;",
+        "target3": "Increase knowledge of evidence-based scalable mental health and psychosocial interventions;",
+        "target4": "Develop skills to provide basic MHPSS."
+    },
+
+    "startCourse": "Start course",
+    "hours": "hours",
+    "duration": "Duration",
+    "pace": "Pace:",
+    "paceType": "Self-paced",
+    "certification": "Certification:",
+    "downloadCertificate": "download a certificate of completion",
+    "youWillLearn": "You will learn about:",
+    "youWillLearn1": "Mental health and psychosocial support",
+    "youWillLearn2": "Determinants of mental health (biopsychosocial and lifespan approach, gender aspects)",
+    "youWillLearn3": "Levels of mental health and psychosocial support",
+    "youWillLearn4": "Mental health conditions",
+    "youWillLearn5": "Mental health and psychosocial skills",
+
     "hi": "Hi!",
     "useralreadyexists": "User with this email already exists!",
     "usernotfound": "User with this email not found!",
