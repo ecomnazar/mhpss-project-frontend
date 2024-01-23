@@ -17,7 +17,8 @@ interface Props {
 const SignInForm = ({ onChangeForm }: Props) => {
     const { t } = useTranslation()
     const { register, handleSubmit, formState: { errors } } = useForm<FormProps>()
-    const setIsModalActive = useUserStore((state) => state.setIsModalActive)
+    const setIsModalDisable = useUserStore((state) => state.setIsModalDisable)
+
     const loginUserApi = useUserStore((state) => state.loginUserApi)
     const isLoading = useUserStore((state) => state.loginLoading)
 
@@ -33,7 +34,7 @@ const SignInForm = ({ onChangeForm }: Props) => {
         <>
             <div className='flex items-center justify-between'>
                 <h2 className='text-black font-[600] text-[18px]'>{t('signin')}</h2>
-                <button onClick={setIsModalActive}>
+                <button onClick={setIsModalDisable}>
                     <AiOutlineClose size={20} />
                 </button>
             </div>

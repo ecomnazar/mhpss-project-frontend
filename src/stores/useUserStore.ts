@@ -32,6 +32,7 @@ interface Action {
   downloadPdfApi: () => void;
   getCertifiacteApi: (fullname: string, email: string) => void;
   setIsModalActive: () => void;
+  setIsModalDisable: () => void;
   setIsEditModalActive: () => void;
 }
 
@@ -43,7 +44,16 @@ export const useUserStore = create<State & Action>((set) => ({
   isModalActive: false,
   isEditModalActive: false,
   setIsModalActive: () => {
-    set((state) => ({ isModalActive: !state.isModalActive }));
+    set(() => ({
+      isModalActive: true,
+      // isModalActive: state.isModalActive ? false : true,
+    }));
+  },
+  setIsModalDisable: () => {
+    set(() => ({
+      isModalActive: false,
+      // isModalActive: state.isModalActive ? false : true,
+    }));
   },
   setIsEditModalActive: () => {
     set((state) => ({ isEditModalActive: !state.isEditModalActive }));
@@ -80,7 +90,7 @@ export const useUserStore = create<State & Action>((set) => ({
   loginUserApi: async (data) => {
     set({ loginLoading: true });
     try {
-      const response = await axios.post(`${BASE_URL}/signin`, data, {
+      const response = await axios.post(`${BASE_URL}/login`, data, {
         headers: {
           "Content-Type": "application/json",
         },

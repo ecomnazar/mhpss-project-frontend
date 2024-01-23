@@ -1,8 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { useUserStore } from "../stores/useUserStore"
 
-const targetText = ['']
-
 const AboutPage = () => {
     const { t } = useTranslation()
     const downloadPdfApi = useUserStore((state) => state.downloadPdfApi)

@@ -20,7 +20,6 @@ const DesktopHeader = () => {
     const registerLoading = useUserStore((state) => state.registerLoading)
     const loginLoading = useUserStore((state) => state.loginLoading)
 
-
     const onChangeLanguage = (lng: string) => {
         i18n.changeLanguage(lng)
     }

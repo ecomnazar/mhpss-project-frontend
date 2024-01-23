@@ -28,7 +28,8 @@ const SignUpForm = ({ onChangeForm }: Props) => {
             password: ''
         }
     })
-    const setIsModalActive = useUserStore((state) => state.setIsModalActive)
+    const setIsModalDisable = useUserStore((state) => state.setIsModalDisable)
+
     const registerUserApi = useUserStore((state) => state.registerUserApi)
     const isLoading = useUserStore((state) => state.registerLoading)
     const [region, setRegion] = React.useState('')
@@ -49,8 +50,8 @@ const SignUpForm = ({ onChangeForm }: Props) => {
     return (
         <>
             <div className='flex items-center justify-between'>
-                <h2 className='text-black font-[600] text-[18px]'>Sign up</h2>
-                <button onClick={setIsModalActive}>
+                <h2 className='text-black font-[600] text-[18px]'>{t('signup')}</h2>
+                <button onClick={setIsModalDisable}>
                     <AiOutlineClose size={20} />
                 </button>
             </div>

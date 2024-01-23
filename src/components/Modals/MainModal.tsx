@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
+import { useUserStore } from '../../stores/useUserStore';
 
 interface Props {
     isOpen: boolean;
@@ -7,9 +8,12 @@ interface Props {
     children: React.ReactNode;
 }
 
-const MainModal = ({ isOpen, setIsOpen, children }: Props) => {
-
-    const closeModal = () => setIsOpen()
+const MainModal = ({ isOpen, children }: Props) => {
+    const setIsModalDisable = useUserStore((state) => state.setIsModalDisable)
+    const closeModal = () => {
+        // setIsOpen()
+        setIsModalDisable()
+    }
 
     return (
         <Transition appear show={isOpen} as={Fragment}>

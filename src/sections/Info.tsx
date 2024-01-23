@@ -20,7 +20,7 @@ const Info = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row items-start justify-between flex-wrap mt-12">
+      <div className="flex flex-col md:flex-row items-start justify-between flex-wrap mt-6 md:mt-12">
         <div className="basis-[100%] md:basis-[53%] h-full">
           <img
             className="w-screen h-[200px] sm:h-[300px] md:h-[600px] object-cover object-center rounded-md"
