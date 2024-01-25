@@ -56,7 +56,7 @@ const MobileHeader = () => {
 
     const onRegister = () => {
         setIsOpen(false)
-        setIsActiveModal
+        setIsActiveModal()
     }
 
     return (

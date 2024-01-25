@@ -18,11 +18,6 @@ interface User {
   region: string;
 }
 
-interface UpdateFinishProps {
-  email: string;
-  date: string;
-}
-
 interface RegisterProps {
   id?: string;
   fullname?: string;

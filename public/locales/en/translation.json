@@ -31,6 +31,45 @@
         "target4": "Develop skills to provide basic MHPSS."
     },
 
+    "lessonPage": {
+        "introduction": "Introduction",
+        "determinantsOfMentalHealth": "Determinants of Mental ealth",
+        "mentalHealthAndPsychosocialSupport": "Mental Health and Psychosocial Support",
+        "trainingDeliveryPractice1": "Training Delivery Practice 1",
+        "downloadResources1": "Download resources 1",
+        "test1": "Test 1",
+
+        "mentalHealthConditions": "Mental Health Conditions",
+        "depressionAndAnxietyDisordersInYouthAndWomen": "Depression and anxiety disorders in youth and women",
+        "stressAndTraumaRelatedMentalHealthDisorders": "Stress and trauma-related mental health disorders",
+        "trainingDeliveryPractice2": "Training Delivery Practice 2",
+        "downloadResources2": "Download resources 2",
+        "test2": "Test 2",
+
+        "basicPsychosocialCommunicationSkillsForMHPSS": "Basic psychosocial communication skills for MHPSS ",
+        "fiveStepsOfPsychosocialSupport": "Five Steps of Psychosocial Support ",
+        "step1PracticeRecognitionAndEstablishingCommunication": "Step 1 Practice: Recognition and Establishing Communication",
+        "basicPsychosocialCommunicationSkillsInMHPSS": "Basic psychosocial communication skills in MHPSS",
+        "downloadResources3": "Download resources 3",
+        "test3": "Test 3",
+
+        "step2PracticeValidationOfMentalHealthCondition": "Step 2 practice: Validation of Mental Health Condition",
+        "step3PracticeDeliveryOfPsychosocialSupport": "Step 3 practice: Delivery of Psychosocial Support",
+        "step4PracticeReferralToSpecializedServices": "Step 4 practice: Referral to Specialized Services ",
+        "trainingDeliveryPractice4": "Training Delivery Practice 4",
+        "downloadResources4": "Download resources 4",
+        "test4": "Test 4",
+
+        "step5PracticeFollowUpTrainingDeliveryPractice5": "Step 5 practice: Follow Up. Training Delivery Practice 5",
+        "mHPSSPracticeSupervisedPracticeOfPsychosocialSupportFullCycle": "MHPSS Practice: Supervised practice of psychosocial support (full cycle)",
+        "selfHelpForHelpersHowToTakeCareOfYourselvesWhileHelpingOthers": "Self-help for helpers: How to take care of yourselves while helping others", 
+        "takingStocksOfTheTrainingSummaryPlansFeedback": "Taking stocks of the Training (summary, plans, feedback)",
+        "downloadResources5": "Download resources 5",
+        "test5": "Test 5"
+    },
+
+
+
     "startCourse": "Start course",
     "hours": "hours",
     "duration": "Duration",
@@ -57,6 +96,8 @@
     "male": "Male",
     "female": "Female",
     "prefernotsay": "Prefer not say",
+
+    "day": "Day",
 
     "continueCourse": "Continue course",
     "hi": "Hi!",

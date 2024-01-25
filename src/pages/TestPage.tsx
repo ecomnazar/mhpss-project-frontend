@@ -1,11 +1,10 @@
 import clsx from "clsx"
 import React from "react"
 import Button from "../components/Button"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { data } from "./Course"
 import { useNavigate } from "react-router-dom"
 import { useUserStore } from "../stores/useUserStore"
-import { getUserEmail } from "../lib/userData"
 
 
 const questionAndAnswer = [
@@ -25,14 +24,13 @@ const TestPage = () => {
     const setUpdateFinishDate = useUserStore((state) => state.updateFinishDate)
     const { handleSubmit } = useForm()
     const navigate = useNavigate()
-    const email = getUserEmail()
 
     // ------
 
     // to set color to text
     const [theme, setTheme] = React.useState(['Introduction'])
     // to set tick
-    const [tick, setTick] = React.useState([''])
+    const [_, setTick] = React.useState([''])
     // to set main content in left side
     const [active, setActive] = React.useState([0, 0])
     // FLS from local storage
@@ -40,7 +38,7 @@ const TestPage = () => {
     const tickFLS = localStorage.getItem('tick')
     const activeDayFLS = localStorage.getItem('activeDay') || '0'
     const activeDayThemeFLS = localStorage.getItem('activeDayTheme') || '0'
-    const finishFLS = localStorage.getItem('finish')
+    // const finishFLS = localStorage.getItem('finish')
 
     const nextButtonText = Number(activeDayFLS) + 1 === data.length ? 'Finish' : 'Next'
 
