@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { useUserStore } from "../stores/useUserStore"
+import DownloadPdf from "../components/DownloadPdf"
 
 const AboutPage = () => {
     const { t } = useTranslation()
@@ -47,33 +48,9 @@ const AboutPage = () => {
                 {/*  */}
 
                 <div className="flex flex-col gap-y-4 my-4">
-                    <div className="flex items-center gap-x-4">
-                        <img className="w-[24px]" src="/images/download-icon.svg" alt="" />
-                        <div>
-                            <h4 className="text-primary text-sm font-[600] cursor-pointer">Specialized MHPSS Competencies</h4>
-                            <p onClick={downloadPdf} className="text-lightDark text-[10px]">Click to download</p>
-                        </div>
-                    </div>
-
-                    {/*  */}
-
-                    <div className="flex items-center gap-x-4">
-                        <img className="w-[24px]" src="/images/download-icon.svg" alt="" />
-                        <div>
-                            <h4 className="text-primary text-sm font-[600] cursor-pointer">General Mental Health Competencies</h4>
-                            <p onClick={downloadPdf} className="text-lightDark text-[10px] cursor-pointer">Click to download</p>
-                        </div>
-                    </div>
-
-                    {/*  */}
-
-                    <div className="flex items-center gap-x-4">
-                        <img className="w-[24px]" src="/images/download-icon.svg" alt="" />
-                        <div>
-                            <h4 className="text-primary text-sm font-[600] cursor-pointer">Teaching and Training Competencies</h4>
-                            <p onClick={downloadPdf} className="text-lightDark text-[10px]">Click to download</p>
-                        </div>
-                    </div>
+                    <DownloadPdf title={"Specialized MHPSS Competencies"} />
+                    <DownloadPdf title={"General Mental Health Competencies"} />
+                    <DownloadPdf title={"Teaching and Training Competencies"} />
                 </div>
             </section>
         </>

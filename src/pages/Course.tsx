@@ -1,8 +1,7 @@
-import { Disclosure } from "@headlessui/react"
-import clsx from "clsx";
 import React from "react"
+import clsx from "clsx";
+import { Disclosure } from "@headlessui/react"
 import { MdKeyboardArrowUp } from "react-icons/md";
-import Button from "../components/Button";
 import CourseProgressLine from "../components/CourseProgressLine";
 import { useNavigate } from "react-router-dom";
 import Day1Theme1 from "../Lessons/Day1Theme1";
@@ -11,6 +10,9 @@ import Day1Theme3 from "../Lessons/Day1Theme3";
 import { getUserEmail } from "../lib/userData";
 import { useTranslation } from "react-i18next";
 import { useLogicStore } from "../stores/useLogicStore";
+import { getActiveDayLS, getActiveDayThemeLS, getThemeLS, getTickLS } from "../lib/localStorage";
+import Day1Theme5 from "../Lessons/Day1Theme5";
+import Day1Theme6 from "../Lessons/Day1Theme6";
 
 
 export const data = [
@@ -21,7 +23,7 @@ export const data = [
         },
         {
             title: 'determinantsOfMentalHealth',
-            content: <Day1Theme1 />
+            content: <Day1Theme2 />
         },
         {
             title: 'mentalHealthAndPsychosocialSupport',
@@ -29,16 +31,16 @@ export const data = [
         },
         {
             title: 'trainingDeliveryPractice1',
-            content: <Day1Theme1 />
+            content: <Day1Theme2 />
         },
         {
             title: 'downloadResources1',
-            content: <Day1Theme1 />
+            content: <Day1Theme5 />
 
         },
         {
             title: 'test1',
-            content: <Day1Theme1 />
+            content: <Day1Theme6 />
 
         },
     ],
@@ -164,40 +166,41 @@ const CoursePage = () => {
     const tick = useLogicStore((state) => state.tick)
     const setTick = useLogicStore((state) => state.setTick)
 
-
-
-    // FLS from local storage
-    const themeFLS = localStorage.getItem('theme')
-    const tickFLS = localStorage.getItem('tick')
-    const activeDayFLS = localStorage.getItem('activeDay') || '0'
-    const activeDayThemeFLS = localStorage.getItem('activeDayTheme') || '0'
-    const finishFLS = localStorage.getItem('finish')
-    // 
-    const onGetCertificate = () => {
-        navigate('/certificate')
-    }
+    // NOTE: LS means Local Storage
+    const themeLS = getThemeLS()
+    const tickLS = getTickLS()
+    const activeDayLS = getActiveDayLS()
+    const activeDayThemeLS = getActiveDayThemeLS()
 
     React.useEffect(() => {
-        setActive([parseInt(activeDayFLS), parseInt(activeDayThemeFLS)])
-        if (!themeFLS) {
+        setActive([parseInt(activeDayLS), parseInt(activeDayThemeLS)])
+        if (!themeLS) {
             localStorage.setItem('theme', theme[0] + '::')
         } else {
-            setTheme(themeFLS.split('::'))
-            if (tickFLS) {
-                setTick(tickFLS.split('::'))
+            setTheme(themeLS.split('::'))
+            if (tickLS) {
+                setTick(tickLS.split('::'))
             }
         }
 
-    }, [themeFLS, tickFLS, activeDayFLS, activeDayThemeFLS])
-
-    React.useEffect(() => {
-    }, [theme])
+    }, [])
 
     React.useEffect(() => {
         if (!email) {
             navigate('/')
         }
     }, [])
+
+
+
+    // React.useEffect(() => {
+    // }, [theme])
+    // const finishFLS = localStorage.getItem('finish')
+    // // 
+    // const onGetCertificate = () => {
+    //     navigate('/certificate')
+    // }
+
 
     return (
         <section className='p-4'>

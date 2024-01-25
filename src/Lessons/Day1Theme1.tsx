@@ -1,24 +1,23 @@
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
 import 'swiper/css';
-import Button from "../components/Button";
-import { MdKeyboardArrowUp } from "react-icons/md";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
 import React from "react";
 import clsx from "clsx";
 import { data } from "../pages/Course";
 import { useNavigate } from "react-router-dom";
 import { useLogicStore } from "../stores/useLogicStore";
+import { getThemeLS, getTickLS, setActiveDayLS, setActiveDayThemeLS, setThemeLS, setTickLs } from "../lib/localStorage";
+import LessonNavigatorButtons from "../components/LessonNavigatorButtons";
+import i18n from '../i18n';
 
 const content = [
-    "/lesson-images/day-1/1.png",
-    "/lesson-images/day-1/2.png",
-    "/lesson-images/day-1/1.png"
+    "/lesson-images/day-1/1",
+    "/lesson-images/day-1/2",
 ]
 
 const Day1Theme1 = () => {
     const swiperRef = React.useRef<SwiperRef>(null)
     const [activeIndex, setActiveIndex] = React.useState(0)
-    const finishFLS = localStorage.getItem('finish')
-
+    const currentLanguage = i18n.language
 
     const navigate = useNavigate()
     // to set main content in left side
@@ -32,8 +31,8 @@ const Day1Theme1 = () => {
     const setTick = useLogicStore((state) => state.setTick)
 
     // FLS from local storage
-    const themeFLS = localStorage.getItem('theme')
-    const tickFLS = localStorage.getItem('tick')
+    const themeLS = getThemeLS()
+    const tickLS = getTickLS()
 
     const onClickNext = () => {
         if (activeIndex === content.length - 1) {
@@ -44,26 +43,26 @@ const Day1Theme1 = () => {
                 setTick([...tick, data[active[0]][active[1]].title])
 
                 // when first open page works if
-                if (!tickFLS) {
-                    localStorage.setItem('tick', data[active[0]][active[1]].title + '::')
+                if (!tickLS) {
+                    setTickLs(data[active[0]][active[1]].title + '::')
                 } else {
-                    localStorage.setItem('tick', themeFLS + data[active[0]][active[1]].title) + '::'
+                    setTickLs((themeLS + data[active[0]][active[1]].title) + '::')
                 }
 
                 // if works when all lessons of day finished
                 if (data[active[0]].length === active[1] + 1) {
                     setTheme([...theme, data[active[0] + 1][0].title])
                     setActive([active[0] + 1, 0])
-                    localStorage.setItem('theme', themeFLS + data[active[0] + 1][0].title + '::')
-                    localStorage.setItem('activeDay', (active[0] + 1).toString())
-                    localStorage.setItem('activeDayTheme', '0')
+                    // LS
+                    setThemeLS(themeLS + data[active[0] + 1][0].title + '::')
+                    setActiveDayLS((active[0] + 1).toString())
+                    setActiveDayThemeLS('0')
                 } else {
-                    themeFLS ?
-                        localStorage.setItem('theme', themeFLS + data[active[0]][active[1] + 1].title + '::') :
-                        localStorage.setItem('theme', theme[0] + data[active[0]][active[1] + 1].title)
                     setTheme([...theme, data[active[0]][active[1] + 1].title])
                     setActive([active[0], active[1] + 1])
-                    localStorage.setItem('activeDayTheme', (active[1] + 1).toString())
+                    // LS
+                    themeLS ? setThemeLS(themeLS + data[active[0]][active[1] + 1].title + '::') : setThemeLS(theme[0] + data[active[0]][active[1] + 1].title)
+                    setActiveDayThemeLS((active[1] + 1).toString())
                 }
             }
         } else {
@@ -87,7 +86,7 @@ const Day1Theme1 = () => {
             >
                 {content.map((item, idx) => {
                     return (
-                        <SwiperSlide key={idx}><img className="w-full h-full object-cover border border-primary" src={item} /></SwiperSlide>
+                        <SwiperSlide key={idx}><img className="w-full h-full object-cover border border-primary" src={`${item}-${currentLanguage}.png`} /></SwiperSlide>
                     )
                 })}
             </Swiper>
@@ -100,30 +99,7 @@ const Day1Theme1 = () => {
                     )
                 })}
             </div>
-            <div className="flex items-center justify-between w-full">
-                <Button
-                    className={clsx("rotate-[180deg] w-full sm:w-fit min-w-[150px] md:mt-4", {
-                        ['hidden']: activeIndex === 0
-                    })} title={
-                        finishFLS ? 'get my certificate' : <div className="rotate-[90deg]">
-                            <MdKeyboardArrowUp size={27} />
-                        </div>
-                    }
-                    onClick={onClickPrev}
-                // onClick={finishFLS ? onGetCertificate : onClickNextButton}
-                />
-                <Button
-                    className={clsx("w-full sm:w-fit min-w-[150px] md:mt-4", {
-                        ['ml-auto']: activeIndex === 0
-                    })} title={
-                        finishFLS ? 'get my certificate' : <div className="rotate-[90deg]">
-                            <MdKeyboardArrowUp size={27} />
-                        </div>
-                    }
-                    onClick={onClickNext}
-                // onClick={finishFLS ? onGetCertificate : onClickNextButton}
-                />
-            </div>
+            <LessonNavigatorButtons activeIndex={activeIndex} onClickNext={onClickNext} onClickPrev={onClickPrev} content={content} />
         </>
     )
 }

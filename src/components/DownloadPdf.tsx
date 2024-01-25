@@ -1,0 +1,20 @@
+import React from "react";
+
+interface Props {
+    title: string;
+    handleClick?: () => void;
+}
+
+const DownloadPdf: React.FC<Props> = ({ title, handleClick }: Props) => {
+    return (
+        <div className="flex items-center gap-x-4">
+            <img className="w-[24px]" src="/images/download-icon.svg" alt="" />
+            <div>
+                <h4 className="text-primary text-sm font-[600] cursor-pointer">{title}</h4>
+                <p onClick={handleClick} className="text-lightDark text-[10px]">Click to download</p>
+            </div>
+        </div>
+    )
+}
+
+export default DownloadPdf
