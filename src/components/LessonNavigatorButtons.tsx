@@ -56,18 +56,17 @@ const LessonNavigatorButtons: React.FC<Props> = ({ activeIndex, onClickPrev, con
     }
 
     return (
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full gap-x-4 mt-2 md:mt-0">
             <Button
-                className={clsx("rotate-[180deg] w-full sm:w-fit min-w-[150px] md:mt-4", {
-                    ['hidden']: activeIndex === 0
+                className={clsx("rotate-[180deg] w-fit md:min-w-[150px] md:mt-4", {
+                    ['invisible']: activeIndex === 0
                 })} title={<div className="rotate-[90deg]"><MdKeyboardArrowUp size={27} /></div>
                 }
                 onClick={onClickPrev}
             />
+            <div className="mt-2">{`${activeIndex + 1}/${content.length}`}</div>
             <Button
-                className={clsx("w-full sm:w-fit min-w-[150px] md:mt-4", {
-                    ['ml-auto']: activeIndex === 0
-                })}
+                className={clsx(" w-fit md:min-w-[150px] md:mt-4")}
                 title={
                     activeIndex === content.length - 1 ? t('next') : <div className="rotate-[90deg]">
                         <MdKeyboardArrowUp size={27} />

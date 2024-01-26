@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom"
 import { FaInstagram } from "react-icons/fa6";
-import { TbBrandLinkedin } from "react-icons/tb";
+import { LuFacebook } from "react-icons/lu";
 import { AiOutlineYoutube } from "react-icons/ai";
+import { FaXTwitter } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+    const { t } = useTranslation()
+
     return (
         <footer className='bg-primary text-white py-10'>
             <div className="container mx-auto px-4">
@@ -11,44 +14,43 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white/60">MHPSS</h4>
                         <ul className="mt-4 flex flex-col gap-y-2">
-                            <li><Link to={""} >About us</Link></li>
-                            <li><Link to={""} >Confidentiality</Link></li>
+                            <li><a target="_blank" href={"https://www.undp.org/turkmenistan"} >{t('aboutus')}</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 className="text-white/60">EMAIL</h4>
+                        <h4 className="text-white/60">{t('email')}</h4>
                         <ul className="mt-4 flex flex-col gap-y-2">
-                            <li><a href="mailto:example@gmail.com">example@gmail.com</a></li>
+                            <li><a href="mailto:guljahan.gochova@undp.org">guljahan.gochova@undp.org</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 className="text-white/60">PHONE NUMBERS</h4>
+                        <h4 className="text-white/60">{t('phonenumbers')}</h4>
                         <ul className="mt-4 flex flex-col gap-y-2">
-                            <li><a href="mailto:example@gmail.com">+99361234355</a></li>
-                            <li><a href="mailto:example@gmail.com">+99365234355</a></li>
+                            <li><a href="mailto:example@gmail.com">+99312 488325</a></li>
+                            <li><a href="mailto:example@gmail.com">+99312 488311</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 className="text-white/60">ADDRESS</h4>
+                        <h4 className="text-white/60">{t('address')}</h4>
                         <ul className="mt-4 flex flex-col gap-y-2">
-                            <li><a href="mailto:example@gmail.com">Turkmenistan, Ashgabat</a></li>
+                            <li>UN {t('building')}, 21 Archabil, 744036</li>
                         </ul>
                     </div>
                 </div>
                 <div className="grid grid-col-1 mt-12 gap-y-4 sm:grid-cols-2">
                     <div className="flex items-center gap-x-4 sm:www">
-                        <button>
+                        <a target="_blank" href="https://www.facebook.com/undptm/">
+                            <LuFacebook size={26} />
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/undp_turkmenistan">
                             <FaInstagram size={25} />
-                        </button>
-                        <button>
-                            <TbBrandLinkedin size={28} />
-                        </button>
-                        <button>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/undptm">
+                            <FaXTwitter size={23} />
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@undpinturkmenistan6160">
                             <AiOutlineYoutube size={28} />
-                        </button>
-                        <button>
-                            <img src="/images/imo-icon.svg" />
-                        </button>
+                        </a>
                     </div>
                     <div className="sm:text-right">
                         <p className="text-white/60">© 2024, All rights reserved</p>

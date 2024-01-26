@@ -6,9 +6,9 @@ const correctAnswer = 0
 
 const Day1Theme6 = () => {
     return (
-        <div>
+        <>
             <TestForm correctAnswer={correctAnswer} questionText={questionText} answers={questionAndAnswer} />
-        </div>
+        </>
     )
 }
 

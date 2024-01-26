@@ -6,7 +6,6 @@ import CourseProgressLine from "../components/CourseProgressLine";
 import { useNavigate } from "react-router-dom";
 import Day1Theme1 from "../Lessons/Day1Theme1";
 import Day1Theme2 from "../Lessons/Day1Theme2";
-import Day1Theme3 from "../Lessons/Day1Theme3";
 import { getUserEmail } from "../lib/userData";
 import { useTranslation } from "react-i18next";
 import { useLogicStore } from "../stores/useLogicStore";
@@ -51,12 +50,12 @@ export const data = [
         },
         {
             title: 'depressionAndAnxietyDisordersInYouthAndWomen',
-            content: <Day1Theme1 />
+            content: <Day1Theme2 />
 
         },
         {
             title: 'stressAndTraumaRelatedMentalHealthDisorders',
-            content: <Day1Theme3 />
+            content: <Day1Theme1 />
         },
         {
             title: 'trainingDeliveryPractice2',
@@ -64,89 +63,89 @@ export const data = [
         },
         {
             title: 'downloadResources2',
-            content: <Day1Theme2 />
+            content: <Day1Theme5 />
         },
         {
             title: 'test2',
-            content: <Day1Theme2 />
+            content: <Day1Theme6 />
         },
     ],
     [
         {
             title: 'basicPsychosocialCommunicationSkillsForMHPSS',
-            content: <Day1Theme2 />
+            content: <Day1Theme1 />
         },
         {
             title: 'fiveStepsOfPsychosocialSupport',
-            content: <Day1Theme3 />
+            content: <Day1Theme2 />
         },
         {
             title: 'step1PracticeRecognitionAndEstablishingCommunication',
-            content: <Day1Theme2 />
+            content: <Day1Theme1 />
         },
         {
             title: 'basicPsychosocialCommunicationSkillsInMHPSS',
-            content: <Day1Theme3 />
+            content: <Day1Theme2 />
         },
         {
             title: 'downloadResources3',
-            content: <Day1Theme2 />
+            content: <Day1Theme5 />
         },
         {
             title: 'test3',
-            content: <Day1Theme2 />
+            content: <Day1Theme6 />
         },
     ],
     [
         {
             title: 'step2PracticeValidationOfMentalHealthCondition',
-            content: <Day1Theme2 />
+            content: <Day1Theme1 />
         },
         {
             title: 'step3PracticeDeliveryOfPsychosocialSupport',
-            content: <Day1Theme3 />
+            content: <Day1Theme2 />
         },
         {
             title: 'step4PracticeReferralToSpecializedServices',
-            content: <Day1Theme2 />
+            content: <Day1Theme1 />
         },
         {
             title: 'trainingDeliveryPractice4',
-            content: <Day1Theme3 />
+            content: <Day1Theme2 />
         },
         {
             title: 'downloadResources4',
-            content: <Day1Theme2 />
+            content: <Day1Theme5 />
         },
         {
             title: 'test4',
-            content: <Day1Theme2 />
+            content: <Day1Theme6 />
         },
     ],
     [
         {
             title: 'step5PracticeFollowUpTrainingDeliveryPractice5',
-            content: <Day1Theme2 />
+            content: <Day1Theme1 />
         },
         {
             title: 'mHPSSPracticeSupervisedPracticeOfPsychosocialSupportFullCycle',
-            content: <Day1Theme3 />
+            content: <Day1Theme2 />
         },
         {
             title: 'selfHelpForHelpersHowToTakeCareOfYourselvesWhileHelpingOthers',
-            content: <Day1Theme2 />
+            content: <Day1Theme1 />
         },
         {
             title: 'takingStocksOfTheTrainingSummaryPlansFeedback',
-            content: <Day1Theme3 />
+            content: <Day1Theme2 />
         },
         {
             title: 'downloadResources5',
-            content: <Day1Theme2 />
+            content: <Day1Theme5 />
         },
         {
             title: 'test5',
-            content: <Day1Theme2 />
+            content: <Day1Theme6 />
         }
     ],
 ]
@@ -208,26 +207,10 @@ const CoursePage = () => {
                 <button onClick={() => navigate('/')}>
                     <img src="/images/arrow-back-icon.svg" />
                 </button>
-                {/* <CourseProgressLine /> */}
             </div>
             <div className='flex flex-col-reverse lg:flex-row items-start justify-between'>
-                <div className='relative w-full lg:w-[calc(100vw-450px)]   overflow-y-scroll mb-4 p-2 md:p-4 md:mb-0 border-2 border-primary rounded-md flex flex-col items-center justify-start'>
+                <div className='relative w-full lg:w-[calc(100vw-450px)] overflow-y-scroll mb-4 p-2 md:p-4 md:mb-0 border-2 border-primary rounded-md flex flex-col items-center justify-start'>
                     {data[active[0]][active[1]].content}
-
-                    {/*  */}
-                    {/* {data[active[0]].length !== active[1] + 1 &&
-                        <Button
-                            className="ml-auto w-full sm:w-fit min-w-[150px] mt-2 md:mt-4" title={
-                                finishFLS ? 'get my certificate' : <div className="rotate-[90deg]">
-                                    <MdKeyboardArrowUp size={27} />
-                                </div>
-                            }
-                            onClick={finishFLS ? onGetCertificate : onClickNextButton}
-                        />
-                    } */}
-
-                    {/*  */}
-
                 </div>
                 <div className="w-full lg:w-[400px] relative lg:fixed overflow-scroll right-0 mb-4 lg:mt-0 mr-4">
                     <div className=''>
@@ -244,7 +227,6 @@ const CoursePage = () => {
                                                 <Disclosure.Button className="flex w-full py-2 justify-between text-left text-sm font-medium border-b-[1.5px] border-primary">
                                                     <div>
                                                         <span className="block text-primary text-md">{t('day')} {index + 1}</span>
-                                                        {/* <span className="block text-[11px]">1/5</span> */}
                                                     </div>
                                                     <MdKeyboardArrowUp
                                                         className={`${!open ? 'rotate-180 transform' : ''
@@ -259,7 +241,7 @@ const CoursePage = () => {
                                                                 {/*  */}
 
                                                                 <button onClick={() => setActive([index, idx])}
-                                                                    className={clsx("flex items-center justify-center border border-lightDark bg-white rounded-full w-5 h-5", {
+                                                                    className={clsx("flex items-center justify-center border border-lightDark bg-white rounded-full w-[20px] h-[20px]", {
                                                                         ['!bg-primary']: tick.includes(elem.title),
                                                                         ['pointer-events-none']: !theme.includes(elem.title)
                                                                     })}>
@@ -268,7 +250,7 @@ const CoursePage = () => {
 
                                                                 {/*  */}
 
-                                                                <p className={clsx("", {
+                                                                <p className={clsx("w-[90%]", {
                                                                     ['text-lightDark']: !theme.includes(elem.title),
                                                                     ['text-primary']: theme.includes(elem.title)
                                                                 })}>{t(`lessonPage.${elem.title}`)}</p>

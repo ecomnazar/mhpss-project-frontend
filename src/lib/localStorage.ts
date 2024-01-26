@@ -21,3 +21,5 @@ export const setActiveDayLS = (data: string) =>
 
 export const setActiveDayThemeLS = (data: string) =>
   localStorage.setItem("activeDayTheme", data);
+
+export const setFinishLS = () => localStorage.setItem("finish", "true");

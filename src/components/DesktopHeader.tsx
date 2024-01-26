@@ -9,7 +9,7 @@ import toast from 'react-hot-toast'
 import { useUserStore } from '../stores/useUserStore'
 
 const DesktopHeader = () => {
-    const { i18n } = useTranslation()
+    const { t, i18n } = useTranslation()
     const fullname = getUserFullname()
     const email = getUserEmail()
     const gender = getUserGender()
@@ -48,9 +48,9 @@ const DesktopHeader = () => {
 
     return (
         <div className='flex items-center gap-x-8'>
-            <Link to={'/about'} className='text-primary hidden sm:block'>Course features & benefits</Link>
+            <Link to={'/about'} className='text-primary hidden sm:block'>{t('courseFeaturesBenefits')}</Link>
             <a href="#info">
-                <Button title={"View course"} />
+                <Button title={t("viewCourse")} />
             </a>
             <div className="">
                 <Listbox>

@@ -1,14 +1,11 @@
 import React from "react";
-import clsx from "clsx";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
 import LessonNavigatorButtons from "../components/LessonNavigatorButtons";
 import i18n from '../i18n';
 import 'swiper/css';
 
-const content = [
-    "/lesson-images/day-1/1",
-    "/lesson-images/day-1/2",
-]
+const pathToImage = "/lesson-images/day-1/session-1"
+const lengthOfImages = Array.from({ length: 32 })
 
 const Day1Theme1 = () => {
     const swiperRef = React.useRef<SwiperRef>(null)
@@ -29,22 +26,13 @@ const Day1Theme1 = () => {
                 // onSwiper={(swiper) => console.log(swiper)}
                 className="h-full w-full"
             >
-                {content.map((item, idx) => {
+                {lengthOfImages.map((_, idx) => {
                     return (
-                        <SwiperSlide key={idx}><img className="w-full h-full object-cover border border-primary" src={`${item}-${currentLanguage}.png`} /></SwiperSlide>
+                        <SwiperSlide key={idx}><img className="w-full h-full object-cover border border-primary" src={`${pathToImage}/${currentLanguage}/${idx + 1}.png`} /></SwiperSlide>
                     )
                 })}
             </Swiper>
-            <div className="flex items-center gap-x-2 mt-2">
-                {content.map((_, idx) => {
-                    return (
-                        <div key={idx} className={clsx("w-3 h-3 rounded-full border-[2px] border-primary", {
-                            ['bg-primary']: activeIndex === idx
-                        })}></div>
-                    )
-                })}
-            </div>
-            <LessonNavigatorButtons activeIndex={activeIndex} swiperRef={swiperRef} onClickPrev={onClickPrev} content={content} />
+            <LessonNavigatorButtons activeIndex={activeIndex} swiperRef={swiperRef} onClickPrev={onClickPrev} content={lengthOfImages} />
         </>
     )
 }
