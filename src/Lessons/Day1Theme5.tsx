@@ -5,7 +5,7 @@ const Day1Theme5 = () => {
     return (
         <div>
             <DownloadPdf title={'Download please'} />
-            <JustNextButton />
+            <JustNextButton className='mt-4' />
         </div>
     )
 }

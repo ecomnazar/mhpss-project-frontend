@@ -6,39 +6,24 @@ import { useTranslation } from "react-i18next";
 
 const Footer = () => {
     const { t } = useTranslation()
-
     return (
         <footer className='bg-primary text-white py-10'>
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-12">
+                <div className="">
                     <div>
-                        <h4 className="text-white/60">MHPSS</h4>
                         <ul className="mt-4 flex flex-col gap-y-2">
-                            <li><a target="_blank" href={"https://www.undp.org/turkmenistan"} >{t('aboutus')}</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-white/60">{t('email')}</h4>
-                        <ul className="mt-4 flex flex-col gap-y-2">
-                            <li><a href="mailto:guljahan.gochova@undp.org">guljahan.gochova@undp.org</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-white/60">{t('phonenumbers')}</h4>
-                        <ul className="mt-4 flex flex-col gap-y-2">
-                            <li><a href="mailto:example@gmail.com">+99312 488325</a></li>
-                            <li><a href="mailto:example@gmail.com">+99312 488311</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-white/60">{t('address')}</h4>
-                        <ul className="mt-4 flex flex-col gap-y-2">
-                            <li>UN {t('building')}, 21 Archabil, 744036</li>
+                            <li>
+                                <a target="_blank"
+                                    className=""
+                                    href={"https://www.undp.org/turkmenistan/press-releases/undp-and-partners-enhance-national-capacity-providing-community-based-mental-health-and-psychosocial-support-vulnerable"} >
+                                    {t('footerText')}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div className="grid grid-col-1 mt-12 gap-y-4 sm:grid-cols-2">
-                    <div className="flex items-center gap-x-4 sm:www">
+                    <div className="flex items-center gap-x-4">
                         <a target="_blank" href="https://www.facebook.com/undptm/">
                             <LuFacebook size={26} />
                         </a>

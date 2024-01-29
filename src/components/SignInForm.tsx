@@ -39,7 +39,7 @@ const SignInForm = ({ onChangeForm }: Props) => {
                 </button>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-2 mt-6'>
-                <Input register={register('email', { required: true })} placeholder={t('signin')} type='email' errorType={errors.email?.type} />
+                <Input register={register('email', { required: true })} placeholder={t('email')} type='email' errorType={errors.email?.type} />
                 <Input register={register('password', { required: true })} placeholder={t('password')} type='password' errorType={errors.password?.type} />
                 <Button isLoading={isLoading} className="!bg-primary w-full mt-2" title={t('signin')} />
             </form>

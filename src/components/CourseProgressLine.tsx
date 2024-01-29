@@ -14,7 +14,7 @@ const CourseProgressLine = () => {
                 <div style={{ width: size + '%' }} className="absolute top-0 left-0  rounded-md w-1/2 bg-primary h-[10px]"></div>
                 {/*  */}
             </div>
-            <p>{size.toFixed(2)}%</p>
+            <p>{size == 0 ? size : size.toFixed(2)}%</p>
         </div>
     )
 }

@@ -17,6 +17,7 @@ const MobileHeader = () => {
     const email = getUserEmail()
     const setIsActiveModal = useUserStore((state) => state.setIsModalActive)
     const setIsActiveEditModal = useUserStore((state) => state.setIsEditModalActive)
+    const { t } = useTranslation()
 
     const onChangeMenu = () => {
         setIsOpen(!isOpen)
@@ -77,30 +78,26 @@ const MobileHeader = () => {
                     </div>
                     <div>
                         <div className="flex flex-col gap-y-4 mt-8">
-                            <button onClick={() => navigateTo("about")} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
-                                <p>Course features & benefits</p>
+                            <button onClick={() => navigateTo("about")} className="bg-[#EDEDED] text-left p-4 rounded-md flex items-center justify-between">
+                                <p>{t('courseFeaturesBenefits')}</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
                             </button>
                             <button onClick={navigateToCourse} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
-                                <p>View course</p>
+                                <p>{t('viewCourse')}</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
                             </button>
                             {email ? <button onClick={onEditProfile} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
-                                <p>Profile</p>
+                                <p>{t('profile')}</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
                             </button> : <button onClick={onRegister} className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
-                                <p>Register</p>
+                                <p>{t('register')}</p>
                                 <img className="text-md" src="/images/arrow-right.svg" alt="" />
                             </button>}
-                            {/* <button className="bg-[#EDEDED] p-4 rounded-md flex items-center justify-between">
-                                <p>Profile</p>
-                                <img className="text-md" src="/images/arrow-right.svg" alt="" />
-                            </button> */}
                         </div>
                     </div>
                 </div>
                 <div className="flex items-center justify-between">
-                    {email && <Button title={'Logout'} onClick={onLogout} className="bg-red-400" />}
+                    {email && <Button title={t('signout')} onClick={onLogout} className="bg-red-400" />}
                     <ul className="ml-auto flex space-x-2">
                         {languages.map((lng) => {
                             return (

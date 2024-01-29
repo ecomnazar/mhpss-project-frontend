@@ -32,35 +32,35 @@
     },
 
     "lessonPage": {
-        "introduction": "Introduction",
-        "determinantsOfMentalHealth": "Determinants of Mental ealth",
-        "mentalHealthAndPsychosocialSupport": "Mental Health and Psychosocial Support",
-        "trainingDeliveryPractice1": "Training Delivery Practice 1",
-        "downloadResources1": "Download resources 1",
+        "introduction": "Введение",
+        "determinantsOfMentalHealth": "Детерминанты психического здоровья",
+        "mentalHealthAndPsychosocialSupport": "Психическое здоровье и психосоциальная поддержка",
+        "trainingDeliveryPractice1": "Практика проведения обучения 1",
+        "downloadResources1": "Скачать ресурсы 1",
 
-        "mentalHealthConditions": "Mental Health Conditions",
-        "depressionAndAnxietyDisordersInYouthAndWomen": "Depression and anxiety disorders in youth and women",
-        "stressAndTraumaRelatedMentalHealthDisorders": "Stress and trauma-related mental health disorders",
-        "trainingDeliveryPractice2": "Training Delivery Practice 2",
-        "downloadResources2": "Download resources 2",
+        "mentalHealthConditions": "Психические состояния",
+        "depressionAndAnxietyDisordersInYouthAndWomen": "Депрессия и тревожные расстройства у молодежи и женщин",
+        "stressAndTraumaRelatedMentalHealthDisorders": "Расстройства психического здоровья, связанные со стрессом и травмой",
+        "trainingDeliveryPractice2": "Практика проведения обучения 2",
+        "downloadResources2": "Скачать ресурсы 2",
 
-        "basicPsychosocialCommunicationSkillsForMHPSS": "Basic psychosocial communication skills for MHPSS ",
-        "fiveStepsOfPsychosocialSupport": "Five Steps of Psychosocial Support ",
-        "step1PracticeRecognitionAndEstablishingCommunication": "Step 1 Practice: Recognition and Establishing Communication",
-        "basicPsychosocialCommunicationSkillsInMHPSS": "Basic psychosocial communication skills in MHPSS",
-        "downloadResources3": "Download resources 3",
+        "basicPsychosocialCommunicationSkillsForMHPSS": "Базовые навыки психосоциальной коммуникации для MHPSS",
+        "fiveStepsOfPsychosocialSupport": "Пять шагов психосоциальной поддержки",
+        "step1PracticeRecognitionAndEstablishingCommunication": "Шаг 1. Практика: признание и установление связи",
+        "basicPsychosocialCommunicationSkillsInMHPSS": "Базовые навыки психосоциальной коммуникации в MHPSS",
+        "downloadResources3": "Скачать ресурсы 3",
 
-        "step2PracticeValidationOfMentalHealthCondition": "Step 2 practice: Validation of Mental Health Condition",
-        "step3PracticeDeliveryOfPsychosocialSupport": "Step 3 practice: Delivery of Psychosocial Support",
-        "step4PracticeReferralToSpecializedServices": "Step 4 practice: Referral to Specialized Services ",
-        "trainingDeliveryPractice4": "Training Delivery Practice 4",
-        "downloadResources4": "Download resources 4",
+        "step2PracticeValidationOfMentalHealthCondition": "Практика шага 2: Проверка состояния психического здоровья",
+        "step3PracticeDeliveryOfPsychosocialSupport": "Практика Шага 3: Оказание психосоциальной поддержки",
+        "step4PracticeReferralToSpecializedServices": "Практика шага 4: Направление в специализированные службыПрактика шага 4: Направление в специализированные службы",
+        "trainingDeliveryPractice4": "Практика проведения обучения 4",
+        "downloadResources4": "Скачать ресурсы 4",
 
-        "step5PracticeFollowUpTrainingDeliveryPractice5": "Step 5 practice: Follow Up. Training Delivery Practice 5",
-        "mHPSSPracticeSupervisedPracticeOfPsychosocialSupportFullCycle": "MHPSS Practice: Supervised practice of psychosocial support (full cycle)",
-        "selfHelpForHelpersHowToTakeCareOfYourselvesWhileHelpingOthers": "Self-help for helpers: How to take care of yourselves while helping others", 
-        "takingStocksOfTheTrainingSummaryPlansFeedback": "Taking stocks of the Training (summary, plans, feedback)",
-        "downloadResources5": "Download resources 5"
+        "step5PracticeFollowUpTrainingDeliveryPractice5": "Практика шага 5: Последующие действия. Практика проведения обучения 5",
+        "mHPSSPracticeSupervisedPracticeOfPsychosocialSupportFullCycle": "Практика ПЗПСП: Курируемая практика психосоциальной поддержки (полный цикл)",
+        "selfHelpForHelpersHowToTakeCareOfYourselvesWhileHelpingOthers": "Самопомощь для помощников: как позаботиться о себе, помогая другим", 
+        "takingStocksOfTheTrainingSummaryPlansFeedback": "Подведение итогов тренинга (подведение итогов, планы, отзывы)",
+        "downloadResources5": "Скачать ресурсы 5"
     },
 
     "startCourse": "Начать курс",
@@ -69,7 +69,7 @@
     "pace": "Темп:",
     "paceType": "Самоподготовка",
     "certification": "Сертификация:",
-    "downloadCertificate": "скачать акт об окончании",
+    "downloadCertificate": "Скачать акт об окончании",
     "youWillLearn": "Вы узнаете",
     "youWillLearn1": "Психическое здоровье и психосоциальная поддержка",
     "youWillLearn2": "Детерминанты психического здоровья (биопсихосоциальный подход и подход продолжительности жизни, гендерные аспекты)",
@@ -84,14 +84,17 @@
     "fullname": "Полное имя",
     "email": "Почта",
     "password": "Пароль",
-    "region": "Регион",
+    "region": "Велаят",
     "gender": "Пол",
     "male": "Мужской",
     "female": "Женский",
-    "prefernotsay": "предпочитаю не говорить",
+    "preferNotToSay": "Предпочитаю не говорить",
+
     
     "courseFeaturesBenefits": "Особенности и преимущества курса",
-    "viewCourse": "Просмотреть курс",
+    "viewCourse": "Посмотреть курс",
+    "footerText": "Курс ПЗПСП был разработан и переведен в цифровую форму в рамках проекта «Повышение национального потенциала в области психосоциальной поддержки уязвимых молодых людей и женщин на уровне сообщества в качестве превентивных мер»",
+
 
     "day": "День",
     "next": "Далее",
@@ -99,6 +102,12 @@
     "phonenumbers": "Телефонные номера",
     "address": "Адрес",
     "building": "Здание",
+    "editProfile": "Изменить профиль",
+    "signout": "Выйти",
+    "profile": "Профиль",
+    "register": "Регистрация",
+
+
 
     "continueCourse": "Продолжить курс",
     "hi": "Privet!",

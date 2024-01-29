@@ -12,30 +12,30 @@ import { useLogicStore } from "../stores/useLogicStore";
 import { getActiveDayLS, getActiveDayThemeLS, getThemeLS, getTickLS } from "../lib/localStorage";
 import Day1Theme5 from "../Lessons/Day1Theme5";
 import Day1Theme6 from "../Lessons/Day1Theme6";
+import MainDayWithSlider from "../Lessons/MainDayWithSlider";
 
 
 export const data = [
     [
         {
             title: 'introduction',
-            content: <Day1Theme1 />
+            content: <MainDayWithSlider day={1} session={1} imagesLength={32} />
         },
         {
             title: 'determinantsOfMentalHealth',
-            content: <Day1Theme2 />
+            content: <MainDayWithSlider day={1} session={2} imagesLength={12} />
         },
         {
             title: 'mentalHealthAndPsychosocialSupport',
-            content: <Day1Theme1 />
+            content: <MainDayWithSlider day={1} session={3} imagesLength={19} />
         },
         {
             title: 'trainingDeliveryPractice1',
-            content: <Day1Theme2 />
+            content: <MainDayWithSlider day={1} session={4} imagesLength={5} />
         },
         {
             title: 'downloadResources1',
             content: <Day1Theme5 />
-
         },
         {
             title: 'test1',
@@ -70,84 +70,84 @@ export const data = [
             content: <Day1Theme6 />
         },
     ],
-    [
-        {
-            title: 'basicPsychosocialCommunicationSkillsForMHPSS',
-            content: <Day1Theme1 />
-        },
-        {
-            title: 'fiveStepsOfPsychosocialSupport',
-            content: <Day1Theme2 />
-        },
-        {
-            title: 'step1PracticeRecognitionAndEstablishingCommunication',
-            content: <Day1Theme1 />
-        },
-        {
-            title: 'basicPsychosocialCommunicationSkillsInMHPSS',
-            content: <Day1Theme2 />
-        },
-        {
-            title: 'downloadResources3',
-            content: <Day1Theme5 />
-        },
-        {
-            title: 'test3',
-            content: <Day1Theme6 />
-        },
-    ],
-    [
-        {
-            title: 'step2PracticeValidationOfMentalHealthCondition',
-            content: <Day1Theme1 />
-        },
-        {
-            title: 'step3PracticeDeliveryOfPsychosocialSupport',
-            content: <Day1Theme2 />
-        },
-        {
-            title: 'step4PracticeReferralToSpecializedServices',
-            content: <Day1Theme1 />
-        },
-        {
-            title: 'trainingDeliveryPractice4',
-            content: <Day1Theme2 />
-        },
-        {
-            title: 'downloadResources4',
-            content: <Day1Theme5 />
-        },
-        {
-            title: 'test4',
-            content: <Day1Theme6 />
-        },
-    ],
-    [
-        {
-            title: 'step5PracticeFollowUpTrainingDeliveryPractice5',
-            content: <Day1Theme1 />
-        },
-        {
-            title: 'mHPSSPracticeSupervisedPracticeOfPsychosocialSupportFullCycle',
-            content: <Day1Theme2 />
-        },
-        {
-            title: 'selfHelpForHelpersHowToTakeCareOfYourselvesWhileHelpingOthers',
-            content: <Day1Theme1 />
-        },
-        {
-            title: 'takingStocksOfTheTrainingSummaryPlansFeedback',
-            content: <Day1Theme2 />
-        },
-        {
-            title: 'downloadResources5',
-            content: <Day1Theme5 />
-        },
-        {
-            title: 'test5',
-            content: <Day1Theme6 />
-        }
-    ],
+    // [
+    //     {
+    //         title: 'basicPsychosocialCommunicationSkillsForMHPSS',
+    //         content: <Day1Theme1 />
+    //     },
+    //     {
+    //         title: 'fiveStepsOfPsychosocialSupport',
+    //         content: <Day1Theme2 />
+    //     },
+    //     {
+    //         title: 'step1PracticeRecognitionAndEstablishingCommunication',
+    //         content: <Day1Theme1 />
+    //     },
+    //     {
+    //         title: 'basicPsychosocialCommunicationSkillsInMHPSS',
+    //         content: <Day1Theme2 />
+    //     },
+    //     {
+    //         title: 'downloadResources3',
+    //         content: <Day1Theme5 />
+    //     },
+    //     {
+    //         title: 'test3',
+    //         content: <Day1Theme6 />
+    //     },
+    // ],
+    // [
+    //     {
+    //         title: 'step2PracticeValidationOfMentalHealthCondition',
+    //         content: <Day1Theme1 />
+    //     },
+    //     {
+    //         title: 'step3PracticeDeliveryOfPsychosocialSupport',
+    //         content: <Day1Theme2 />
+    //     },
+    //     {
+    //         title: 'step4PracticeReferralToSpecializedServices',
+    //         content: <Day1Theme1 />
+    //     },
+    //     {
+    //         title: 'trainingDeliveryPractice4',
+    //         content: <Day1Theme2 />
+    //     },
+    //     {
+    //         title: 'downloadResources4',
+    //         content: <Day1Theme5 />
+    //     },
+    //     {
+    //         title: 'test4',
+    //         content: <Day1Theme6 />
+    //     },
+    // ],
+    // [
+    //     {
+    //         title: 'step5PracticeFollowUpTrainingDeliveryPractice5',
+    //         content: <Day1Theme1 />
+    //     },
+    //     {
+    //         title: 'mHPSSPracticeSupervisedPracticeOfPsychosocialSupportFullCycle',
+    //         content: <Day1Theme2 />
+    //     },
+    //     {
+    //         title: 'selfHelpForHelpersHowToTakeCareOfYourselvesWhileHelpingOthers',
+    //         content: <Day1Theme1 />
+    //     },
+    //     {
+    //         title: 'takingStocksOfTheTrainingSummaryPlansFeedback',
+    //         content: <Day1Theme2 />
+    //     },
+    //     {
+    //         title: 'downloadResources5',
+    //         content: <Day1Theme5 />
+    //     },
+    //     {
+    //         title: 'test5',
+    //         content: <Day1Theme6 />
+    //     }
+    // ],
 ]
 
 const CoursePage = () => {

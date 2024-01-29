@@ -10,12 +10,12 @@ import { SwiperRef } from 'swiper/react'
 
 interface Props {
     activeIndex: number
-    onClickPrev: () => void
     content: any[];
     swiperRef: React.RefObject<SwiperRef>;
+    setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const LessonNavigatorButtons: React.FC<Props> = ({ activeIndex, onClickPrev, content, swiperRef }) => {
+const LessonNavigatorButtons: React.FC<Props> = ({ activeIndex, content, swiperRef, setActiveIndex }) => {
     const { t } = useTranslation()
 
     // to set main content in left side
@@ -31,6 +31,10 @@ const LessonNavigatorButtons: React.FC<Props> = ({ activeIndex, onClickPrev, con
     // FLS from local storage
     const themeLS = getThemeLS()
     const tickLS = getTickLS()
+
+    const onClickPrev = () => {
+        swiperRef.current?.swiper.slidePrev()
+    }
 
     const onClickNext = () => {
         // check slide end or not
@@ -49,7 +53,8 @@ const LessonNavigatorButtons: React.FC<Props> = ({ activeIndex, onClickPrev, con
             // LS
             themeLS ? setThemeLS(themeLS + data[active[0]][active[1] + 1].title + '::') : setThemeLS(theme[0] + data[active[0]][active[1] + 1].title)
             setActiveDayThemeLS((active[1] + 1).toString())
-
+            swiperRef.current?.swiper.slideTo(0)
+            setActiveIndex(0)
         } else {
             swiperRef.current?.swiper.slideNext()
         }

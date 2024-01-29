@@ -31,6 +31,38 @@
         "target4": "Развить навыки для предоставления базового ПЗПСП."
     },
 
+    "lessonPage": {
+        "introduction": "Introduction",
+        "determinantsOfMentalHealth": "Determinants of Mental ealth",
+        "mentalHealthAndPsychosocialSupport": "Mental Health and Psychosocial Support",
+        "trainingDeliveryPractice1": "Training Delivery Practice 1",
+        "downloadResources1": "Download resources 1",
+
+        "mentalHealthConditions": "Mental Health Conditions",
+        "depressionAndAnxietyDisordersInYouthAndWomen": "Depression and anxiety disorders in youth and women",
+        "stressAndTraumaRelatedMentalHealthDisorders": "Stress and trauma-related mental health disorders",
+        "trainingDeliveryPractice2": "Training Delivery Practice 2",
+        "downloadResources2": "Download resources 2",
+
+        "basicPsychosocialCommunicationSkillsForMHPSS": "Basic psychosocial communication skills for MHPSS ",
+        "fiveStepsOfPsychosocialSupport": "Five Steps of Psychosocial Support ",
+        "step1PracticeRecognitionAndEstablishingCommunication": "Step 1 Practice: Recognition and Establishing Communication",
+        "basicPsychosocialCommunicationSkillsInMHPSS": "Basic psychosocial communication skills in MHPSS",
+        "downloadResources3": "Download resources 3",
+
+        "step2PracticeValidationOfMentalHealthCondition": "Step 2 practice: Validation of Mental Health Condition",
+        "step3PracticeDeliveryOfPsychosocialSupport": "Step 3 practice: Delivery of Psychosocial Support",
+        "step4PracticeReferralToSpecializedServices": "Step 4 practice: Referral to Specialized Services ",
+        "trainingDeliveryPractice4": "Training Delivery Practice 4",
+        "downloadResources4": "Download resources 4",
+
+        "step5PracticeFollowUpTrainingDeliveryPractice5": "Step 5 practice: Follow Up. Training Delivery Practice 5",
+        "mHPSSPracticeSupervisedPracticeOfPsychosocialSupportFullCycle": "MHPSS Practice: Supervised practice of psychosocial support (full cycle)",
+        "selfHelpForHelpersHowToTakeCareOfYourselvesWhileHelpingOthers": "Self-help for helpers: How to take care of yourselves while helping others", 
+        "takingStocksOfTheTrainingSummaryPlansFeedback": "Taking stocks of the Training (summary, plans, feedback)",
+        "downloadResources5": "Download resources 5"
+    },
+
     "startCourse": "Начать курс",
     "hours": "часов",
     "duration": "Продолжительность",
@@ -58,6 +90,16 @@
     "female": "Женский",
     "prefernotsay": "предпочитаю не говорить",
     
+    "courseFeaturesBenefits": "Особенности и преимущества курса",
+    "viewCourse": "Просмотреть курс",
+
+    "day": "День",
+    "next": "Далее",
+    "aboutus": "О нас",
+    "phonenumbers": "Телефонные номера",
+    "address": "Адрес",
+    "building": "Здание",
+
     "continueCourse": "Продолжить курс",
     "hi": "Privet!",
     "useralreadyexists": "Пользователь с такой почтой уже существует",

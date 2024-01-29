@@ -4,7 +4,7 @@ import Button from './Button'
 import { languages } from '../lib/constants/languages'
 import { useTranslation } from 'react-i18next'
 import { getUserEmail, getUserFullname, getUserGender, getUserRegion, removeUser } from '../lib/userData'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useUserStore } from '../stores/useUserStore'
 
@@ -20,10 +20,9 @@ const DesktopHeader = () => {
     const setIsActiveEditModal = useUserStore((state) => state.setIsEditModalActive)
     const registerLoading = useUserStore((state) => state.registerLoading)
     const loginLoading = useUserStore((state) => state.loginLoading)
+    const { pathname } = useLocation()
 
-    const onChangeLanguage = (lng: string) => {
-        i18n.changeLanguage(lng)
-    }
+    const onChangeLanguage = (lng: string) => i18n.changeLanguage(lng)
 
     const onClickProfile = () => {
         if (fullname === null || fullname === undefined) {
@@ -49,9 +48,9 @@ const DesktopHeader = () => {
     return (
         <div className='flex items-center gap-x-8'>
             <Link to={'/about'} className='text-primary hidden sm:block'>{t('courseFeaturesBenefits')}</Link>
-            <a href="#info">
+            {pathname === '/about' ? <Link to={'/course'}><Button title={t('viewCourse')} /></Link> : <a href="#info">
                 <Button title={t("viewCourse")} />
-            </a>
+            </a>}
             <div className="">
                 <Listbox>
                     <div className="relative">
@@ -115,19 +114,19 @@ const DesktopHeader = () => {
 
                     <div className="flex items-center space-x-2">
                         <img className="w-4" src="/images/gender.svg" alt="" />
-                        <p className="text-[#64748B] text-sm">{gender}</p>
+                        <p className="text-[#64748B] text-sm">{gender === 'male' ? t('male') : t('female')}</p>
                     </div>
 
                     <hr className="bg-[#64748B]" />
 
                     <button onClick={onEditProfile} className="flex items-center space-x-2">
                         <img className="w-4" src="/images/editprofile.svg" alt="" />
-                        <p className="text-black text-sm">Edit profile</p>
+                        <p className="text-black text-sm">{t('editProfile')}</p>
                     </button>
 
                     <button onClick={onLogout} className="flex items-center space-x-2">
                         <img className="w-[13px] text-red-600" src="/images/signout.svg" alt="" />
-                        <p className="text-red-600 text-sm">Sign out</p>
+                        <p className="text-red-600 text-sm">{t('signout')}</p>
                     </button>
                 </Popover.Panel>
             </Popover> : <button onClick={onClickProfile} className="py-3 px-3.5 rounded-lg"><img src="/images/profile.svg" alt="" /></button>}

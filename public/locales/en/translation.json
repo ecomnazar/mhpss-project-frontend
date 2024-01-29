@@ -14,7 +14,7 @@
 
     "info": {
         "title": "The aim of the online MHPSS course:",
-        "desc": "To build capacities of helping professionals on providing community-based mental health and psychosocial support to vulnerable youth and women as a preventive measure",
+        "desc": "To build capacities of helping professionals on providing community-based mental health and psychosocial support to vulnerable youth and women as a preventive measure.",
         "secondTitle": "More about online MHPSS course",
         "courseFor": "The course is designed to build capacities of frontline service providers, so that they can",
         "courseFor1": "understand the mental health continuum, mental health disorders and factors that impact mental health in the context of the lifespan approach;",
@@ -33,7 +33,7 @@
 
     "lessonPage": {
         "introduction": "Introduction",
-        "determinantsOfMentalHealth": "Determinants of Mental ealth",
+        "determinantsOfMentalHealth": "Determinants of Mental Health",
         "mentalHealthAndPsychosocialSupport": "Mental Health and Psychosocial Support",
         "trainingDeliveryPractice1": "Training Delivery Practice 1",
         "downloadResources1": "Download resources 1",
@@ -76,7 +76,7 @@
     "pace": "Pace:",
     "paceType": "Self-paced",
     "certification": "Certification:",
-    "downloadCertificate": "download a certificate of completion",
+    "downloadCertificate": "Download a certificate of completion",
     "youWillLearn": "You will learn about:",
     "youWillLearn1": "Mental health and psychosocial support",
     "youWillLearn2": "Determinants of mental health (biopsychosocial and lifespan approach, gender aspects)",
@@ -95,10 +95,11 @@
     "gender": "Gender",
     "male": "Male",
     "female": "Female",
-    "prefernotsay": "Prefer not say",
+    "preferNotToSay": "Prefer not to say",
 
     "courseFeaturesBenefits": "Course features & benefits",
     "viewCourse": "View course",
+    "footerText": "The MHPSS course was developed and digitalized within the framework of the project on «Strengthening national capacities for community-based psychosocial support for vulnerable young people and women as a preventive measure».",
 
     "day": "Day",
     "next": "Next",
@@ -106,6 +107,10 @@
     "phonenumbers": "Phone numbers",
     "address": "Address",
     "building": "Building",
+    "editProfile": "Edit profile",
+    "signout": "Sign out",
+    "profile": "Profile",
+    "register": "Register",
 
     "continueCourse": "Continue course",
     "hi": "Hi!",

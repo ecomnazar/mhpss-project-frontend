@@ -2,7 +2,6 @@ import React from 'react';
 import { AiOutlineClose } from 'react-icons/ai'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { regions } from '../lib/constants/regions';
-import { genders } from '../lib/constants/genders';
 import { useUserStore } from '../stores/useUserStore';
 import Input from './Input';
 import Button from './Button';
@@ -51,6 +50,8 @@ const SignUpForm = ({ onChangeForm }: Props) => {
             registerUserApi(data)
         }
     }
+
+    const genders = [t('male'), t('female'), t('preferNotToSay')]
 
     return (
         <>

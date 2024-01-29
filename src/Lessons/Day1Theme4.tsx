@@ -4,10 +4,10 @@ import 'swiper/css';
 import LessonNavigatorButtons from "../components/LessonNavigatorButtons";
 import LessonSwiper from "../components/LessonSwiper";
 
-const pathToImage = "/lesson-images/day-1/session-2"
-const lengthOfImages = Array.from({ length: 12 })
+const pathToImage = "/lesson-images/day-1/session-4"
+const lengthOfImages = Array.from({ length: 5 })
 
-const Day1Theme2 = () => {
+const Day1Theme4 = () => {
     const swiperRef = React.useRef<SwiperRef>(null)
     const [activeIndex, setActiveIndex] = React.useState(0)
 
@@ -19,4 +19,4 @@ const Day1Theme2 = () => {
     )
 }
 
-export default Day1Theme2
+export default Day1Theme4

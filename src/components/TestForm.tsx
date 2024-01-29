@@ -47,7 +47,6 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers }) => 
                 setFinishLS()
                 navigate('/certificate')
             } else {
-
                 setTick([...tick, data[active[0]][active[1]].title])
                 setTheme([...theme, data[active[0] + 1][0].title])
                 setActive([active[0] + 1, 0])
