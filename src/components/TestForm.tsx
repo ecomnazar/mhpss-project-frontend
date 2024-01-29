@@ -7,14 +7,17 @@ import { useLogicStore } from '../stores/useLogicStore';
 import { getThemeLS, getTickLS, setActiveDayLS, setActiveDayThemeLS, setFinishLS, setThemeLS, setTickLs } from '../lib/localStorage';
 import { data } from '../pages/Course';
 import { useNavigate } from 'react-router-dom';
+import { SwiperRef } from 'swiper/react';
 
 interface Props {
     correctAnswer: number;
     questionText: string;
     answers: string[];
+    swiperRef: React.RefObject<SwiperRef>;
+    isLast?: boolean;
 }
 
-const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers }) => {
+const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers, swiperRef, isLast = false }) => {
 
     const { t } = useTranslation()
     const navigate = useNavigate()
@@ -40,21 +43,25 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers }) => 
 
     const onSubmit = () => {
         if (resultText === 'correct') {
-            if (data.length === active[0] + 1 && data[active[0]].length === active[1] + 1) {
-                setTickLs(themeLS + data[active[0]][active[1]].title + '::')
-                //@ts-ignore
-                setTick(tickLS.split('::'))
-                setFinishLS()
-                navigate('/certificate')
+            if (isLast) {
+                if (data.length === active[0] + 1 && data[active[0]].length === active[1] + 1) {
+                    setTickLs(themeLS + data[active[0]][active[1]].title + '::')
+                    //@ts-ignore
+                    setTick(tickLS.split('::'))
+                    setFinishLS()
+                    navigate('/certificate')
+                } else {
+                    setTick([...tick, data[active[0]][active[1]].title])
+                    setTheme([...theme, data[active[0] + 1][0].title])
+                    setActive([active[0] + 1, 0])
+                    // LS
+                    setThemeLS(themeLS + data[active[0] + 1][0].title + '::')
+                    setActiveDayLS((active[0] + 1).toString())
+                    setTickLs((themeLS + data[active[0]][active[1]].title) + '::')
+                    setActiveDayThemeLS('0')
+                }
             } else {
-                setTick([...tick, data[active[0]][active[1]].title])
-                setTheme([...theme, data[active[0] + 1][0].title])
-                setActive([active[0] + 1, 0])
-                // LS
-                setThemeLS(themeLS + data[active[0] + 1][0].title + '::')
-                setActiveDayLS((active[0] + 1).toString())
-                setTickLs((themeLS + data[active[0]][active[1]].title) + '::')
-                setActiveDayThemeLS('0')
+                swiperRef.current?.swiper.slideNext()
             }
         } else {
             setShowResult(true)
@@ -68,7 +75,7 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers }) => 
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className="w-full sm:w-[500px] rounded-md">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full sm:w-[500px] mx-auto rounded-md">
                 <h2 className="mb-4">{questionText}</h2>
                 <div className="w-full flex flex-col gap-y-4">
                     {answers.map((question, index) => {

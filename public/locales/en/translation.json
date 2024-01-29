@@ -68,7 +68,193 @@
         "test5": "Test 5"
     },
 
-
+    "tests": {
+        "day1": {
+            "test1": {
+                "question": "What is the definition of mental health according to the WHO?",
+                "a": "State of mental well-being",
+                "b": "Ability to cope with stress",
+                "c": "Ability to contribute to the community",
+                "d": "All of the above"
+            },
+            "test2": {
+                "question": "What is psychosocial suffering caused by?",
+                "a": "Biological factors",
+                "b": "Psychological factors",
+                "c": "Interrelationship between psychological and social problems",
+                "d": "Physical injuries"
+            },
+            "test3": {
+                "question": "What is the goal of psychosocial support (PSS)?",
+                "a": "To provide financial assistance",
+                "b": "To foster psychological improvement",
+                "c": "To promote physical well-being",
+                "d": "To improve political systems"
+            },
+            "test4": {
+                "question": "How can ongoing distress impact peacebuilding activities?",
+                "a": "It has no impact on peacebuilding",
+                "b": "It strengthens community cohesion",
+                "c": "It can undermine peacebuilding efforts",
+                "d": "It leads to immediate conflict resolution"
+            },
+            "test5": {
+                "question": "Why is addressing psychosocial suffering important in the context of peacebuilding?",
+                "a": "It has no relevance to peacebuilding",
+                "b": "It prevents economic disparities",
+                "c": "It can prevent conflicts and violence",
+                "d": "It improves political stability"
+            },
+            "test6": {
+                "question": "What does the Mental Health Continuum represent?",
+                "a": "Fixed states of mental health",
+                "b": "The stages of grief",
+                "c": "Different states of mental well-being",
+                "d": "Stages of psychological development"
+            },
+            "test7": {
+                "question": "What are the three main groups of factors that impact mental health, according to the biopsychosocial approach?",
+                "a": "Economic, political, and cultural factors",
+                "b": "Biological, social, and psychological factors",
+                "c": "Environmental, educational, and familial factors",
+                "d": "Religious, gender, and dietary factors"
+            }
+        },
+        "day2": {
+            "test1": {
+                "question": "Which gender is associated with an increased risk of major depressive disorder?",
+                "a": "Female",
+                "b": "Male",
+                "c": "Both genders equally",
+                "d": "Neither gender"
+            },
+            "test2": {
+                "question": "What does Layer 1 represent in the IASC MHPSS Pyramid?",
+                "a": "People with diagnosable conditions",
+                "b": "All people affected by the emergency",
+                "c": "Mental health professionals",
+                "d": "Support for carers and families"
+            },
+            "test3": {
+                "question": "What are the four kinds of interventions described in the WHO mhGAP Community Toolkit?",
+                "a": "Talking about mental health, physical therapy, social isolation, surgery",
+                "b": "Mental health promotion, self-help books, therapy animals, medical treatment",
+                "c": "Support for people with mental health conditions, medication, surgery, self-care",
+                "d": "Talking about mental health, mental health promotion and prevention, support for people with mental health conditions, recovery and rehabilitation"
+            },
+            "test4": {
+                "question": "According to WHO, what percentage of people with severe mental disorders receive no treatment for their mental health problem in low- and middle-income countries?",
+                "a": "15% to 25%",
+                "b": "35% to 50%",
+                "c": "60% to 75%",
+                "d": "76% to 85%"
+            },
+            "test5": {
+                "question": "Suicide is the _____ leading cause of death for 15-29-year-olds.",
+                "a": "1st",
+                "b": "2nd",
+                "c": "3rd",
+                "d": "4th"
+            },
+            "test6": {
+                "question": "According to the ICD-11, what are some of the common symptoms of Depression?",
+                "a": "Difficulty concentrating, feelings of worthlessness, and hopelessness",
+                "b": "Hallucinations, social withdrawal, and hyperactivity",
+                "c": "Increased appetite, euphoria, and reduced energy",
+                "d": "Paranoia, insomnia, and excessive guilt"
+            },
+            "test7": {
+                "question": "What are the core characteristics of Post-Traumatic Stress Disorder (PTSD) as per ICD-11?",
+                "a": "Avoidance of activities reminiscent of the traumatic event",
+                "b": "Persistent perceptions of heightened current threat",
+                "c": "Intrusive memories, flashbacks, or nightmares",
+                "d": "All of the above"
+            },
+            "test8": {
+                "question": "What type of emotions are often associated with re-experiencing the traumatic event in PTSD?",
+                "a": "Joy and excitement",
+                "b": "Fear or horror",
+                "c": "Love and compassion",
+                "d": "Apathy"
+            }
+        },
+        "day3": {
+            "test1": {
+                "question": "What are the core WHO mhGAP communication skills for mental health and psychosocial support?",
+                "a": "Diagnosis and medication prescription",
+                "b": "Creating an environment that facilitates open communication",
+                "c": "Administrative procedures",
+                "d": "Physical examinations"
+            },
+            "test2": {
+                "question": "How can you create an environment that facilitates open communication?",
+                "a": "Maintain eye contact and use body language that fosters trust",
+                "b": "Avoid introductions and keep conversations brief",
+                "c": "Always have a third party present during the conversation",
+                "d": "Use technical terms to demonstrate expertise"
+            },
+            "test3": {
+                "question": "Why is it important to involve the person with mental health issues in the discussion?",
+                "a": "It's not essential, and only their caregivers should be involved",
+                "b": "To make them feel more isolated",
+                "c": "To reduce stigma",
+                "d": "To prevent them from speaking about their condition"
+            },
+            "test4": {
+                "question": "How should you approach communication with children when using language they can understand?",
+                "a": "Ask them complex questions to test their comprehension",
+                "b": "Discuss traumatic events in detail",
+                "c": "Use language related to their interests and experiences",
+                "d": "Speak to them using technical terminology"
+            },
+            "test5": {
+                "question": "Why is it essential to be nonjudgmental when interacting with individuals with mental health conditions?",
+                "a": "To criticize their behavior",
+                "b": "To create a tense and judgmental atmosphere",
+                "c": "To promote understanding and empathy",
+                "d": "To encourage laughter"
+            },
+            "test6": {
+                "question": "What is the main goal of Psychosocial Support Step 1: Recognition and Establishing Communication?",
+                "a": "To diagnose mental health conditions",
+                "b": "To provide psychosocial support",
+                "c": "To see the signs of distress and initiate the conversation",
+                "d": "To prescribe medication"
+            }
+        },
+        "day4": {
+            "test1": {
+                "question": "In Psychosocial Support Step 2, Validation, what message does the person receive about their mental health condition?",
+                "a": "It is imaginary and something to be afraid to talk about",
+                "b": "It's not a valid condition, and they are alone in their experience",
+                "c": "It is real, valid, and there is someone they can talk to without judgment",
+                "d": "It's their fault that they have a mental health condition"
+            },
+            "test2": {
+                "question": "What is the main focus of Psychosocial Support Step 3: Delivery of Psychosocial Support?",
+                "a": "Referring the person to specialized services",
+                "b": "Providing medication for the person's condition",
+                "c": "Reducing stigma and self-stigma",
+                "d": "Offering support to the person"
+            },
+            "test3": {
+                "question": "What is the primary purpose of Psychosocial Support Step 4: Referral to Specialized Services?",
+                "a": "To provide long-term psychosocial support",
+                "b": "To refer the person to a psychiatrist for medication",
+                "c": "To make a referral to a specialist in case of need",
+                "d": "To discourage people from seeking specialized services"
+            }
+        },
+        "day5": {
+            "test1": {
+                "question": "What is the main task of Psychosocial Support Step 5: Follow-Up?",
+                "a": "Provide a one-time intervention",
+                "b": "Ensure that support was not received",
+                "c": "Initiate a re-meeting, check progress, and repeat referrals if necessary",
+                "d": "Determine if a person's mental health condition has improved"
+            }
+        }
+    },
 
     "startCourse": "Start course",
     "hours": "hours",
