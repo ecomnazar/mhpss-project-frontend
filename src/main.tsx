@@ -11,6 +11,7 @@ import CoursePage from './pages/Course.tsx'
 import CertificatePage from './pages/CertificatePage.tsx'
 import AdminPanelPage from './pages/AdminPanelPage.tsx'
 import TestPage from './pages/TestPage.tsx'
+import FeedbackPage from './pages/FeedbackPage.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </Route>
         <Route path='/course' element={<CoursePage />} />
         <Route path='/certificate' element={<CertificatePage />} />
+        <Route path='/feedback' element={<FeedbackPage />} />
         <Route path='/test-page' element={<TestPage />} />
       </Routes>
     </BrowserRouter>

@@ -256,6 +256,20 @@
         }
     },
 
+    "feedback": {
+        "request": "Thank you for participating in the MHPSS online training. We value your feedback and would greatly appreciate it if you could take a few minutes to share your thoughts with us. Would you like to provide feedback?",
+        "review": "Please rate the following on a scale of 1 to 5, with 1 being the lowest and 5 being the highest:",
+        "1": "Relevance of Content:",
+        "2": "Quality of Presentation:",
+        "3": "Training Materials:",
+        "4": "Overall Satisfaction:",
+        "5": "Would you recommend this training to others?",
+        "thx": "Thank you for your feedback!"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "send": "Send",
+
     "startCourse": "Start course",
     "hours": "hours",
     "duration": "Duration",
@@ -297,6 +311,8 @@
     "signout": "Sign out",
     "profile": "Profile",
     "register": "Register",
+    "correct": "Correct",
+    "wrong": "Wrong",
 
     "continueCourse": "Continue course",
     "hi": "Hi!",

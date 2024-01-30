@@ -251,6 +251,20 @@
         }
     },
 
+    "feedback": {
+        "request": "PSPSG onlaýn okuwymyza gatnaşanyňyz üçin sag boluň. Siziň okuw baradaky pikirleňiz we teklipleriňiz biziň üçin ähmiýetli. Pikirleňizi we teklipleriňizi beýan etmäge birnäçe minut sarp edip bilseňiz, sizden minnetdar bolarys. Siziň teklipleriňiz. Pikir bermek isleýärsiňizmi?",
+        "review": "Aşakdakylary 1-den 5-e çenli şkalada baha beriň, 1-i iň pes, 5-i iň ýokary:",
+        "1": "Okuwyň mazmunynyň ähmiýetliligi (degişliligi):",
+        "2": "Prezentasiýalaryň hili:",
+        "3": "Okuw materiýallary:",
+        "4": "Umumy kanagatlanma:",
+        "5": "Siz bu okuwy başgalara maslahat berersiňizmi?",
+        "thx": "Pikirleriňiz üçin köp sagboluň!"
+    },
+    "yes": "Hawa",
+    "no": "Ýok",
+    "send": "Ugratmak",
+
     "startCourse": "Kursa başlamak",
     "hours": "sagat",
     "duration": "Dowamlylygy",
@@ -292,6 +306,8 @@
     "signout": "Çykmak",
     "profile": "Profil",
     "register": "Agza bolmak",
+    "correct": "Dogry",
+    "wrong": "Nädogry",
 
     "continueCourse": "Kursy dowam etmek",
     "hi": "Salam!",
