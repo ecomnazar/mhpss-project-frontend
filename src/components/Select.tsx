@@ -27,7 +27,7 @@ const Select = ({ content, defaultValue, active, setActive }: Props) => {
                     leaveTo="opacity-0"
                 >
                     <Listbox.Options
-                        className="max-h-60 mt-2 w-full rounded-md bg-white backdrop-blur text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+                        className="max-h-60 mt-2 w-full rounded-md bg-white backdrop-blur text-base shadow-lg overflow-scroll ring-1 ring-black/5 focus:outline-none sm:text-sm">
                         {content.map((item, i) => (
                             <Listbox.Option
                                 key={i}

@@ -1,4 +1,6 @@
 import React from 'react';
+import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { AiOutlineClose } from 'react-icons/ai'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { regions } from '../lib/constants/regions';
@@ -6,8 +8,7 @@ import { useUserStore } from '../stores/useUserStore';
 import Input from './Input';
 import Button from './Button';
 import Select from './Select';
-import { useTranslation } from 'react-i18next';
-import toast from 'react-hot-toast';
+import { countries } from '../lib/constants/countries';
 
 interface FormProps {
     fullname: string;
@@ -32,27 +33,37 @@ const SignUpForm = ({ onChangeForm }: Props) => {
 
     const registerUserApi = useUserStore((state) => state.registerUserApi)
     const isLoading = useUserStore((state) => state.registerLoading)
-    const [region, setRegion] = React.useState('')
+    const [region, setRegion] = React.useState('Ashgabat')
     const [gender, setGender] = React.useState('')
+    const [country, setCountry] = React.useState('')
     const date = new Date().getFullYear() + '-' + new Date().getDate() + '-' + new Date().getDay()
     const onSubmit: SubmitHandler<FormProps> = async ({ fullname, email, password }) => {
+        const realGender = gender === 'Erkek' || 'Male' || 'Мужской' ? 'Male' : gender === 'Female' || 'Aýal' || 'Женский' ? 'Female' : ''
         const data = {
             fullname,
             email,
             password,
-            region,
-            gender,
+            region: country === 'Turkmenistan' ? region : country,
+            gender: realGender,
             date
         }
-        if (!gender || !region) {
-            toast.error('Заполните все поля')
+        if (country !== 'Turkmenistan') {
+            if (!gender || !country) {
+                toast.error('Заполните все поля')
+            } else {
+                registerUserApi(data)
+            }
         } else {
-            registerUserApi(data)
+            if (!gender || !region) {
+                toast.error('Заполните все поля')
+            } else {
+                registerUserApi(data)
+            }
         }
+
     }
 
     const genders = [t('male'), t('female'), t('preferNotToSay')]
-
     return (
         <>
             <div className='flex items-center justify-between'>
@@ -61,13 +72,23 @@ const SignUpForm = ({ onChangeForm }: Props) => {
                     <AiOutlineClose size={20} />
                 </button>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-2 mt-6'>
+            <form onSubmit={(e) => { e.preventDefault() }} className='flex flex-col gap-y-2 mt-6'>
                 <Input register={register('fullname', { required: true })} placeholder={t('fullname')} errorType={errors.fullname?.type} />
                 <Input register={register('email', { required: true })} placeholder={t('email')} type='email' errorType={errors.email?.type} />
                 <Input register={register('password', { required: true })} placeholder={t('password')} type='password' errorType={errors.password?.type} />
-                <Select active={region} setActive={setRegion} content={regions} defaultValue={t('region')} />
+
+
+                {country.includes('Turkmenistan')
+                    ? <Select active={region} setActive={setRegion} content={regions} />
+                    : <Select active={country} setActive={setCountry} content={countries} defaultValue={t('country')} />
+                }
+
+
+
                 <Select active={gender} setActive={setGender} content={genders} defaultValue={t('gender')} />
-                <Button disabled={!region} isLoading={isLoading} className="!bg-primary w-full mt-2" title={t('signup')} />
+                <Button onClick={handleSubmit(onSubmit)} type='button' disabled={
+                    country !== 'Turkmenistan' ? !gender || !country : !gender || !region
+                } isLoading={isLoading} className="!bg-primary w-full mt-2" title={t('signup')} />
             </form>
             <button onClick={() => onChangeForm()} className='block mx-auto text-black mt-4 text-center text-[13px]'>{t('alreadyhaveanaccount')} <span className='text-primary'>{t('signin')}</span> </button>
         </>

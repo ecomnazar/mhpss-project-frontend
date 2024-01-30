@@ -7,11 +7,12 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   title: string | any;
   disabled?: boolean;
   isLoading?: boolean;
+  type?: 'button' | 'submit';
 }
 
-const Button = ({ className, title, disabled = false, isLoading = false, ...props }: Props) => {
+const Button = ({ className, title, disabled = false, isLoading = false, type = 'submit', ...props }: Props) => {
   return (
-    <button {...props} disabled={disabled || isLoading} className={clsx('relative bg-primary/70 text-white h-[44px] px-4 flex items-center justify-center rounded-md', className, {
+    <button type={type} {...props} disabled={disabled || isLoading} className={clsx('relative bg-primary/70 text-white h-[44px] px-4 flex items-center justify-center rounded-md', className, {
       ['!bg-opacity-70']: disabled || isLoading
     })}>
       {isLoading ? <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'><RotatingLines

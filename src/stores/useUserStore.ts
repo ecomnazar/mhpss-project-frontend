@@ -17,6 +17,7 @@ interface User {
   gender: string;
   id: number;
   region: string;
+  feedback: string;
 }
 
 interface RegisterProps {

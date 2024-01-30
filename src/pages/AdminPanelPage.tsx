@@ -10,10 +10,48 @@ const AdminPanelPage = () => {
         getUsers()
     }, [])
 
+    const lastUser = users[users.length - 1]?.feedback
+
     return (
-        <section className='px-4  py-4'>
-            <ul>
-                <li className='flex justify-between items-center flex-wrap mb-2'>
+        <section className='p-4 relative'>
+            <div className='overflow-x-scroll'>
+                <ul className='table w-full'>
+                    <div className='table-row whitespace-nowrap text-[15px]'>
+                        <div className='table-cell p-4'>Id</div>
+                        <div className='table-cell p-4'>Full name</div>
+                        <div className='table-cell p-4'>Gender</div>
+                        <div className='table-cell p-4'>Region</div>
+                        <div className='table-cell p-4'>Email</div>
+                        <div className='table-cell p-4'>Register Date</div>
+                        <div className='table-cell p-4'>Finish Date</div>
+                        <div className='table-cell p-4'>Feedback</div>
+                        <div className='table-cell p-4'>Certificate №</div>
+                    </div>
+                    {users?.map((user, i) => {
+                        return (
+                            <div key={i} className={clsx('table-row whitespace-nowrap bg-primary text-[13px]', {
+                                ['bg-opacity-20']: i % 2 === 0,
+                                ['bg-opacity-0']: i % 2 !== 0
+                            })}>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.id}</div>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.fullname}</div>
+                                <div className='table-cell px-4 py-2 align-middle'><div className={clsx('w-[30px] h-[30px] rounded-full', {
+                                    ['bg-blue-400']: user.gender === 'Male',
+                                    ['bg-red-400']: user.gender === 'Female',
+                                })}></div></div>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.region}</div>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.email}</div>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.date}</div>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.finish_date}</div>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.feedback}</div>
+                                <div className='table-cell px-4 py-2 align-middle'>{user.certificate_key}</div>
+                            </div>
+                        )
+                    })}
+                </ul>
+            </div>
+            {/* <ul>
+                <li className='flex justify-between items-center mb-2'>
                     <div className='basis-[5%]'>Id</div>
                     <div className='basis-[20%]'>Full name</div>
                     <div className='basis-[10%]'>Gender</div>
@@ -41,7 +79,7 @@ const AdminPanelPage = () => {
                         </li>
                     )
                 })}
-            </ul>
+            </ul> */}
         </section>
     )
 }
