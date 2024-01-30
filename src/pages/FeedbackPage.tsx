@@ -5,17 +5,22 @@ import Button from '../components/Button'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import toast, { Toaster } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import { useUserStore } from '../stores/useUserStore'
+import { getUserEmail } from '../lib/userData'
 
 
 
 const FeedbackPage = () => {
     const [feedback, setFeedback] = React.useState([1, 1, 1, 1, 'yes'])
     const { t } = useTranslation()
+    const mail = getUserEmail()
     const { handleSubmit } = useForm()
     const navigate = useNavigate()
+    const updateFeedback = useUserStore((state) => state.updateFeedback)
     const [showFeedback, setShowFeedback] = React.useState(false)
 
     const onSend = () => {
+        updateFeedback(feedback, mail!)
         toast.success(t('feedback.thx'))
         setTimeout(() => {
             navigate('/certificate')

@@ -6,6 +6,7 @@ import i18n from "../i18n";
 import { saveAs } from "file-saver";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_API = import.meta.env.VITE_BASE_API;
 
 interface User {
   certificate_key: null | string;
@@ -44,7 +45,8 @@ interface Action {
   getUsers: () => void;
   updateFinishDate: () => void;
   downloadPdfApi: () => void;
-  getCertifiacteApi: (fullname: string, email: string) => void;
+  getCertifiacteApi: (fullname: string, id: string, mail: string) => void;
+  updateFeedback: (feedback: any[], email: string) => void;
   setIsModalActive: () => void;
   setIsModalDisable: () => void;
   setIsEditModalActive: () => void;
@@ -162,12 +164,13 @@ export const useUserStore = create<State & Action>((set) => ({
       set({ editLoading: false });
     }
   },
-  getCertifiacteApi: async (fullname, email) => {
+  getCertifiacteApi: async (fullname, id, mail) => {
     set({ getCertifiacteLoading: true });
     try {
-      const response = await axios.post(`${BASE_URL}/certification`, {
+      const response = await axios.post(`${BASE_API}/api/v1/certificate`, {
         fullname,
-        email,
+        id,
+        mail,
       });
       toast.success("certficate created successfully");
       return response.data;
@@ -229,5 +232,21 @@ export const useUserStore = create<State & Action>((set) => ({
       });
       return response.data;
     } catch (error) {}
+  },
+  updateFeedback: async (feedback, email) => {
+    const data = {
+      feedback,
+      email,
+    };
+    try {
+      const response = await axios.put(`${BASE_URL}/updateFeedback`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
 }));

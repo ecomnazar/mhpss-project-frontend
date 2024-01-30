@@ -214,7 +214,7 @@ const CoursePage = () => {
                 <div className='relative w-full lg:w-[calc(100vw-450px)] overflow-y-scroll mb-4 p-2 md:p-4 md:mb-0 border-2 border-primary rounded-md flex flex-col items-center justify-start'>
                     {data[active[0]][active[1]].content}
                 </div>
-                <div className="w-full lg:w-[400px] relative lg:fixed overflow-scroll right-0 mb-4 lg:mt-0 mr-4">
+                <div className="w-full lg:w-[400px] relative lg:fixed overflow-scroll lg:h-[calc(100vh-100px)] right-0 mb-4 lg:mt-0 mr-4">
                     <div className=''>
                         <div className="flex items-center justify-between">
                             <h3 className="font-[600]">MHPSS</h3>

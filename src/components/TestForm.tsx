@@ -44,10 +44,7 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers, swipe
 
     const onSubmit = () => {
         if (resultText === 'correct') {
-
             if (isLast) {
-
-
                 if (!isFinish) {
                     if (data.length === active[0] + 1 && data[active[0]].length === active[1] + 1) {
                         setTickLs(themeLS + data[active[0]][active[1]].title + '::')
@@ -69,13 +66,9 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers, swipe
                     setFinishLS()
                     navigate('/feedback')
                 }
-
-
             } else {
                 swiperRef.current?.swiper.slideNext()
             }
-
-
         } else {
             setShowResult(true)
             if (value === correctAnswer) {

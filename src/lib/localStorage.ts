@@ -10,6 +10,8 @@ export const getActiveDayThemeLS = () =>
 
 export const getFinishLS = () => localStorage.getItem("finish");
 
+export const getCertificateId = () => localStorage.getItem("certificate_key");
+
 // SET
 
 export const setThemeLS = (data: string) => localStorage.setItem("theme", data);
