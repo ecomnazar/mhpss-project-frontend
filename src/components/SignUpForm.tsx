@@ -62,7 +62,7 @@ const SignUpForm = ({ onChangeForm }: Props) => {
                 </button>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-2 mt-6'>
-                <Input register={register('fullname', { required: true })} placeholder={t('fullname') + ' / Nazar Jumayew'} errorType={errors.fullname?.type} />
+                <Input register={register('fullname', { required: true })} placeholder={t('fullname')} errorType={errors.fullname?.type} />
                 <Input register={register('email', { required: true })} placeholder={t('email')} type='email' errorType={errors.email?.type} />
                 <Input register={register('password', { required: true })} placeholder={t('password')} type='password' errorType={errors.password?.type} />
                 <Select active={region} setActive={setRegion} content={regions} defaultValue={t('region')} />

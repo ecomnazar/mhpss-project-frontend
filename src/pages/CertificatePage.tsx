@@ -5,6 +5,13 @@ import { getUserEmail, getUserFullname } from '../lib/userData'
 import { useUserStore } from '../stores/useUserStore'
 import { Toaster } from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
+import Input from '../components/Input'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+interface FormProps {
+    fullname: string;
+    email: string;
+}
 
 const CertificatePage = () => {
     const { t } = useTranslation()
@@ -12,8 +19,7 @@ const CertificatePage = () => {
     const loading = useUserStore((state) => state.getCertifiacteLoading)
     const isFinish = localStorage.getItem('finish')
     const getCertificateApi = useUserStore((state) => state.getCertifiacteApi)
-    const email = getUserEmail()
-    const fullname = getUserFullname()
+    const { register, handleSubmit } = useForm<FormProps>()
 
     React.useEffect(() => {
         if (!isFinish) {
@@ -21,18 +27,24 @@ const CertificatePage = () => {
         }
     }, [])
 
-    const handleSubmit = () => {
-        getCertificateApi(fullname!, email!)
+    const onSubmit: SubmitHandler<FormProps> = ({ fullname, email }) => {
+        console.log(fullname, email);
+
+        // getCertificateApi(fullname!, email!)
     }
 
     return (
         <section className='w-screen h-screen flex flex-col items-center justify-center'>
-
-            <h3>{t('feedback.request')}</h3>
-
-            <Toaster />
-            <Button isLoading={loading} onClick={handleSubmit} title={'Download certificate'} />
-            <p>We will send your certificate to your email ({email})</p>
+            <form className='w-[85%] rounded-md sm:w-[500px] overflow-y-auto bg-white shadow-md'>
+                <div className='w-full p-3 bg-primary'>
+                    <h3 className='text-white'>{t("sendCertificate")}</h3>
+                </div>
+                <div className='p-4 flex flex-col gap-y-2'>
+                    <Input register={register('fullname')} placeholder={t('fullname')} />
+                    <Input register={register('email')} placeholder={t('email')} type='email' />
+                    <Button isLoading={loading} onClick={handleSubmit(onSubmit)} title={'Download certificate'} />
+                </div>
+            </form>
         </section>
     )
 }

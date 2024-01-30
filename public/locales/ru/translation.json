@@ -310,6 +310,8 @@
     "register": "Регистрация",
     "correct": "Правильно",
     "wrong": "не правильно",
+    "sendCertificate": "Мы отправим ваш сертификат на вашу электронную почту",
+    "downloadCertificationSubmit": "Загрузить сертификат",
 
 
     "continueCourse": "Продолжить курс",

@@ -76,9 +76,9 @@ const FeedbackPage = () => {
                 <div className='w-full p-3 bg-primary'>
                     <h3 className='text-white'>{t("feedback.request")}</h3>
                 </div>
-                <div className='flex items-center mt-4'>
-                    <Button title={t('yes')} />
-                    <Button title={t('no')} />
+                <div className='flex items-center mt-4 gap-x-4'>
+                    <Button onClick={() => setShowFeedback(true)} title={t('yes')} className='w-full bg-primary/50' />
+                    <Button onClick={() => navigate('/certificate')} title={t('no')} className='w-full bg-red-600/50' />
                 </div>
             </form>}
         </section>
