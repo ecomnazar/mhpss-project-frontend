@@ -20,7 +20,7 @@ const FeedbackPage = () => {
     const [showFeedback, setShowFeedback] = React.useState(false)
 
     const onSend = () => {
-        updateFeedback(feedback, mail!)
+        updateFeedback(feedback.toString(), mail!)
         toast.success(t('feedback.thx'))
         setTimeout(() => {
             navigate('/certificate')

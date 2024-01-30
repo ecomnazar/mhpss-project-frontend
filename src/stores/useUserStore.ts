@@ -46,7 +46,7 @@ interface Action {
   updateFinishDate: () => void;
   downloadPdfApi: () => void;
   getCertifiacteApi: (fullname: string, id: string, mail: string) => void;
-  updateFeedback: (feedback: any[], email: string) => void;
+  updateFeedback: (feedback: string, email: string) => void;
   setIsModalActive: () => void;
   setIsModalDisable: () => void;
   setIsEditModalActive: () => void;
