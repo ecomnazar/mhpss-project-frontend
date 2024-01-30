@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
-import { getUserEmail, getUserFullname } from '../lib/userData'
 import { useUserStore } from '../stores/useUserStore'
 import toast, { Toaster } from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
