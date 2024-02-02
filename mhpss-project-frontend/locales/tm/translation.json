@@ -8,7 +8,7 @@
         "adaptiveDesc": "Bu okuw Türkmenistanda ýaşlar we zenanlar bilen ýakyndan işleýän hünärmenler üçin niýetlenip düzüldi.",
         "relevanceText": "Degişlilik",
         "relevanceDesc": "Amaly onlaýn kurs arkaly PSPSG bermek üçin gerekli bolan endikleri öweniň we ediniň.",
-        "certificationText": "Сертификация",
+        "certificationText": "Sertifikat",
         "certificationDesc": "Ähli tapgyrlary üstünlikli tamamlandan soň sertifikatyňyzy alyň."
     },
 
@@ -281,13 +281,13 @@
 
     "signup": "Agza bolmak",
     "signin": "Girmek",
-    "alreadyhaveanaccount": "Akkaundyňyz barmy?",
-    "donthaveanaccount": "Akkaundyňyz ýokmy?",
+    "alreadyhaveanaccount": "Hasaba alyş belgiňiz barmy?",
+    "donthaveanaccount": "Hasaba alyş belgiňiz ýokmy?",
     "fullname": "Doly adyňyz",
-    "email": "Mail salgy",
-    "password": "Açar söz",
-    "region": "Welaýat",
-    "gender": "Jyns",
+    "email": "E-poctaňyz",
+    "password": "Açar sözüňiz",
+    "region": "Welaýatyňyz",
+    "gender": "Jynsyňyz",
     "male": "Erkek",
     "female": "Aýal",
     "preferNotToSay": "Jogap beremok",
@@ -311,6 +311,9 @@
     "sendCertificate": "Siziň sertifikatyňyzy elektron poçtaňyza ugradarys",
     "downloadCertificationSubmit": "Sertifikaty almak",
     "success": "Üstünlikli",
+    "country": "Ýurt",
+    "rightsReserved": "Ähli hukular goraglydyr",
+    "clickToDownload": "Ýüklemek üçin basyň",
 
     "continueCourse": "Kursy dowam etmek",
     "hi": "Salam!",

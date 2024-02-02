@@ -38,7 +38,7 @@ const Footer = () => {
                         </a>
                     </div>
                     <div className="sm:text-right">
-                        <p className="text-white/60">© 2024, All rights reserved</p>
+                        <p className="text-white/60">© 2024, {t('rightsReserved')}</p>
                     </div>
                 </div>
             </div>

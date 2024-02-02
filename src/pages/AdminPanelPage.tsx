@@ -10,7 +10,7 @@ const AdminPanelPage = () => {
         getUsers()
     }, [])
 
-    const lastUser = users[users.length - 1]?.feedback
+    // const lastUser = users[users.length - 1]?.feedback
 
     return (
         <section className='p-4 relative'>

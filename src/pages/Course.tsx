@@ -37,7 +37,7 @@ export const data = [
         },
         {
             title: 'downloadResources1',
-            content: <Day1Theme5 />
+            content: <Day1Theme5 day="1" />
         },
         {
             title: 'test1',
@@ -64,7 +64,7 @@ export const data = [
         },
         {
             title: 'downloadResources2',
-            content: <Day1Theme5 />
+            content: <Day1Theme5 day="2" />
         },
         {
             title: 'test2',
@@ -90,7 +90,7 @@ export const data = [
         },
         {
             title: 'downloadResources3',
-            content: <Day1Theme5 />
+            content: <Day1Theme5 day="3" />
         },
         {
             title: 'test3',
@@ -117,7 +117,7 @@ export const data = [
         },
         {
             title: 'downloadResources4',
-            content: <Day1Theme5 />
+            content: <Day1Theme5 day="4" />
         },
         {
             title: 'test4',
@@ -143,7 +143,7 @@ export const data = [
         },
         {
             title: 'downloadResources5',
-            content: <Day1Theme5 />
+            content: <Day1Theme5 day="5" />
         },
         {
             title: 'test5',
