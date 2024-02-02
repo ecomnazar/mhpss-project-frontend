@@ -11,7 +11,7 @@ const Day1Theme5: React.FC<Props> = ({ day }) => {
 
     return (
         <div>
-            <a href={`/pfd-files/day-${day}/${i18n.language}.pdf`} download={`day-${day}-${i18n.language}.pdf`} target={'_blank'}>
+            <a href={`/pfd-files/day-${day}/${i18n.language}.pdf`} download={`day-${day}-${i18n.language}.pdf`} type="application/pdf" target={'_blank'}>
                 <DownloadPdf title={`${t('day') + ' ' + day}`} />
             </a>
             <JustNextButton className='mt-4' />
