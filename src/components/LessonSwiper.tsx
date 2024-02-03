@@ -1,5 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
+import { getLngLS } from '../lib/localStorage';
 
 interface Props {
     swiperRef: React.RefObject<SwiperRef>;
@@ -9,7 +10,7 @@ interface Props {
 }
 
 const LessonSwiper: React.FC<Props> = ({ swiperRef, setActiveIndex, pathToImage, lengthOfImages }) => {
-    const currentLanguage = localStorage.getItem('i18nextLng') === 'tk-TM' ? 'en' : localStorage.getItem('i18nextLng')
+    const currentLanguage = getLngLS()
 
     return (
         <Swiper

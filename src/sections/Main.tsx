@@ -3,6 +3,7 @@ import StartCourseButton from "../components/StartCourseButton";
 
 const Main = () => {
   const { t } = useTranslation()
+
   return (
     <section className='bg-[#004D86] bg-[url("/images/background-map.png")] bg-contain bg-center w-screen py-16'>
       <div className="container mx-auto px-4 flex flex-col gap-y-4">

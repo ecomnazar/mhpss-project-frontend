@@ -12,6 +12,8 @@ export const getFinishLS = () => localStorage.getItem("finish");
 
 export const getCertificateId = () => localStorage.getItem("certificate_key");
 
+export const getLngLS = () => localStorage.getItem("lng") || "en";
+
 // SET
 
 export const setThemeLS = (data: string) => localStorage.setItem("theme", data);
@@ -25,3 +27,5 @@ export const setActiveDayThemeLS = (data: string) =>
   localStorage.setItem("activeDayTheme", data);
 
 export const setFinishLS = () => localStorage.setItem("finish", "true");
+
+export const setLngLS = (lng: string) => localStorage.setItem("lng", lng);

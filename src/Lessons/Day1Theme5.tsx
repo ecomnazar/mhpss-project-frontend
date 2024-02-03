@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import DownloadPdf from '../components/DownloadPdf'
 import JustNextButton from '../components/JustNextButton'
+import { pdfDownloader } from '../lib/pdfDownloader';
 
 interface Props {
     day: string;
@@ -9,11 +10,13 @@ interface Props {
 const Day1Theme5: React.FC<Props> = ({ day }) => {
     const { t, i18n } = useTranslation()
 
+
+
     return (
         <div>
-            <a href={`/pfd-files/day-${day}/${i18n.language}.pdf`} download={`day-${day}-${i18n.language}.pdf`} type="application/pdf" target={'_blank'}>
+            <div onClick={() => pdfDownloader(`/pdf-files/day-${day}/${i18n.language}.pdf`)}>
                 <DownloadPdf title={`${t('day') + ' ' + day}`} />
-            </a>
+            </div>
             <JustNextButton className='mt-4' />
         </div>
     )

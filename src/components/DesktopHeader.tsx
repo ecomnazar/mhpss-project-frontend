@@ -7,6 +7,7 @@ import { getUserEmail, getUserFullname, getUserGender, getUserRegion, removeUser
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useUserStore } from '../stores/useUserStore'
+import { setLngLS } from '../lib/localStorage'
 
 const DesktopHeader = () => {
     const { t, i18n } = useTranslation()
@@ -22,7 +23,10 @@ const DesktopHeader = () => {
     const loginLoading = useUserStore((state) => state.loginLoading)
     const { pathname } = useLocation()
 
-    const onChangeLanguage = (lng: string) => i18n.changeLanguage(lng)
+    const onChangeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng)
+        setLngLS(lng)
+    }
 
     const onClickProfile = () => {
         if (fullname === null || fullname === undefined) {

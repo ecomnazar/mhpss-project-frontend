@@ -1,14 +1,10 @@
 import { useTranslation } from "react-i18next"
 // import { useUserStore } from "../stores/useUserStore"
 import DownloadPdf from "../components/DownloadPdf"
+import { pdfDownloader } from "../lib/pdfDownloader"
 
 const AboutPage = () => {
     const { i18n, t } = useTranslation()
-    // const downloadPdfApi = useUserStore((state) => state.downloadPdfApi)
-
-    // const downloadPdf = () => {
-    //     downloadPdfApi()
-    // }
 
     return (
         <>
@@ -59,19 +55,17 @@ const AboutPage = () => {
                         <ul className="flex flex-col gap-y-4">
                             <li className="text-md sm:text-[18px] font-[700]">{'Materials for in-person training:'}</li>
                             <li className="text-sm sm:text-[15px] ml-4 md:ml-8 flex flex-col gap-y-2">
-                                <a href={`/pfd-files/about-page/${i18n.language}/1.pdf`} download={`MhpssTrainingGuidline.pdf`} target={'_blank'}>
+                                <div onClick={() => pdfDownloader(`/pdf-files/about-page/${i18n.language}/1.pdf`)}>
                                     <DownloadPdf title={"Specialized MHPSS Competencies"} />
-                                </a>
-
-
-                                <a href={`/pfd-files/about-page/${i18n.language}/2.pdf`} download={`MhpssTrainingManual.pdf`} target={'_blank'}>
+                                </div>
+                                <div onClick={() => pdfDownloader(`/pdf-files/about-page/${i18n.language}/2.pdf`)}>
                                     <DownloadPdf title={"General Mental Health Competencies"} />
-                                </a>
+                                </div>
 
 
-                                <a href={`/pfd-files/about-page/${i18n.language}/3.pdf`} download={`MhpssTrainingWorkbook.pdf`} target={'_blank'}>
+                                <div onClick={() => pdfDownloader(`/pdf-files/about-page/${i18n.language}/3.pdf`)}>
                                     <DownloadPdf title={"Teaching and Training Competencies"} />
-                                </a>
+                                </div>
                             </li>
                         </ul>
                     </div>

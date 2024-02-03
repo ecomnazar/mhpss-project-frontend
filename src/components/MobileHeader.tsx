@@ -9,6 +9,7 @@ import { getUserEmail, removeUser } from "../lib/userData";
 import toast from "react-hot-toast";
 import { useUserStore } from "../stores/useUserStore";
 import Button from "./Button";
+import { setLngLS } from "../lib/localStorage";
 
 const MobileHeader = () => {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -25,6 +26,7 @@ const MobileHeader = () => {
 
     const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng)
+        setLngLS(lng)
         setIsOpen(false)
     }
 
