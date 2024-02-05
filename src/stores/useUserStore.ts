@@ -213,12 +213,10 @@ export const useUserStore = create<State & Action>((set) => ({
     } catch (error) {}
   },
   updateFinishDate: async () => {
-    const date =
-      new Date().getFullYear() +
-      "-" +
-      new Date().getDate() +
-      "-" +
-      new Date().getDay();
+    const year = new Date().getFullYear();
+    const day = new Date().getDate();
+    const month = new Date().getMonth() + 1;
+    const date = year + "-" + month + "-" + day;
     const email = getUserEmail();
     const data = {
       date,

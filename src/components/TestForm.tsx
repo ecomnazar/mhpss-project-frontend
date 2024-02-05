@@ -8,6 +8,7 @@ import { getThemeLS, getTickLS, setActiveDayLS, setActiveDayThemeLS, setFinishLS
 import { data } from '../pages/Course';
 import { useNavigate } from 'react-router-dom';
 import { SwiperRef } from 'swiper/react';
+import { useUserStore } from '../stores/useUserStore';
 
 interface Props {
     correctAnswer: number;
@@ -42,6 +43,8 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers, swipe
     const themeLS = getThemeLS()
     const tickLS = getTickLS()
 
+    const updateFinishDate = useUserStore((state) => state.updateFinishDate)
+
     const onSubmit = () => {
         if (resultText === 'correct') {
             if (isLast) {
@@ -65,6 +68,7 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers, swipe
                 } else {
                     setFinishLS()
                     navigate('/feedback')
+                    updateFinishDate()
                 }
             } else {
                 swiperRef.current?.swiper.slideNext()
