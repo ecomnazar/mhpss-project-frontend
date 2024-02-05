@@ -1,15 +1,15 @@
 {
     "mainPage": {
-        "mainText": "PSIHIKI SAGLYK WE PSIHOSOSIAL GOLDAW BERMEK ONLAÝN OKUW",
+        "mainText": "PSIHIKI SAGLYK WE PSIHOSOSIAL GOLDAW ONLAÝN OKUW",
         "mainTextDesc": "Psihiki saglyk we psihososial goldaw (PSPSG) bermek barada öwreniň, psihiki näsazlyklar hakynda umumy düşünje ediniň we psihososial goldaw bermek endiklerini öwreniň"
     },
     "guarantee": {
         "adaptabilityText": "Uýgunlaşdyrmak",
-        "adaptiveDesc": "Bu okuw Türkmenistanda ýaşlar we zenanlar bilen ýakyndan işleýän hünärmenler üçin niýetlenip düzüldi.",
+        "adaptiveDesc": "Bu kurs Türkmenistanda ýaşlar we zenanlar bilen işleýän hünärmenler üçin niýetlenýär",
         "relevanceText": "Degişlilik",
-        "relevanceDesc": "Amaly onlaýn kurs arkaly PSPSG bermek üçin gerekli bolan endikleri öweniň we ediniň.",
+        "relevanceDesc": "Amaly onlaýn kurs arkaly PSPSG bermek üçin gerekli bolan endikleri öwreniň",
         "certificationText": "Sertifikat",
-        "certificationDesc": "Ähli tapgyrlary üstünlikli tamamlandan soň sertifikatyňyzy alyň."
+        "certificationDesc": "Ähli tapgyrlary üstünlikli tamamlandan soň sertifikatyňyzy alyň"
     },
 
     "info": {
@@ -269,9 +269,9 @@
     "hours": "sagat",
     "duration": "Dowamlylygy",
     "pace": "Temp:",
-    "paceType": "Şahsy tempda öwrenmek",
-    "certification": "Сертификация:",
-    "downloadCertificate": "скачать акт об окончании",
+    "paceType": "Özbaşdak öwrenmek",
+    "certification": "Sertifikat:",
+    "downloadCertificate": "Sertifikatyňyzy alyň",
     "youWillLearn": "Şular barada öwrenersiňiz",
     "youWillLearn1": "Psihiki saglyk we psihososial goldaw bermek",
     "youWillLearn2": "Psihiki saglygy kesgitleýjiler (biopsihososial we ýaş aýratynlygyna esaslanýan çemeleşme, gender aspektleri)",
@@ -309,11 +309,18 @@
     "correct": "Dogry",
     "wrong": "Nädogry",
     "sendCertificate": "Siziň sertifikatyňyzy elektron poçtaňyza ugradarys",
-    "downloadCertificationSubmit": "Sertifikaty almak",
+    "downloadCertificationSubmit": "Sertifikaty ýüklemek",
     "success": "Üstünlikli",
     "country": "Ýurt",
     "rightsReserved": "Ähli hukular goraglydyr",
     "clickToDownload": "Ýüklemek üçin basyň",
+
+    "pdfText": {
+        "theme": "Ýerli derejede okuw geçirmek üçin materiallar:",
+        "first": "PSPSG bermek boýunça okuw gollanmasy",
+        "second": "PSPSG bermek boýunça amaly gollanma",
+        "third": "PSPSG bermek boýunça okuwa gatnaşyjylaryň iş depderi"
+    },
 
     "continueCourse": "Kursy dowam etmek",
     "hi": "Salam!",

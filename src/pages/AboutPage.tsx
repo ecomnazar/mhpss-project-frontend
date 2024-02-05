@@ -53,18 +53,29 @@ const AboutPage = () => {
                     <div>
                         {/* <h3 className="text-lg font-[600] mb-4">General Mental Health Competencies</h3> */}
                         <ul className="flex flex-col gap-y-4">
-                            <li className="text-md sm:text-[18px] font-[700]">{'Materials for in-person training:'}</li>
+                            <li className="text-md sm:text-[18px] font-[700]">{t('pdfText.theme')}</li>
+                            {/* Ýerli derejede okuw geçirmek üçin materialla */}
+                            {/* Материалы для индивидуального обучения */}
                             <li className="text-sm sm:text-[15px] ml-4 md:ml-8 flex flex-col gap-y-2">
                                 <div onClick={() => pdfDownloader(`/pdf-files/about-page/${i18n.language}/1.pdf`)}>
-                                    <DownloadPdf title={"Specialized MHPSS Competencies"} />
+                                    <DownloadPdf title={t('pdfText.first')} />
+                                    {/* MHPSS Training Guideline */}
+                                    {/* PSPSG bermek boýunça okuw gollanmasy */}
+                                    {/* Руководство по обучению ПЗПСП */}
                                 </div>
                                 <div onClick={() => pdfDownloader(`/pdf-files/about-page/${i18n.language}/2.pdf`)}>
-                                    <DownloadPdf title={"General Mental Health Competencies"} />
+                                    <DownloadPdf title={t('pdfText.second')} />
+                                    {/* MHPSS Training Manual */}
+                                    {/* PSPSG bermek boýunça amaly gollanma */}
+                                    {/* Учебное пособие по ПЗПСП */}
                                 </div>
 
 
                                 <div onClick={() => pdfDownloader(`/pdf-files/about-page/${i18n.language}/3.pdf`)}>
-                                    <DownloadPdf title={"Teaching and Training Competencies"} />
+                                    <DownloadPdf title={t('pdfText.third')} />
+                                    {/* MHPSS Training Participants Workbook */}
+                                    {/* PSPSG bermek boýunça okuwa gatnaşyjylaryň iş depderi */}
+                                    {/* Рабочая тетрадь участников тренинга по ПЗПСП */}
                                 </div>
                             </li>
                         </ul>

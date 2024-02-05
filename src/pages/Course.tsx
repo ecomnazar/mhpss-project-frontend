@@ -210,7 +210,7 @@ const CoursePage = () => {
                     <img src="/images/arrow-back-icon.svg" />
                 </button>
             </div>
-            <div className='flex flex-col-reverse lg:flex-row items-start justify-between'>
+            <div className='flex flex-col lg:flex-row items-start justify-between'>
                 <div className='relative w-full lg:w-[calc(100vw-450px)] overflow-y-scroll mb-4 p-2 md:p-4 md:mb-0 border-2 border-primary rounded-md flex flex-col items-center justify-start'>
                     {data[active[0]][active[1]].content}
                 </div>

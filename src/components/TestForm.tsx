@@ -101,8 +101,6 @@ const TestForm: React.FC<Props> = ({ correctAnswer, questionText, answers, swipe
                     })}
                     <Button disabled={value > answers.length} title={resultText === 'correct' ? t('next') : 'Submit'} />
                 </div>
-                <div>
-                </div>
             </form>
             {showResult && <h2 className={clsx('text-center mt-4', {
                 ['text-green-500']: resultText == 'correct',

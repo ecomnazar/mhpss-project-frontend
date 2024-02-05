@@ -46,7 +46,7 @@ const CertificatePage = () => {
                 <div className='p-4 flex flex-col gap-y-2'>
                     <Input register={register('fullname', { required: true })} placeholder={t('fullname')} />
                     <Input register={register('email', { required: true })} placeholder={t('email')} type='email' />
-                    <Button isLoading={loading} onClick={handleSubmit(onSubmit)} title={'Download certificate'} />
+                    <Button isLoading={loading} onClick={handleSubmit(onSubmit)} title={t('downloadCertificationSubmit')} />
                 </div>
             </form>
         </section>

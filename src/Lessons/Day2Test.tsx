@@ -1,6 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 import TestForm from '../components/TestForm'
+import 'swiper/css';
 
 const tests = [
     {
@@ -55,13 +56,16 @@ const Day2Test = () => {
                 slidesPerView={1}
                 ref={swiperRef}
                 simulateTouch={false}
+                allowTouchMove={false}
                 onSlideChange={(e) => setActiveIndex(e.activeIndex)}
                 // onSwiper={(swiper) => console.log(swiper)}
                 className="h-full w-full"
             >
                 {tests.map((item, idx) => {
                     return (
-                        <SwiperSlide key={idx}><TestForm swiperRef={swiperRef} correctAnswer={item.correct} questionText={item.question} answers={item.answers} isLast={tests.length - 1 === idx} /></SwiperSlide>
+                        <SwiperSlide key={idx}>
+                            <TestForm swiperRef={swiperRef} correctAnswer={item.correct} questionText={item.question} answers={item.answers} isLast={tests.length - 1 === idx} />
+                        </SwiperSlide>
                     )
                 })}
                 {/* <SwiperSlide><TestForm swiperRef={swiperRef} correctAnswer={correctAnswer} questionText={questionText} answers={questionAndAnswer} isLast={true} /></SwiperSlide> */}

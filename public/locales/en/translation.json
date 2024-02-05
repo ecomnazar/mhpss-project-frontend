@@ -5,7 +5,7 @@
     },
     "guarantee": {
         "adaptabilityText": "Adaptability",
-        "adaptiveDesc": "The course is designed for first-line professionals in Turkmenistan working with youth and women.",
+        "adaptiveDesc": "The course is designed for first-line professionals in Turkmenistan working with youth and women",
         "relevanceText": "Relevance",
         "relevanceDesc": "Explore and build skills to provide MHPSS via a practical online course",
         "certificationText": "Certification",
@@ -13,7 +13,7 @@
     },
 
     "info": {
-        "title": "The aim of the online MHPSS course:",
+        "title": "Aim of the online MHPSS course:",
         "desc": "To build capacities of helping professionals on providing community-based mental health and psychosocial support to vulnerable youth and women as a preventive measure.",
         "secondTitle": "More about online MHPSS course",
         "courseFor": "The course is designed to build capacities of frontline service providers, so that they can",
@@ -25,10 +25,10 @@
         "courseFor6": "understand importance of doing referrals to specialized mental health and other services relevant to individual needs;",
         "courseFor7": "take care of one's mental health using evidence-based self-help tools and skills.",
         "target": "Objectives",
-        "target1": "Learn about mental health and its determinants;",
-        "target2": "Build competencies in the area of mental health promotion, prevention, and support;",
-        "target3": "Increase knowledge of evidence-based scalable mental health and psychosocial interventions;",
-        "target4": "Develop skills to provide basic MHPSS."
+        "target1": "learn about mental health and its determinants;",
+        "target2": "build competencies in the area of mental health promotion, prevention, and support;",
+        "target3": "increase knowledge of evidence-based scalable mental health and psychosocial interventions;",
+        "target4": "develop skills to provide basic MHPSS."
     },
 
     "lessonPage": {
@@ -319,6 +319,13 @@
     "country": "Country",
     "rightsReserved": "All rights reserved",
     "clickToDownload": "Click to download",
+
+    "pdfText": {
+        "theme": "Materials for in-person training:",
+        "first": "MHPSS Training Guideline",
+        "second": "MHPSS Training Manual",
+        "third": "MHPSS Training Participants Workbook"
+    },
 
     "continueCourse": "Continue course",
     "hi": "Hi!",
