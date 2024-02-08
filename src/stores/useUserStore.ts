@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
@@ -106,7 +107,7 @@ export const useUserStore = create<State & Action>((set) => ({
       // }, 1000);
       return response.data;
     } catch (error) {
-      //@ts-ignore
+      // @ts-expect-error
       toast.error(i18n.t(error.response.data));
       return Promise.reject(error);
     } finally {
@@ -210,7 +211,9 @@ export const useUserStore = create<State & Action>((set) => ({
       const response = await axios.get(`${BASE_URL}`);
       set({ users: response.data });
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
   updateFinishDate: async () => {
     const year = new Date().getFullYear();
@@ -230,7 +233,9 @@ export const useUserStore = create<State & Action>((set) => ({
         },
       });
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
   updateFeedback: async (feedback, email) => {
     const data = {

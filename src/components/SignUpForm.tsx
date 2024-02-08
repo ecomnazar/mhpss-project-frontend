@@ -36,9 +36,23 @@ const SignUpForm = ({ onChangeForm }: Props) => {
     const [region, setRegion] = React.useState('Ashgabat')
     const [gender, setGender] = React.useState('')
     const [country, setCountry] = React.useState('')
-    const date = new Date().getFullYear() + '-' + new Date().getDate() + '-' + new Date().getDay()
+    const year = new Date().getFullYear();
+    const day = new Date().getDate();
+    const month = new Date().getMonth() + 1;
+    const date = year + "-" + month + "-" + day;
+
+    const male = ['Male', 'Erkek', 'Мужской']
+    const female = ['Female', 'Aýal', 'Женский']
+
     const onSubmit: SubmitHandler<FormProps> = async ({ fullname, email, password }) => {
-        const realGender = gender === 'Erkek' || 'Male' || 'Мужской' ? 'Male' : gender === 'Female' || 'Aýal' || 'Женский' ? 'Female' : ''
+        let realGender = '';
+        if (male.some((item) => gender.includes(item))) {
+            realGender = 'Male'
+        }
+        if (female.some((item) => gender.includes(item))) {
+            realGender = 'Female'
+        }
+
         const data = {
             fullname,
             email,
@@ -47,6 +61,7 @@ const SignUpForm = ({ onChangeForm }: Props) => {
             gender: realGender,
             date
         }
+
         if (country !== 'Turkmenistan') {
             if (!gender || !country) {
                 toast.error('Заполните все поля')

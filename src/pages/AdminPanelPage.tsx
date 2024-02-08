@@ -22,7 +22,7 @@ const AdminPanelPage = () => {
                         <div className='table-cell p-4'>Gender</div>
                         <div className='table-cell p-4'>Region</div>
                         <div className='table-cell p-4'>Email</div>
-                        <div className='table-cell p-4'>Register Date</div>
+                        <div className='table-cell p-4'>Register Date(Y,M,D)</div>
                         <div className='table-cell p-4'>Finish Date</div>
                         <div className='table-cell p-4'>Feedback</div>
                         <div className='table-cell p-4'>Certificate №</div>
