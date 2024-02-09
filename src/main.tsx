@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='/about' element={<AboutPage />} />
         </Route>
-        <Route path='/mhpss-admin' element={<AdminPanelPage />} />
+        <Route path='/mhpss-admin-excel-file' element={<AdminPanelPage />} />
         <Route path='/course' element={<CoursePage />} />
         <Route path='/certificate' element={<CertificatePage />} />
         <Route path='/feedback' element={<FeedbackPage />} />
