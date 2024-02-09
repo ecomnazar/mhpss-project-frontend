@@ -1,62 +1,9 @@
 import { useTranslation } from "react-i18next";
-// import { exportToExcel } from "../lib/excelExport";
 
 const text = ["adaptabilityText", "relevanceText", "certificationText"];
 const desc = ['adaptiveDesc', 'relevanceDesc', 'certificationDesc']
 const iconSized = [40, 38, 29]
 
-// const excelExportData = [
-//   {
-//     "name": "John Doe",
-//     "age": 30,
-//     "city": "New York"
-//   },
-//   {
-//     "name": "Jane Smith",
-//     "age": 25,
-//     "city": "Los Angeles"
-//   },
-//   {
-//     "name": "Alice Johnson",
-//     "age": 35,
-//     "city": "Chicago"
-//   },
-//   {
-//     "name": "Bob Williams",
-//     "age": 22,
-//     "city": "Seattle"
-//   },
-//   {
-//     "name": "Emily Davis",
-//     "age": 28,
-//     "city": "San Francisco"
-//   },
-//   {
-//     "name": "Michael Brown",
-//     "age": 32,
-//     "city": "Boston"
-//   },
-//   {
-//     "name": "Olivia Wilson",
-//     "age": 27,
-//     "city": "Miami"
-//   },
-//   {
-//     "name": "Daniel Harris",
-//     "age": 21,
-//     "city": "Houston"
-//   },
-//   {
-//     "name": "Sophia Martinez",
-//     "age": 33,
-//     "city": "Dallas"
-//   },
-//   {
-//     "name": "Daniel Lee",
-//     "age": 24,
-//     "city": "Washington, D.C."
-//   }
-// ]
 
 const Guarantee = () => {
   const { t } = useTranslation()
@@ -79,10 +26,6 @@ const Guarantee = () => {
           </div>
         );
       })}
-      {/* <button onClick={() => {
-        exportToExcel({ excelData: excelExportData, filename: 'Excel Export' })
-
-      }}>asd</button> */}
     </section>
   );
 };
